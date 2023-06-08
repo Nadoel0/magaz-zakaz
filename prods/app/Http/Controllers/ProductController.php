@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    public function index()
+    public function __invoke()
     {
-        return view('products');
+        $order = Order::all();
+
+        return view('orders', compact('order'));
     }
 }

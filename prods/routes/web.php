@@ -20,7 +20,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/products', [ProductController::class, 'index']) -> name('products');
+Route::get('/order', [ProductController::class, '__invoke']) -> name('order');
+Route::post('/order', [ProductController::class, '__invoke']) -> name('order.store');
+
 
 Route::get('/main', [MainController::class, 'index']) -> name('main');
 Route::get('/contacts', [ContactController::class, 'index']) -> name('contacts');
