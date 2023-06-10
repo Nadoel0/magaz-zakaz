@@ -13,6 +13,6 @@ class StoreController extends Controller
         $data = $request -> validated();
         Order::create($data);
 
-        return redirect() -> route('order');
+        return redirect() -> route('order.index');
     }
 }

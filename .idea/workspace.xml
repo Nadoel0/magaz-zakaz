@@ -5,13 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1c73140b-ab5f-415d-ae32-2b77c0605a44" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/prods/app/Http/Controllers/StoreController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prods/resources/views/orders.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/prods/app/Http/Controllers/CreateController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/prods/resources/views/crud/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/prods/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/prods/app/Http/Controllers/ProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/app/Http/Controllers/StoreController.php" beforeDir="false" afterPath="$PROJECT_DIR$/prods/app/Http/Controllers/StoreController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/app/Http/Requests/ProductRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/prods/app/Http/Requests/ProductRequest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/prods/resources/views/layouts/main.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/prods/resources/views/layouts/main.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/prods/resources/views/products.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/resources/views/orders.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/prods/resources/views/crud/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/prods/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/prods/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -19,7 +20,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/prods/composer.json</pharConfigPath>
     <execution />
   </component>
@@ -176,6 +177,7 @@
       <recent name="$PROJECT_DIR$/prods/resources/views/layouts" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/prods/resources/views/crud" />
       <recent name="$PROJECT_DIR$/prods/resources/views" />
     </key>
   </component>
@@ -190,6 +192,7 @@
       <workItem from="1685877920835" duration="144000" />
       <workItem from="1685878107974" duration="3378000" />
       <workItem from="1686225519441" duration="7765000" />
+      <workItem from="1686310963599" duration="5044000" />
     </task>
     <servers />
   </component>

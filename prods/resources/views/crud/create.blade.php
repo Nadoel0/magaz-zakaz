@@ -21,7 +21,7 @@
                 <input type="text" class="form-control" placeholder="Enter cost">
             </div>
             <button type="submit" class="btn btn-outline-secondary">Place order</button>
-            <button type="submit" class="btn btn-outline-secondary">Add person</button>
+            <a class="btn btn-outline-secondary" href="{{ route('order.index') }}">Back</a>
         </form>
     </div>
 @endsection

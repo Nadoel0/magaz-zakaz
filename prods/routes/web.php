@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\CreateController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\StoreController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,8 +22,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/order', [ProductController::class, '__invoke']) -> name('order');
-Route::post('/order', [ProductController::class, '__invoke']) -> name('order.store');
+Route::get('/order', [ProductController::class, '__invoke']) -> name('order.index');
+Route::get('/order/create', [CreateController::class, '__invoke']) -> name('order.create');
+Route::post('/order', [StoreController::class, '__invoke']) -> name('order.store');
+
 
 
 Route::get('/main', [MainController::class, 'index']) -> name('main');

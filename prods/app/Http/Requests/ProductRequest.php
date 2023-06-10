@@ -22,9 +22,10 @@ class ProductRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'Name' => 'string',
-            'Food' => 'string',
-            'Drink' => 'string'
+            'name' => 'string|required',
+            'food' => 'string',
+            'drink' => 'string',
+            'cost' => 'integer'
         ];
     }
 }
