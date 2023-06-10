@@ -6,19 +6,19 @@
             @csrf
             <div class="form-group mb-3">
                 <label>Name</label>
-                <input type="text" class="form-control" placeholder="Enter name">
+                <input type="text" class="form-control" name="name" placeholder="Enter name">
             </div>
             <div class="form-group mb-3">
                 <label>Food</label>
-                <input type="text" class="form-control" placeholder="Enter food">
+                <input type="text" class="form-control" name="food" placeholder="Enter food">
             </div>
             <div class="form-group mb-3">
                 <label>Drink</label>
-                <input type="text" class="form-control" placeholder="Enter drink">
+                <input type="text" class="form-control" name="drink" placeholder="Enter drink">
             </div>
             <div class="form-group mb-3">
                 <label>Cost</label>
-                <input type="text" class="form-control" placeholder="Enter cost">
+                <input type="text" class="form-control" name="cost" placeholder="Enter cost">
             </div>
             <button type="submit" class="btn btn-outline-secondary">Place order</button>
             <a class="btn btn-outline-secondary" href="{{ route('order.index') }}">Back</a>
