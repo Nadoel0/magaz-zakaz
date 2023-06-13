@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Order;
+use App\Models\Person;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
     public function __invoke()
     {
-        $orders = Order::all();
+        $persons = Person::all();
 
-        return view('crud.index', compact('orders'));
+        return view('crud.index', compact('persons'));
     }
 }

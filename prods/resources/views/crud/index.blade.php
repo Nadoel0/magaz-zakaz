@@ -2,9 +2,9 @@
 
 @section('content')
     <div class="mt-3">
-        @foreach($orders as $order)
+        @foreach($persons as $person)
             <div>
-                <a class="font-weight-light text-secondary">Order №{{ $order -> id }}</a>
+                <a class="font-weight-light text-secondary">Order №{{ $person -> id }}</a>
             </div>
         @endforeach
     </div>

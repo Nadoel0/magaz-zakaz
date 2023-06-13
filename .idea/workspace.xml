@@ -4,9 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1c73140b-ab5f-415d-ae32-2b77c0605a44" name="Changes" comment="">
+    <list default="true" id="1c73140b-ab5f-415d-ae32-2b77c0605a44" name="Changes" comment="work-work">
+      <change afterPath="$PROJECT_DIR$/bordel/app/Http/Controllers/HistoryController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bordel/app/Http/Controllers/OrderController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bordel/app/Http/Controllers/OrderStoreController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bordel/app/Http/Controllers/PersonController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bordel/app/Http/Controllers/PersonStoreController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bordel/app/Http/Requests/OrderStoreRequest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bordel/app/Models/OrderPerson.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bordel/resources/views/history.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bordel/resources/views/layouts/main.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bordel/resources/views/main.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bordel/resources/views/order.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bordel/resources/views/person.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/prods/app/Http/Requests/ProductRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/prods/app/Http/Requests/ProductRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/app/Http/Controllers/CreateController.php" beforeDir="false" afterPath="$PROJECT_DIR$/prods/app/Http/Controllers/CreateController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/prods/app/Http/Controllers/ProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/app/Http/Controllers/StoreController.php" beforeDir="false" afterPath="$PROJECT_DIR$/prods/app/Http/Controllers/StoreController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/app/Models/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/app/Models/Basket.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/database/migrations/2023_06_08_124804_create_orders_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/resources/views/crud/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/prods/resources/views/crud/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/resources/views/crud/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/prods/resources/views/crud/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/resources/views/layouts/main.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/prods/resources/views/layouts/main.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -186,12 +205,26 @@
       <workItem from="1685878107974" duration="3378000" />
       <workItem from="1686225519441" duration="7765000" />
       <workItem from="1686310963599" duration="5044000" />
-      <workItem from="1686393019348" duration="1026000" />
+      <workItem from="1686393019348" duration="1564000" />
+      <workItem from="1686576777137" duration="12346000" />
+      <workItem from="1686668273061" duration="6596000" />
     </task>
+    <task id="LOCAL-00001" summary="work-work">
+      <created>1686394976520</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1686394976520</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="work-work" />
+    <option name="LAST_COMMIT_MESSAGE" value="work-work" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

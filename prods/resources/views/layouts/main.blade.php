@@ -17,7 +17,10 @@
                     <a class="nav-link" href="{{ route('main') }}">Main</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('order.index') }}">Order</a>
+                    <a class="nav-link" href="{{ route('order.index') }}">History</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('order.create') }}">Create order</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('contacts') }}">Contacts</a>

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Order;
+use App\Models\Person;
 use Illuminate\Http\Request;
 
 class CreateController extends Controller

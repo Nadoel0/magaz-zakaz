@@ -1,0 +1,31 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Order extends Model
+{
+    use HasFactory;
+    protected $guarded = false;
+    public function shop()
+    {
+        return $this->belongsTo(Shop::class);
+    }
+
+    public function person()
+    {
+        return $this->belongsTo(Person::class);
+    }
+
+    public function basket()
+    {
+        return $this->hasMany(Basket::class);
+    }
+
+    public function orderPerson()
+    {
+        return $this->hasMany(Order::class);
+    }
+}
