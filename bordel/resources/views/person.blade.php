@@ -21,7 +21,7 @@
                 <p class="text-danger">{{ $message }}</p>
                 @enderror
             </div>
-            <button type="submit" class="btn btn-outline-secondary">Create</button>
+            <button type="submit" class="btn btn-outline-secondary">Next</button>
         </form>
     </div>
 @endsection

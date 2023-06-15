@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class OrderController extends Controller
+class ProductStoreController extends Controller
 {
     public function __invoke()
     {
-        return view('order');
+        return view('main');
     }
 }

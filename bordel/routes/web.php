@@ -2,10 +2,10 @@
 
 use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\MainController;
-use App\Http\Controllers\OrderController;
 use App\Http\Controllers\OrderStoreController;
 use App\Http\Controllers\PersonController;
 use App\Http\Controllers\PersonStoreController;
+use App\Http\Controllers\ProductStoreController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,5 +28,5 @@ Route::get('/main', [MainController::class, '__invoke'])->name('main');
 Route::get('/history', [HistoryController::class, '__invoke'])->name('history');
 Route::get('/person', [PersonController::class, '__invoke'])->name('person');
 Route::post('/person', [PersonStoreController::class, '__invoke'])->name('person.store');
-Route::get('/order', [OrderController::class, '__invoke'])->name('order');
 Route::post('/order', [OrderStoreController::class, '__invoke'])->name('order.store');
+Route::get('/product', [ProductStoreController::class, '__invoke'])->name('product.store');
