@@ -9,6 +9,7 @@ class OrderPerson extends Model
 {
     use HasFactory;
     protected $guarded = false;
+
     public function person()
     {
         return $this->belongsTo(Person::class);

@@ -21,7 +21,8 @@
                 <p class="text-danger">{{ $message }}</p>
                 @enderror
             </div>
-            <button type="submit" class="btn btn-outline-secondary">Next</button>
+            <button type="submit" class="btn btn-outline-secondary">Create</button>
+            <a class="btn btn-outline-secondary" href="{{ route('order') }}">Back to order</a>
         </form>
     </div>
 @endsection

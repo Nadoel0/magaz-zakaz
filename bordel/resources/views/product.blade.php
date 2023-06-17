@@ -3,7 +3,7 @@
 @section('content')
     <div class="mt-3">
         <h2>Create order</h2>
-        <form action="{{ route('order.store') }}" method="post">
+        <form action="{{ route('product.store') }}" method="post">
             @csrf
             <div class="form-group mb-3">
                 <label>Product</label>
@@ -16,8 +16,8 @@
                     @endforeach
                 </select>
             </div>
-            <input name="name" value="Заказ №{{ $order -> id }}" type="hidden">
-            <input name="status" value="2" type="hidden">
+            <input type="hidden" name="order_id" value="{{ $order -> id }}">
+            <input type="hidden" name="person_id" value="{{ $order -> customer_id }}">
             <button type="submit" class="btn btn-outline-secondary">Create</button>
         </form>
     </div>

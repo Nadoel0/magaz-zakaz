@@ -19,7 +19,7 @@
                     <a class="nav-link" href="{{ route('history') }}">History</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('person') }}">Person</a>
+                    <a class="nav-link" href="{{ route('order') }}">Order</a>
                 </li>
             </ul>
         </div>

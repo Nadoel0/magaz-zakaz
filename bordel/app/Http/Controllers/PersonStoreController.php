@@ -15,10 +15,6 @@ class PersonStoreController extends Controller
         $data = $request->validated();
         Person::create($data);
 
-        $customers = Person::all();
-        $shops = Shop::all();
-
-
-        return view('order', compact('customers', 'shops'));
+        return view('person');
     }
 }

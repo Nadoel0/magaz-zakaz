@@ -7,7 +7,7 @@
             @csrf
             <div class="form-group mb-3">
                 <label>Name</label>
-                <input readonly name="name" class="form-control" placeholder="Enter name" value="Заказ № xz">
+                <input name="name" class="form-control" placeholder="Enter name">
 
                 @error('name')
                 <p class="text-danger">{{ $message }}</p>
@@ -22,6 +22,7 @@
                         </option>
                     @endforeach
                 </select>
+                <a class="btn btn-outline-secondary mt-2" href="{{ route('person') }}">Add person</a>
             </div>
             <div class="form-group mb-3">
                 <label>Shop</label>

@@ -22,10 +22,9 @@ class ProductStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'string',
-            'customer_id' => 'string',
-            'shop_id' => 'string',
-            'status' => 'string'
+            'order_id' => '',
+            'person_id' => '',
+            'product_id' => ''
         ];
     }
 }

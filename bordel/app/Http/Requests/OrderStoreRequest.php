@@ -22,10 +22,10 @@ class OrderStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => '',
+            'name' => 'nullable',
             'customer_id' => 'string',
             'shop_id' => 'string',
-            'status' => 'string'
+            'status' => 'nullable'
         ];
     }
 }

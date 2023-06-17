@@ -5,15 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1c73140b-ab5f-415d-ae32-2b77c0605a44" name="Changes" comment="work-work">
-      <change afterPath="$PROJECT_DIR$/bordel/app/Http/Requests/ProductStoreRequest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bordel/resources/views/product.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bordel/app/Http/Controllers/OrderController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bordel/app/Http/Controllers/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/app/Http/Controllers/ProductStoreController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bordel/app/Http/Controllers/HistoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/app/Http/Controllers/HistoryController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bordel/app/Http/Controllers/OrderStoreController.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/app/Http/Controllers/OrderStoreController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bordel/app/Http/Controllers/PersonStoreController.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/app/Http/Controllers/PersonStoreController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bordel/app/Http/Controllers/ProductStoreController.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/app/Http/Controllers/ProductStoreController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bordel/app/Http/Requests/OrderStoreRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/app/Http/Requests/OrderStoreRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bordel/app/Http/Requests/ProductStoreRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/app/Http/Requests/ProductStoreRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bordel/app/Models/Basket.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bordel/app/Models/OrderPerson.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bordel/database/migrations/2023_06_12_164029_create_orders_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/database/migrations/2023_06_12_164029_create_orders_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bordel/database/migrations/2023_06_12_164407_order_person.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bordel/database/migrations/2023_06_12_164422_basket.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bordel/resources/views/layouts/main.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/resources/views/layouts/main.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bordel/resources/views/order.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/resources/views/order.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bordel/resources/views/person.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/resources/views/person.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bordel/resources/views/product.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/resources/views/product.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bordel/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -198,6 +206,8 @@
       <workItem from="1686576777137" duration="12346000" />
       <workItem from="1686668273061" duration="6596000" />
       <workItem from="1686838032911" duration="5841000" />
+      <workItem from="1686916227529" duration="4711000" />
+      <workItem from="1687007076295" duration="2422000" />
     </task>
     <task id="LOCAL-00001" summary="work-work">
       <created>1686394976520</created>

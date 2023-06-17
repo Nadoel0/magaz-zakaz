@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\OrderStoreRequest;
-use App\Http\Requests\PersonStoreRequest;
 use App\Models\Order;
+use App\Models\Person;
 use App\Models\Product;
-use Illuminate\Http\Request;
 
 class OrderStoreController extends Controller
 {
@@ -15,7 +14,7 @@ class OrderStoreController extends Controller
         $data = $request->validated();
         $order = Order::create($data);
 
-        $products = Product::all();
+        $products = Product::all()->where('shop_id', $order->shop_id);
 
         return view('product', compact('products', 'order'));
     }
