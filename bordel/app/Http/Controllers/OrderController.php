@@ -10,9 +10,9 @@ class OrderController extends Controller
 {
     public function __invoke()
     {
-        $customers = Person::all();
+        $owners = Person::all();
         $shops = Shop::all();
 
-        return view('order', compact('customers', 'shops'));
+        return view('order', compact('owners', 'shops'));
     }
 }

@@ -14,15 +14,14 @@
                 @enderror
             </div>
             <div class="form-group mb-3">
-                <label>Customer</label>
+                <label>Owner</label>
                 <select class="form-select" name="customer_id">
-                    @foreach($customers as $customer)
-                        <option {{ old('$customer_id') == $customer -> id ? 'selected' : '' }} value="{{ $customer -> id }}">
-                            {{ $customer -> name }} {{ $customer -> surname }}
+                    @foreach($owners as $owner)
+                        <option {{ old('$customer_id') == $owner -> id ? 'selected' : '' }} value="{{ $owner -> id }}">
+                            {{ $owner -> name }} {{ $owner -> surname }}
                         </option>
                     @endforeach
                 </select>
-                <a class="btn btn-outline-secondary mt-2" href="{{ route('person') }}">Add person</a>
             </div>
             <div class="form-group mb-3">
                 <label>Shop</label>
