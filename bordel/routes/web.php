@@ -1,13 +1,9 @@
 <?php
 
-use App\Http\Controllers\CustomerStoreController;
-use App\Http\Controllers\HistoryController;
-use App\Http\Controllers\MainController;
-use App\Http\Controllers\OrderController;
-use App\Http\Controllers\OrderStoreController;
-use App\Http\Controllers\PersonController;
-use App\Http\Controllers\PersonStoreController;
-use App\Http\Controllers\ProductStoreController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Order\OrderController;
+use App\Http\Controllers\Shops\ShopController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,15 +22,26 @@ Route::get('/', function () {
 });
 
 
-Route::get('/main', [MainController::class, '__invoke'])->name('main');
-Route::get('/history', [HistoryController::class, '__invoke'])->name('history');
-Route::get('/person', [PersonController::class, '__invoke'])->name('person');
-Route::post('/person', [PersonStoreController::class, '__invoke'])->name('person.store');
-Route::get('/order', OrderController::class, '__invoke')->name('order');
-Route::post('/order', [OrderStoreController::class, '__invoke'])->name('order.store');
-Route::post('/customers', [CustomerStoreController::class, '__invoke'])->name('customer.store');
-Route::post('/product', [ProductStoreController::class, '__invoke'])->name('product.store');
-
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+
+Route::prefix('/order')->middleware('auth')->controller(OrderController::class)->group(function () {
+    Route::get('/', 'index')->name('order.index');
+    Route::get('/{order_id}', 'show')->name('order.show');
+    Route::get('/create', 'create')->name('order.create');
+    Route::post('/', 'store')->name('order.store');
+    Route::get('/{order_id}/users', 'user')->name('order.users');
+    Route::get('/{order_id}/basket', 'basket')->name('order.basket');
+});
+
+Route::prefix('/shop')->middleware('auth')->controller(ShopController::class)->group(function (){
+    Route::get('/')->name('shop.index');
+    Route::get('/{shop_id}')->name('shop.show');
+    Route::get('/create')->name('shop.create');
+    Route::post('/')->name('shop.store');
+    Route::get('/{shop_id}/edit')->name('shop.edit');
+    Route::patch('/{shop_id}')->name('shop.update');
+    Route::delete('/{shop_id}')->name('shop.destroy');
+});

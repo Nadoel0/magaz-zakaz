@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Shops;
 
+use App\Http\Controllers\Controller;
 use App\Models\Shop;
 use App\Models\User;
-use Illuminate\Http\Request;
 
-class OrderController extends Controller
+class ShopController extends Controller
 {
     public function __invoke()
     {
