@@ -22,7 +22,6 @@
                 @enderror
             </div>
             <button type="submit" class="btn btn-outline-secondary">Create</button>
-            <a class="btn btn-outline-secondary" href="{{ route('order') }}">Next</a>
         </form>
     </div>
 @endsection

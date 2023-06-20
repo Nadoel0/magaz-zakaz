@@ -14,8 +14,8 @@ class Shop extends Model
         return $this->hasMany(Product::class);
     }
 
-    public function order()
-    {
-        return $this->belongsTo(Order::class);
-    }
+//    public function order()
+//    {
+//        return $this->hasMany(Order::class);
+//    }
 }

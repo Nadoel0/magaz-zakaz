@@ -11,16 +11,16 @@ class Person extends Model
     protected $guarded = false;
     public function order()
     {
-        return $this->belongsTo(Order::class);
+        return $this->hasMany(Order::class);
     }
 
-    public function basket()
-    {
-        return $this->belongsTo(Basket::class);
-    }
+//    public function basket()
+//    {
+//        return $this->hasMany(Basket::class);
+//    }
 
     public function orderPerson()
     {
-        return $this->belongsTo(OrderPerson::class);
+        return $this->hasMany(OrderPerson::class);
     }
 }

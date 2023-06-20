@@ -34,3 +34,7 @@ Route::get('/order', OrderController::class, '__invoke')->name('order');
 Route::post('/order', [OrderStoreController::class, '__invoke'])->name('order.store');
 Route::post('/customers', [CustomerStoreController::class, '__invoke'])->name('customer.store');
 Route::post('/product', [ProductStoreController::class, '__invoke'])->name('product.store');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -6,9 +6,9 @@
             @csrf
             <div class="form-group mb-3">
                 <label>Customer</label>
-                <select class="form-select" name="person_id">
+                <select multiple class="custom-select" name="person_id">
                     @foreach($customers as $customer)
-                        <option {{ old('$person_id') == $customer -> id ? 'selected' : '' }} value="{{ $customer -> id }}">
+                        <option value="{{ $customer -> id }}">
                             {{ $customer -> name }} {{ $customer -> surname }}
                         </option>
                     @endforeach
