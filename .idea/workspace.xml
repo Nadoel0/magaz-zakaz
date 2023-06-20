@@ -5,12 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1c73140b-ab5f-415d-ae32-2b77c0605a44" name="Changes" comment="work-work">
-      <change afterPath="$PROJECT_DIR$/bordel/app/Http/Controllers/Shops/ShopController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bordel/resources/views/order/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bordel/resources/views/order/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/phpunit.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/phpunit.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bordel/app/Http/Controllers/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/app/Http/Controllers/Orders/OrderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bordel/app/Models/Shop.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/app/Models/Shop.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bordel/database/migrations/2023_06_12_164029_create_orders_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/database/migrations/2023_06_12_164029_create_orders_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bordel/database/migrations/2023_06_16_131803_create_baskets_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/database/migrations/2023_06_16_131803_create_baskets_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bordel/app/Http/Controllers/CustomerStoreController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bordel/app/Http/Controllers/HistoryController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bordel/app/Http/Controllers/OrderStoreController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bordel/app/Http/Controllers/Orders/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/app/Http/Controllers/Orders/OrderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bordel/app/Http/Controllers/PersonStoreController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bordel/app/Http/Controllers/ProductStoreController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bordel/app/Http/Requests/OrderStoreRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/app/Http/Requests/OrderStoreRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bordel/resources/views/history.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bordel/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bordel/resources/views/layouts/main.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bordel/resources/views/order.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/resources/views/order/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bordel/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -274,7 +283,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/nadoelo_0/PhpstormProjects/php_ex/prod_shop/bordel/app/Http/Controllers/Shops",
+    "last_opened_file_path": "/Users/nadoelo_0/PhpstormProjects/php_ex/prod_shop/bordel/resources/views/order",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -287,12 +296,15 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/bordel/resources/views/order" />
       <recent name="$PROJECT_DIR$/bordel/app/Http/Controllers/Shops" />
       <recent name="$PROJECT_DIR$/bordel" />
       <recent name="$PROJECT_DIR$/prods/resources/views" />
       <recent name="$PROJECT_DIR$/prods/resources/views/layouts" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/bordel/resources/views/order" />
+      <recent name="$PROJECT_DIR$/bordel/resources/views/order.create" />
       <recent name="$PROJECT_DIR$/prods/resources/views/crud" />
       <recent name="$PROJECT_DIR$/prods/resources/views" />
     </key>
@@ -323,6 +335,7 @@
       <workItem from="1687265734340" duration="64000" />
       <workItem from="1687265822966" duration="16000" />
       <workItem from="1687265844523" duration="8952000" />
+      <workItem from="1687283831906" duration="3643000" />
     </task>
     <task id="LOCAL-00001" summary="work-work">
       <created>1686394976520</created>

@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\Order\OrderController;
+use App\Http\Controllers\Orders\OrderController;
 use App\Http\Controllers\Shops\ShopController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -29,8 +29,8 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::prefix('/order')->middleware('auth')->controller(OrderController::class)->group(function () {
     Route::get('/', 'index')->name('order.index');
-    Route::get('/{order_id}', 'show')->name('order.show');
     Route::get('/create', 'create')->name('order.create');
+    Route::get('/{order_id}', 'show')->name('order.show');
     Route::post('/', 'store')->name('order.store');
     Route::get('/{order_id}/users', 'user')->name('order.users');
     Route::get('/{order_id}/basket', 'basket')->name('order.basket');

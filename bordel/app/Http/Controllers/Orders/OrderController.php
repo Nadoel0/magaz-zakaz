@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Order;
+namespace App\Http\Controllers\Orders;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\OrderStoreRequest;
 use App\Models\Order;
 use App\Models\OrderUser;
 use App\Models\Shop;
@@ -25,6 +26,16 @@ class OrderController extends Controller
     public function create()
     {
         $shops = Shop::all();
-//        $product
+        $owners = User::all();
+
+        return view('order.create', compact('shops', 'owners'));
+    }
+
+    public function store(OrderStoreRequest $request)
+    {
+        $data = $request->validated();
+        Order::create($data);
+
+        return redirect()->route('order.index');
     }
 }

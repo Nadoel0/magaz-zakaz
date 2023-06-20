@@ -15,9 +15,9 @@
             </div>
             <div class="form-group mb-3">
                 <label>Owner</label>
-                <select class="form-select" name="customer_id">
+                <select class="form-select" name="owner_id">
                     @foreach($owners as $owner)
-                        <option {{ old('$customer_id') == $owner -> id ? 'selected' : '' }} value="{{ $owner -> id }}">
+                        <option {{ old('$owner_id') == $owner -> id ? 'selected' : '' }} value="{{ $owner -> id }}">
                             {{ $owner -> name }} {{ $owner -> surname }}
                         </option>
                     @endforeach

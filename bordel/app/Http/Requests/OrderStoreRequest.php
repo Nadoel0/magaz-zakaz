@@ -23,7 +23,7 @@ class OrderStoreRequest extends FormRequest
     {
         return [
             'name' => 'nullable',
-            'customer_id' => 'string',
+            'owner_id' => 'string',
             'shop_id' => 'string',
             'status' => 'nullable'
         ];
