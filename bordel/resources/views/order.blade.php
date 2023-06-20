@@ -1,7 +1,7 @@
-@extends('layouts.main')
+@extends('layouts.app')
 
 @section('content')
-    <div class="mt-3">
+    <div>
         <h2>Create order</h2>
         <form action="{{ route('order.store') }}" method="post">
             @csrf

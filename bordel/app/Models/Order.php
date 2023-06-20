@@ -14,9 +14,9 @@ class Order extends Model
         return $this->belongsTo(Shop::class);
     }
 
-    public function person()
+    public function user()
     {
-        return $this->belongsTo(Person::class);
+        return $this->belongsTo(User::class);
     }
 
     public function basket()
@@ -24,8 +24,8 @@ class Order extends Model
         return $this->hasMany(Basket::class);
     }
 
-    public function orderPerson()
+    public function orderUser()
     {
-        return $this->hasMany(Order::class);
+        return $this->hasMany(OrderUser::class);
     }
 }

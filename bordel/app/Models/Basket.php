@@ -20,8 +20,8 @@ class Basket extends Model
         return $this->belongsTo(Order::class);
     }
 
-    public function person()
+    public function user()
     {
-        return $this->belongsTo(Person::class);
+        return $this->belongsTo(User::class);
     }
 }

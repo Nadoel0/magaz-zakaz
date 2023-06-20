@@ -14,8 +14,9 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable();
-            $table->foreignId('customer_id')->references('id')->on('people');
+            $table->foreignId('owner_id')->nullable()->references('id')->on('users');
             $table->foreignId('shop_id')->references('id')->on('shops');
+            $table->text('comment')->nullable();
             $table->smallInteger('status');
             $table->timestamps();
         });
