@@ -32,5 +32,5 @@ Route::get('/person', [PersonController::class, '__invoke'])->name('person');
 Route::post('/person', [PersonStoreController::class, '__invoke'])->name('person.store');
 Route::get('/order', OrderController::class, '__invoke')->name('order');
 Route::post('/order', [OrderStoreController::class, '__invoke'])->name('order.store');
-Route::get('/customers', [CustomerStoreController::class, '__invoke'])->name('customer.store');
+Route::post('/customers', [CustomerStoreController::class, '__invoke'])->name('customer.store');
 Route::post('/product', [ProductStoreController::class, '__invoke'])->name('product.store');

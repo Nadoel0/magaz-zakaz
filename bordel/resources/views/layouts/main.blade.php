@@ -28,5 +28,10 @@
         </div>
         @yield('content')
     </div>
+<script>
+    function addPerson() {
+        document.getElementById('')
+    }
+</script>
 </body>
 </html>

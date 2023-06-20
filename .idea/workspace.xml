@@ -5,15 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1c73140b-ab5f-415d-ae32-2b77c0605a44" name="Changes" comment="work-work">
-      <change afterPath="$PROJECT_DIR$/bordel/app/Http/Controllers/CustomerStoreController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bordel/app/Http/Requests/CustomerStoreRequest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bordel/resources/views/customer.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bordel/app/Http/Controllers/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/app/Http/Controllers/OrderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bordel/app/Http/Controllers/OrderStoreController.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/app/Http/Controllers/OrderStoreController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bordel/app/Http/Controllers/CustomerStoreController.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/app/Http/Controllers/CustomerStoreController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bordel/resources/views/customer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/resources/views/customer.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bordel/resources/views/layouts/main.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/resources/views/layouts/main.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bordel/resources/views/order.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/resources/views/order.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bordel/resources/views/person.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/resources/views/person.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bordel/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -202,6 +197,7 @@
       <workItem from="1687007076295" duration="2422000" />
       <workItem from="1687020947480" duration="58000" />
       <workItem from="1687087645584" duration="2509000" />
+      <workItem from="1687185627433" duration="5207000" />
     </task>
     <task id="LOCAL-00001" summary="work-work">
       <created>1686394976520</created>
