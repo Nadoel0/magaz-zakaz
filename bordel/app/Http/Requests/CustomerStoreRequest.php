@@ -23,7 +23,7 @@ class CustomerStoreRequest extends FormRequest
     {
         return [
             'order_id' => '',
-            'person_id' => ''
+            'user_id' => ''
         ];
     }
 }

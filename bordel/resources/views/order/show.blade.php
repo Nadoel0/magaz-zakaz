@@ -1,5 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Show</h1>
+    <div>
+        <form>
+            <div class="form-group">
+                <label>Order №{{ $order->id }}</label>
+            </div>
+        </form>
+    </div>
 @endsection

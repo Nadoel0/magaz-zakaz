@@ -32,7 +32,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-                        <a class="nav-link" href="{{ route('order.index') }}">History</a>
+                        <a class="nav-link" href="{{ route('order.index') }}">Orders</a>
                         <a class="nav-link" href="{{ route('order.create') }}">Create order</a>
                     </ul>
 

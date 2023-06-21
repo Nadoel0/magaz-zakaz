@@ -14,7 +14,7 @@ class Order extends Model
         return $this->belongsTo(Shop::class);
     }
 
-    public function user()
+    public function users()
     {
         return $this->belongsTo(User::class);
     }
@@ -27,5 +27,12 @@ class Order extends Model
     public function orderUser()
     {
         return $this->hasMany(OrderUser::class);
+    }
+
+    public function scopeUser($query, $user_id)
+    {
+        return $query->whereHas('orderUser', function ($query) use ($user_id) {
+            $query->where('user_id', '=', $user_id);
+            });
     }
 }

@@ -1,5 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Index</h1>
+    <div>
+        @foreach($orders as $order)
+            <div>
+                <a>Order №{{ $order->id }}</a>
+            </div>
+        @endforeach
+    </div>
 @endsection
