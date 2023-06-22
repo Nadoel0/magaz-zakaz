@@ -16,7 +16,7 @@
                 </select>
             </div>
             <input name="order_id" value="{{ $order->id }}" type="hidden">
-            <button type="submit" class="btn btn-outline-secondary">Next</button>
+            <button type="submit" class="btn btn-outline-secondary">Create</button>
         </form>
     </div>
 @endsection

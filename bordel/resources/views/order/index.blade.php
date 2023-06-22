@@ -4,7 +4,7 @@
     <div>
         @foreach($orders as $order)
             <div>
-                <a>Order №{{ $order->id }}</a>
+                <a class="font-weight-light text-secondary" href="{{ route('order.show', $order->id) }}">Order №{{ $order->id }}</a>
             </div>
         @endforeach
     </div>
