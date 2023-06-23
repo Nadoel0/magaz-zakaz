@@ -31,9 +31,9 @@ Route::prefix('/order')->middleware('auth')->controller(OrderController::class)-
     Route::get('/', 'index')->name('order.index');
     Route::get('/create', 'create')->name('order.create');
     Route::post('/', 'store')->name('order.store');
-    Route::post('/users', 'users')->name('order.users');
+    Route::post('/{order_id}/users', 'users')->name('order.users');
     Route::get('/{order_id}', 'show')->name('order.show');
-    Route::post('/{order_id}/', 'basket')->name('basket.store');
+    Route::post('/{order_id}', 'basket')->name('basket.store');
     Route::get('/{order_id}/user', 'user')->name('order.user');
     //Route::get('/{order_id}/basket', 'basket')->name('order.basket');
 });

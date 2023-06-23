@@ -23,7 +23,7 @@ class ProductStoreRequest extends FormRequest
     {
         return [
             'order_id' => '',
-            'person_id' => '',
+            'user_id' => '',
             'product_id' => '',
             'comment' => '',
             'price' => ''
