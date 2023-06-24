@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Orders\BasketController;
 use App\Http\Controllers\Orders\OrderController;
+use App\Http\Controllers\Orders\UserController;
 use App\Http\Controllers\Shops\ShopController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -31,11 +33,18 @@ Route::prefix('/order')->middleware('auth')->controller(OrderController::class)-
     Route::get('/', 'index')->name('order.index');
     Route::get('/create', 'create')->name('order.create');
     Route::post('/', 'store')->name('order.store');
-    Route::post('/{order_id}/users', 'users')->name('order.users');
     Route::get('/{order_id}', 'show')->name('order.show');
-    Route::post('/{order_id}', 'basket')->name('basket.store');
-    Route::get('/{order_id}/user', 'user')->name('order.user');
-    //Route::get('/{order_id}/basket', 'basket')->name('order.basket');
+    Route::put('/{order_id}', 'update')->name('order.update');
+});
+
+Route::prefix('/order')->middleware('auth')->controller(UserController::class)->group(function () {
+    Route::post('/{order_id}/{user_id}', 'store')->name('user.store');
+    Route::delete('/{order_id}', 'destroy')->name('user.destroy');
+});
+
+Route::prefix('/order')->middleware('auth')->controller(BasketController::class)->group(function () {
+    Route::post('/{order_id}/basket', 'store')->name('basket.store');
+    Route::delete('/{order_id}/basket', 'destroy')->name('basket.destroy');
 });
 
 Route::prefix('/shop')->middleware('auth')->controller(ShopController::class)->group(function (){

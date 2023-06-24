@@ -3,10 +3,7 @@
 namespace App\Http\Controllers\Orders;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\CustomerStoreRequest;
 use App\Http\Requests\OrderStoreRequest;
-use App\Http\Requests\ProductStoreRequest;
-use App\Models\Basket;
 use App\Models\Order;
 use App\Models\OrderUser;
 use App\Models\Product;
@@ -44,48 +41,15 @@ class OrderController extends Controller
         return view('order.users', compact('order', 'users'));
     }
 
-    public function users(CustomerStoreRequest $request)
-    {
-        $data = $request->validated();
-        $order = $request['order_id'];
-        dd($request['user_id']);
-        foreach ($request['user_id'] as $user)
-            OrderUser::create([
-                'order_id' => $order,
-                'user_id' => $user
-            ]);
-        $orders = Order::user(Auth::user()->id)->get();
-
-        return view('order.index', compact('orders'));
-    }
-
     public function show($id)
     {
-        $order = Order::where('id', $id)->first();
-        $products = Product::where('shop_id', $order->shop_id)->get();
-        $user = Auth::user();
+        $order = Order::find($id);
+        $products = $order->shop->products;
+        $users = $order->orderUser;
+        $basket = $order->basket;
 
-        return view('order.show', compact('products', 'order', 'user'));
-    }
+        $isOwner = $order->owner_id == Auth::user()->id;
 
-    public function basket(ProductStoreRequest $request, $id)
-    {
-        $data = $request->validated();
-        $person = $data['user_id'];
-        $comment = $data['comment'];
-        foreach ($data['product_id'] as $product) {
-            $price = Product::find($product);
-            Basket::create([
-                'order_id' => $id,
-                'user_id' => $person,
-                'product_id' => $product,
-                'comment' => $comment,
-                'price' => $price->price
-            ]);
-        }
-
-        $orders = Order::user(Auth::user()->id)->get();
-
-        return view('order.index', compact('orders'));
+        return view('order.show', compact('products', 'order', 'users', 'products', 'basket', 'isOwner'));
     }
 }

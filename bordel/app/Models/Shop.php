@@ -9,7 +9,7 @@ class Shop extends Model
 {
     use HasFactory;
     protected $guarded = false;
-    public function product()
+    public function products()
     {
         return $this->hasMany(Product::class);
     }
