@@ -45,9 +45,13 @@ class OrderController extends Controller
     {
         $order = Order::find($id);
         $products = $order->shop->products;
-        $users = $order->orderUser;
+        $users_id = $order->orderUser;
+        $users = [];
+        foreach ($users_id as $user) {
+            $users['name'] = User::where('id', $user->user_id)->get('name');
+            $users['email'] = User::where('id', $user->user_id)->get('email');
+        }
         $basket = $order->basket;
-        dd($basket);
 
         $isOwner = $order->owner_id == Auth::user()->id;
 

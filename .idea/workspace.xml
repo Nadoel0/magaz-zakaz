@@ -4,10 +4,107 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1c73140b-ab5f-415d-ae32-2b77c0605a44" name="Changes" comment="work-work">
+    <list default="true" id="1c73140b-ab5f-415d-ae32-2b77c0605a44" name="Changes" comment="end-css">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bordel/app/Http/Controllers/Orders/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/app/Http/Controllers/Orders/OrderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bordel/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/app/Models/User.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bordel/resources/views/order/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/resources/views/order/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/.editorconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/.env.example" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/app/Console/Kernel.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/app/Exceptions/Handler.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/app/Http/Controllers/ContactController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/app/Http/Controllers/Controller.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/app/Http/Controllers/CreateController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/app/Http/Controllers/MainController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/app/Http/Controllers/ProductController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/app/Http/Controllers/StoreController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/app/Http/Kernel.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/app/Http/Middleware/Authenticate.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/app/Http/Middleware/EncryptCookies.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/app/Http/Middleware/PreventRequestsDuringMaintenance.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/app/Http/Middleware/RedirectIfAuthenticated.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/app/Http/Middleware/TrimStrings.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/app/Http/Middleware/TrustHosts.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/app/Http/Middleware/TrustProxies.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/app/Http/Middleware/ValidateSignature.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/app/Http/Middleware/VerifyCsrfToken.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/app/Http/Requests/ProductRequest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/app/Models/Order.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/app/Models/Person.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/app/Models/User.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/app/Providers/AppServiceProvider.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/app/Providers/AuthServiceProvider.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/app/Providers/BroadcastServiceProvider.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/app/Providers/EventServiceProvider.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/app/Providers/RouteServiceProvider.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/artisan" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/bootstrap/app.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/bootstrap/cache/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/composer.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/composer.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/config/app.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/config/auth.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/config/broadcasting.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/config/cache.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/config/cors.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/config/database.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/config/filesystems.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/config/hashing.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/config/logging.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/config/mail.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/config/queue.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/config/sanctum.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/config/services.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/config/session.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/config/view.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/database/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/database/factories/UserFactory.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/database/migrations/2014_10_12_100000_create_password_reset_tokens_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/database/migrations/2019_08_19_000000_create_failed_jobs_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/database/migrations/2019_12_14_000001_create_personal_access_tokens_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/database/migrations/2023_06_12_160146_create_orders_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/database/migrations/2023_06_13_160139_create_people_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/database/seeders/DatabaseSeeder.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/phpunit.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/public/.htaccess" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/public/index.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/public/robots.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/resources/css/app.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/resources/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/resources/js/app.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/resources/js/bootstrap.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/resources/views/contacts.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/resources/views/crud/create.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/resources/views/crud/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/resources/views/layouts/main.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/resources/views/main.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/resources/views/welcome.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/routes/api.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/routes/channels.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/routes/console.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/routes/web.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/storage/app/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/storage/app/public/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/storage/framework/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/storage/framework/cache/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/storage/framework/cache/data/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/storage/framework/sessions/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/storage/framework/testing/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/storage/framework/views/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/storage/logs/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/tests/CreatesApplication.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/tests/Feature/ExampleTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/tests/TestCase.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/tests/Unit/ExampleTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prods/vite.config.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -330,7 +427,8 @@
       <workItem from="1687618981517" duration="11259000" />
       <workItem from="1687797470472" duration="10913000" />
       <workItem from="1687810303066" duration="71000" />
-      <workItem from="1687870299111" duration="8036000" />
+      <workItem from="1687870299111" duration="8056000" />
+      <workItem from="1687883980891" duration="3342000" />
     </task>
     <task id="LOCAL-00001" summary="work-work">
       <created>1686394976520</created>
@@ -339,7 +437,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686394976520</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="end-css">
+      <created>1687878615198</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1687878615198</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -347,7 +452,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="work-work" />
-    <option name="LAST_COMMIT_MESSAGE" value="work-work" />
+    <MESSAGE value="end-css" />
+    <option name="LAST_COMMIT_MESSAGE" value="end-css" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

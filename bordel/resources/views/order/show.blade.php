@@ -172,7 +172,7 @@
                     </thead>
                     <tbody>
                     @foreach($products as $product)
-                        @if($product === $basket->product_id)
+{{--                        @if($product === $basket->product_id)--}}
                             <tr>
                                 <td class="td">{{ $product->id }}</td>
                                 <td class="td">{{ $product->name }}</td>
@@ -181,7 +181,7 @@
                                     <button class="btn-del">X</button>
                                 </td>
                             </tr>
-                        @endif
+{{--                        @endif--}}
                     @endforeach
                     </tbody>
                 </table>
@@ -208,7 +208,7 @@
                     <tbody>
                     @foreach($users as $user)
                         <tr>
-                            <td class="td">{{ $user->name  }} {{ $user->email }}</td>
+                            <td class="td">{{ $users->name  }} {{ $users->email }}</td>
                             <td>
                                 <button class="btn-del">X</button>
                             </td>
