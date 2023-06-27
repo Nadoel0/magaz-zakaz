@@ -47,6 +47,7 @@ class OrderController extends Controller
         $products = $order->shop->products;
         $users = $order->orderUser;
         $basket = $order->basket;
+        dd($basket);
 
         $isOwner = $order->owner_id == Auth::user()->id;
 
