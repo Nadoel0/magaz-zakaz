@@ -12,6 +12,7 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
+    <link rel="stylesheet" href="/resources/css/order_id.css'">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 
@@ -76,14 +77,13 @@
             </div>
         </nav>
 
-{{--        <main class="py-4">--}}
+        <main class="py-4">
             <div class="container">
                 <div class="row">
-
+                    @yield('content')
                 </div>
             </div>
-{{--        </main>--}}
+        </main>
     </div>
-    @yield('content')
 </body>
 </html>
