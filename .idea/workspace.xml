@@ -5,11 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1c73140b-ab5f-415d-ae32-2b77c0605a44" name="Changes" comment="end-css">
-      <change afterPath="$PROJECT_DIR$/bordel/resources/css/order_id.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bordel/resources/css/order_id.css" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/resources/css/order_id.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bordel/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bordel/resources/views/order/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/resources/views/order/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bordel/resources/views/order/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/resources/views/order/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bordel/vite.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/vite.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -266,23 +266,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/nadoelo_0/PhpstormProjects/php_ex/prod_shop/bordel/resources/css",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/nadoelo_0/PhpstormProjects/php_ex/prod_shop/bordel/resources/css&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/bordel/resources/css" />
@@ -336,6 +336,7 @@
       <workItem from="1687870299111" duration="8056000" />
       <workItem from="1687883980891" duration="3342000" />
       <workItem from="1687960306572" duration="2183000" />
+      <workItem from="1688039898948" duration="3688000" />
     </task>
     <task id="LOCAL-00001" summary="work-work">
       <created>1686394976520</created>

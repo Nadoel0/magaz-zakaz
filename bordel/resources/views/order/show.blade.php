@@ -1,27 +1,27 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="box-all">
-        <div class="box-table">
-            <div class="for-table1">
-                <table class="table1">
+    <div class="container-box">
+        <div class="table-container">
+            <div class="table-wrapper1">
+                <table class="data-table1">
                     <thead>
                     <tr>
-                        <th class="id-th">id</th>
-                        <th class="th">product name</th>
-                        <th class="th">price</th>
-                        <th class="interact-th">interact</th>
+                        <th class="id-header">id</th>
+                        <th class="table-header">product name</th>
+                        <th class="table-header">price</th>
+                        <th class="interaction-header">interact</th>
                     </tr>
                     </thead>
                     <tbody>
                     @foreach($products as $product)
 {{--                        @if($product === $basket->product_id)--}}
                             <tr>
-                                <td class="td">{{ $product->id }}</td>
-                                <td class="td">{{ $product->name }}</td>
-                                <td class="td">{{ $product->price }}</td>
+                                <td class="table-data">{{ $product->id }}</td>
+                                <td class="table-data">{{ $product->name }}</td>
+                                <td class="table-data">{{ $product->price }}</td>
                                 <td>
-                                    <button class="btn-del">X</button>
+                                    <button class="delete-button">X</button>
                                 </td>
                             </tr>
 {{--                        @endif--}}
@@ -30,31 +30,31 @@
                 </table>
             </div>
             <div>
-                <button class="add-product">add</button>
+                <button class="product-add-button">add</button>
             </div>
         </div>
         <div class="box-table-user">
-            <div class="for-user">
+            <div class="user-wrapper">
                 <div>
-                    <button class="edit-order">edit</button>
+                    <button class="order-edit-button">edit</button>
                 </div>
-                <div class="user">
+                <div class="user-card">
                     <p>Order name: {{ $order->name }}</p>
                     <p>Order status: {{ $order->status }}</p>
                 </div>
             </div>
-            <div class="for-table2">
+            <div class="table-wrapper2">
                 <div>
-                    <button class="add-people">add</button>
+                    <button class="people-add-button">add</button>
                 </div>
-                <table class="table2">
+                <table class="data-table2">
                     <tbody>
                     @foreach($users as $user)
                         @dd($users)
                         <tr>
-                            <td class="td">{{ $users->name  }} {{ $users->email }}</td>
+                            <td class="table-data">{{ $users->name  }} {{ $users->email }}</td>
                             <td>
-                                <button class="btn-del">X</button>
+                                <button class="delete-button">X</button>
                             </td>
                         </tr>
                     @endforeach

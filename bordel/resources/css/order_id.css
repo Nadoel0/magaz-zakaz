@@ -1,4 +1,4 @@
-.box-all {
+.container-box {
     display: flex;
     margin: 40px 50px 0 50px;
     height: 400px;
@@ -6,7 +6,7 @@
     overflow: hidden;
 }
 
-.box-table {
+.table-container {
     border-radius: 7px;
     background-color: deepskyblue;
     width: 75%;
@@ -23,14 +23,14 @@
     grid-template-rows: 35%;
 }
 
-.for-table1 {
+.table-wrapper1 {
     background-color: deepskyblue;
     height: 370px;
     border-radius: 7px;
     padding: 7px;
 }
 
-.for-user {
+.user-wrapper {
     background-color: orange;
     border-radius: 7px;
     display: grid;
@@ -40,46 +40,46 @@
     position: relative;
 }
 
-.for-table2 {
+.table-wrapper2 {
     background-color: #9f57ef;
     margin-top: 5px;
     border-radius: 7px;
     position: relative;
 }
 
-.table1 {
+.data-table1 {
     width: 100%;
     border-spacing: 15px;
     border-collapse: separate;
 }
 
-.user {
+.user-card {
     background-color: orange;
     border-radius: 7px;
     line-height: 20px;
 }
 
-.table2 {
+.data-table2 {
     width: 100%;
     border-collapse: separate;
     border-spacing: 15px;
     margin-top: 30px;
 }
 
-.th {
+.table-header {
     background-color: mediumpurple;
     text-align: center;
     color: white;
     border-radius: 7px;
 }
 
-.td {
+.table-data {
     text-align: center;
     background-color: #a1e7ff;
     border-radius: 7px;
 }
 
-.btn-del {
+.delete-button {
     background-color: red;
     color: white;
     border: none;
@@ -90,7 +90,7 @@
     display: inline-block;
 }
 
-.id-th {
+.id-header {
     background-color: mediumpurple;
     color: white;
     width: 20px;
@@ -98,7 +98,7 @@
     padding: 5px;
 }
 
-.interact-th {
+.interaction-header {
     background-color: mediumpurple;
     color: white;
     width: 20px;
@@ -112,7 +112,7 @@ p {
     font-size: 15px;
 }
 
-.add-product {
+.product-add-button {
     position: absolute;
     right: 10px;
     bottom: 10px;
@@ -126,7 +126,7 @@ p {
     color: white;
 }
 
-.edit-order {
+.order-edit-button {
     position: absolute;
     right: 10px;
     top: 10px;
@@ -140,7 +140,7 @@ p {
     color: white;
 }
 
-.add-people {
+.people-add-button {
     position: absolute;
     right: 10px;
     top: 10px;
