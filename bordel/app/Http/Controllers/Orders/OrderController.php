@@ -53,6 +53,11 @@ class OrderController extends Controller
         }
         $basket = $order->basket;
 
+
+        dd($basket->whereHas('products', function ($query) use ($basket) {
+            return $query->whereId($basket->id);
+        }));
+
         $isOwner = $order->owner_id == Auth::user()->id;
 
         return view('order.show', compact('products', 'order', 'users', 'products', 'basket', 'isOwner'));
