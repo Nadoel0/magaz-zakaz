@@ -1,6 +1,5 @@
 .container-box {
     display: flex;
-    margin: 40px 50px 0 50px;
     height: 400px;
     border-radius: 7px;
     overflow: hidden;

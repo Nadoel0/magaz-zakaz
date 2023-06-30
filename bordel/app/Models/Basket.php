@@ -10,9 +10,9 @@ class Basket extends Model
     use HasFactory;
     protected $guarded = false;
 
-    public function product()
+    public function products()
     {
-        return $this->belongsTo(Product::class);
+        return $this->hasManyThrough(Product::class, Order::class);
     }
 
     public function order()

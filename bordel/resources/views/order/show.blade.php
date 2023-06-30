@@ -14,7 +14,8 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($products as $product)
+                        @if($products->isNotEmpty())
+                            @foreach($products as $product)
                             <tr>
                                 <td class="table-data">{{ $product->id }}</td>
                                 <td class="table-data">{{ $product->name }}</td>
@@ -23,7 +24,8 @@
                                     <button class="delete-button">X</button>
                                 </td>
                             </tr>
-                    @endforeach
+                            @endforeach
+                        @endif
                     </tbody>
                 </table>
             </div>
@@ -47,15 +49,14 @@
                 </div>
                 <table class="data-table2">
                     <tbody>
-{{--                    @foreach($users as $user)--}}
-{{--                        @dd($users)--}}
-{{--                        <tr>--}}
-{{--                            <td class="table-data">{{ $users->name  }} {{ $users->email }}</td>--}}
-{{--                            <td>--}}
-{{--                                <button class="delete-button">X</button>--}}
-{{--                            </td>--}}
-{{--                        </tr>--}}
-{{--                    @endforeach--}}
+                    @foreach($users as $user)
+                        <tr>
+                            <td class="table-data">{{ $user->user->name  }} {{ $user->user->email }}</td>
+                            <td>
+                                <button class="delete-button">X</button>
+                            </td>
+                        </tr>
+                    @endforeach
                     </tbody>
                 </table>
             </div>

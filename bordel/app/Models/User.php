@@ -48,12 +48,12 @@ class User extends Authenticatable
         return $this->hasMany(Order::class);
     }
 
-    public function basket()
+    public function baskets()
     {
         return $this->hasMany(Basket::class);
     }
 
-    public function orderUser()
+    public function orderUsers()
     {
         return $this->hasMany(OrderUser::class);
     }

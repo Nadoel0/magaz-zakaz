@@ -43,20 +43,10 @@ class OrderController extends Controller
 
     public function show($id)
     {
-        $order = Order::find($id);
-        $products = $order->shop->products;
-        $users_id = $order->orderUser;
-        $users = [];
-        foreach ($users_id as $user) {
-            $users['name'] = User::where('id', $user->user_id)->get('name');
-            $users['email'] = User::where('id', $user->user_id)->get('email');
-        }
+        $order = Order::findOrFail($id);
+        $products = $order->basketProducts;
+        $users = $order->orderUser;
         $basket = $order->basket;
-
-
-        dd($basket->whereHas('products', function ($query) use ($basket) {
-            return $query->whereId($basket->id);
-        }));
 
         $isOwner = $order->owner_id == Auth::user()->id;
 
