@@ -1,6 +1,40 @@
 @extends('layouts.app')
 
 @section('content')
+    <style>
+        .my-modal-space {
+            display: none;
+            background-color: rgb(0, 0, 0, 0.4);
+            position: fixed;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        .my-modal-content {
+            background-color: forestgreen;
+            margin: 15% auto;
+            width: 50%;
+            padding: 20px;
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            right: 10px;
+            top: 5px;
+            background-color: red;
+            border: none;
+            border-radius: 7px;
+            width: 50px;
+            height: 15px;
+            text-align: center;
+            line-height: 5px;
+            color: white;
+        }
+    </style>
     <div class="container-box">
         <div class="table-container">
             <div class="table-wrapper1">
@@ -30,7 +64,7 @@
                 </table>
             </div>
             <div>
-                <button class="product-add-button">add</button>
+                <button id="product-open-modal" class="product-add-button">add</button>
             </div>
         </div>
         <div class="box-table-user">
@@ -62,4 +96,27 @@
             </div>
         </div>
     </div>
+    <div id="myModalSpace" class="my-modal-space">
+        <div class="my-modal-content">
+            <button class="close-modal">X</button>
+            <h1>Модальное окно</h1>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $('.product-add-button').click(function () {
+                $('#myModalSpace').show();
+            });
+
+            $('.close-modal').click(function () {
+                $('#myModalSpace').hide();
+            });
+
+            $(window).click(function (event) {
+                if(event.target == $('#myModalSpace')[0]) {
+                    $('#myModalSpace').hide();
+                }
+            });
+        });
+    </script>
 @endsection

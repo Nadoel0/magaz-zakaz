@@ -12,30 +12,33 @@
             </div>
         @endforeach
         <input name="order_id" value="{{ $order->id }}" type="hidden">
-        <button onclick="storeUsers()" class="btn btn-outline-secondary">Create</button>
+        <button onclick="storeUser()" class="btn btn-outline-secondary">Create</button>
     </div>
     <script>
-        function storeUsers() {
-            let users_id = [];
-            $('#user_id').each(function(user) {
-                console.log(user);
-            })
+        function storeUser() {
+            let user_id = [];
+            let users = $('.user');
+            let users_ = [];
+            users.each(function () {
+                console.log($(this).val());
+                console.log($(this).prop('checked'));
+                if($(this).prop('checked')) users_.push($(this).val);
 
+            });
+            console.log(users_);
 
             let order_id = $('#order_id').val();
+        }
 
-            $.ajax({
-                url: '{{ route('order.users', $order->id) }}',
-                type: 'POST',
-                data: {
-                    "_token": "{{ csrf_token() }}",
-                    user_id: 1,
-                    order_id: order_id
-                },
-                success: function(response) {
-                    console.log(response);
-                },
-            });
-        };
+        {{--$.ajax({--}}
+        {{--    url: '{{ route('order.store') }}',--}}
+        {{--    method: 'POST',--}}
+        {{--    data: {--}}
+        {{--        --}}
+        {{--    }, // Передать данные для отправки--}}
+        {{--    success: function(response) {--}}
+        {{--        // Обработка успешного ответа от сервера--}}
+        {{--        console.log(response);--}}
+        {{--    },--}}
     </script>
 @endsection

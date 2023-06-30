@@ -6,12 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="1c73140b-ab5f-415d-ae32-2b77c0605a44" name="Changes" comment="end-css">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bordel/app/Http/Controllers/Orders/BasketController.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/app/Http/Controllers/Orders/BasketController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bordel/app/Http/Controllers/Orders/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/app/Http/Controllers/Orders/OrderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bordel/app/Http/Controllers/Orders/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/app/Http/Controllers/Orders/UserController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bordel/app/Models/Basket.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/app/Models/Basket.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bordel/app/Models/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/app/Models/Order.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bordel/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bordel/resources/css/order_id.css" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/resources/css/order_id.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bordel/resources/views/order/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/resources/views/order/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bordel/resources/views/order/users.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/resources/views/order/users.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -341,6 +342,7 @@
       <workItem from="1688039898948" duration="3688000" />
       <workItem from="1688055420527" duration="4144000" />
       <workItem from="1688134748543" duration="5794000" />
+      <workItem from="1688148369270" duration="6675000" />
     </task>
     <task id="LOCAL-00001" summary="work-work">
       <created>1686394976520</created>

@@ -21,12 +21,11 @@ class Order extends Model
 
     public function basket()
     {
-        return $this->hasOne(Basket::class);
+        return $this->hasMany(Basket::class);
     }
 
-    public function basketProducts()
-    {
-        return $this->hasManyThrough(Product::class, Basket::class, 'order_id', 'id', 'id', 'product_id');
+    public function basketByUser($user_id) {
+        return $this->basket()->where('user_id', '=', $user_id);
     }
 
     public function orderUser()

@@ -16,21 +16,6 @@ use Illuminate\Support\Facades\Auth;
 
 class BasketController extends Controller
 {
-    public function index()
-    {
-        $orders = Order::user(Auth::user()->id)->get();
-
-        return view('order.index', compact('orders'));
-    }
-
-    public function create()
-    {
-        $shops = Shop::all();
-        $owners = User::all();
-
-        return view('order.create', compact('shops', 'owners'));
-    }
-
     public function store(OrderStoreRequest $request)
     {
         $data = $request->validated();
@@ -44,48 +29,8 @@ class BasketController extends Controller
         return view('order.users', compact('order', 'users'));
     }
 
-    public function users(CustomerStoreRequest $request)
+    public function destroy()
     {
-        $data = $request->validated();
-        $order = $request['order_id'];
-        dd($request['user_id']);
-        foreach ($request['user_id'] as $user)
-            OrderUser::create([
-                'order_id' => $order,
-                'user_id' => $user
-            ]);
-        $orders = Order::user(Auth::user()->id)->get();
-
-        return view('order.index', compact('orders'));
-    }
-
-    public function show($id)
-    {
-        $order = Order::where('id', $id)->first();
-        $products = Product::where('shop_id', $order->shop_id)->get();
-        $user = Auth::user();
-
-        return view('order.show', compact('products', 'order', 'user'));
-    }
-
-    public function basket(ProductStoreRequest $request, $id)
-    {
-        $data = $request->validated();
-        $person = $data['user_id'];
-        $comment = $data['comment'];
-        foreach ($data['product_id'] as $product) {
-            $price = Product::find($product);
-            Basket::create([
-                'order_id' => $id,
-                'user_id' => $person,
-                'product_id' => $product,
-                'comment' => $comment,
-                'price' => $price->price
-            ]);
-        }
-
-        $orders = Order::user(Auth::user()->id)->get();
-
-        return view('order.index', compact('orders'));
+        dd('destroy basket');
     }
 }
