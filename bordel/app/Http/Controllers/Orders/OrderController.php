@@ -43,18 +43,19 @@ class OrderController extends Controller
 
     public function show($id)
     {
-        $order = Order::findOrFail($id)->with(['basket.product'])->first()->toArray();
-        dd($order);
-        dump($order);
-        dump($order->basket);
+        $order = Order::findOrFail($id);
+        $basket = $order->basket()->with('product')->get();
+        $users = $order->orderUser()->get();
+        $products = $order->shop->products;
+//        dd($order);
+//        dump($order->with(['basket.product'])->first()->toArray());
 //        dd($order->basketByUser(Auth::user()->id)->get());
-        foreach($order->basket as $basket_) {
-            dump($basket_->product);
-        }
+//        foreach($order->basket as $basket_) {
+//            dump($basket_->product);
+//        }
 
-        dd('');
         $isOwner = $order->owner_id == Auth::user()->id;
 
-        return view('order.show', compact('products', 'order', 'users', 'products', 'basket', 'isOwner'));
+        return view('order.show', compact('order', 'basket', 'users', 'products', 'isOwner'));
     }
 }

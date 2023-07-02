@@ -7,7 +7,7 @@
 
 .table-container {
     border-radius: 7px;
-    background-color: deepskyblue;
+    background-color: #99ccff;
     width: 75%;
     margin: 0 5px 0 15px;
     display: grid;
@@ -23,14 +23,14 @@
 }
 
 .table-wrapper1 {
-    background-color: deepskyblue;
+    background-color: #99ccff;
     height: 370px;
     border-radius: 7px;
     padding: 7px;
 }
 
 .user-wrapper {
-    background-color: orange;
+    background-color: #99ccff;
     border-radius: 7px;
     display: grid;
     grid-template-rows: 20%;
@@ -40,7 +40,7 @@
 }
 
 .table-wrapper2 {
-    background-color: #9f57ef;
+    background-color: #99ccff;
     margin-top: 5px;
     border-radius: 7px;
     position: relative;
@@ -53,21 +53,21 @@
 }
 
 .user-card {
-    background-color: orange;
+    background-color: #99ccff;
     border-radius: 7px;
-    line-height: 20px;
-    margin-top: 15px;
+    line-height: 10px;
+    margin-right: 10px;
 }
 
 .data-table2 {
     width: 100%;
     border-collapse: separate;
     border-spacing: 15px;
-    margin-top: 30px;
+    /*margin-top: 30px;*/
 }
 
 .table-header {
-    background-color: mediumpurple;
+    background-color: #6b4fbb;
     text-align: center;
     color: white;
     border-radius: 7px;
@@ -80,7 +80,7 @@
 }
 
 .delete-button {
-    background-color: red;
+    background-color: #e74c3c;
     color: white;
     border: none;
     border-radius: 5px;
@@ -91,7 +91,7 @@
 }
 
 .id-header {
-    background-color: mediumpurple;
+    background-color: #6b4fbb;
     color: white;
     width: 20px;
     border-radius: 7px;
@@ -99,7 +99,7 @@
 }
 
 .interaction-header {
-    background-color: mediumpurple;
+    background-color: #6b4fbb;
     color: white;
     width: 20px;
     border-radius: 7px;
@@ -107,17 +107,21 @@
     font-size: 10px;
 }
 
-p {
+.order-info {
+    text-align: center;
     margin: 15px 0 0 15px;
-    font-size: 15px;
+    background-color: #6b4fbb;
+    border-radius: 7px;
+    padding: 7px;
+    color: white;
 }
 
 .product-add-button {
     position: absolute;
     right: 10px;
     bottom: 10px;
-    background-color: forestgreen;
-    border: solid forestgreen;
+    background-color: #55a049;
+    border: none;
     border-radius: 7px;
     width: 150px;
     height: 20px;
@@ -129,9 +133,9 @@ p {
 .order-edit-button {
     position: absolute;
     right: 10px;
-    top: 10px;
-    background-color: deepskyblue;
-    border: solid deepskyblue;
+    bottom: 10px;
+    background-color: #d990ff;
+    border: none;
     border-radius: 7px;
     width: 150px;
     height: 20px;
@@ -143,9 +147,9 @@ p {
 .people-add-button {
     position: absolute;
     right: 10px;
-    top: 10px;
-    background-color: forestgreen;
-    border: solid forestgreen;
+    bottom: 10px;
+    background-color: #55a049;
+    border: none;
     border-radius: 7px;
     width: 150px;
     height: 20px;
