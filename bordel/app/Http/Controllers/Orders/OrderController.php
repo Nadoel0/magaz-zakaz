@@ -48,8 +48,9 @@ class OrderController extends Controller
         $users = $order->orderUser()->get();
         $products = $order->shop->products;
         $currentUser = auth()->user();
+        $allUsers = User::all();
         $isOwner = $order->owner_id == Auth::user()->id;
 
-        return view('order.show', compact('order', 'basket', 'users', 'products', 'currentUser', 'isOwner'));
+        return view('order.show', compact('order', 'basket', 'users', 'products', 'currentUser', 'allUsers', 'isOwner'));
     }
 }

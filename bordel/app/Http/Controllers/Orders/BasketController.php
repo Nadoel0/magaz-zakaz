@@ -15,13 +15,6 @@ class BasketController extends Controller
     public function store(Request $request, $id)
     {
         $user = Auth::user();
-//        $data = $request->validate([
-//            'order_id' => 'required',
-//            'user_id' => 'required',
-//            'product_id' => 'required',
-//            'comment' => 'required',
-//            'price' => 'required'
-//        ]);
         $basket = Basket::create([
             'order_id' => $id,
             'user_id' => $user->id,
@@ -29,13 +22,28 @@ class BasketController extends Controller
             'comment' => $request->input('comment'),
             'price' => $request->input('price')
         ]);
-        dd($basket);
+        $product = $basket->product;
 
-        return view('order.show', compact('order', 'users'));
+        $response = [
+            'product' => [
+                'id' => $product->id,
+                'name' => $product->name,
+                'price' => $product->price
+            ]
+        ];
+
+        return response()->json($response);
     }
-
-    public function destroy()
+    public function destroy($id)
     {
-        dd('destroy basket');
+        $productID = request('product_id');
+        $basket = Basket::where('order_id', $id)->where('product_id', $productID)->first();
+
+        if ($basket) {
+            $basket->delete();
+        }
+
+        return back();
     }
+
 }

@@ -37,12 +37,12 @@ Route::prefix('/order')->middleware('auth')->controller(OrderController::class)-
     Route::put('/{order_id}', 'update')->name('order.update');
 });
 
-Route::prefix('/order')->middleware('auth')->controller(UserController::class)->group(function () {
+Route::prefix('/user')->middleware('auth')->controller(UserController::class)->group(function () {
     Route::post('/{order_id}/{user_id}', 'store')->name('user.store');
     Route::delete('/{order_id}', 'destroy')->name('user.destroy');
 });
 
-Route::prefix('/order')->middleware('auth')->controller(BasketController::class)->group(function () {
+Route::prefix('/basket')->middleware('auth')->controller(BasketController::class)->group(function () {
     Route::post('/{order_id}/basket', 'store')->name('basket.store');
     Route::delete('/{order_id}/basket', 'destroy')->name('basket.destroy');
 });

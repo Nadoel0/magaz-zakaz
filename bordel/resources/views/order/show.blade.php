@@ -1,43 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    <style>
-        .my-modal-space {
-            display: none;
-            background-color: rgba(0, 0, 0, 0.5);
-            position: fixed;
-            z-index: 1;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-        }
-
-        .my-modal-content {
-            background-color: #f8f8f8;
-            margin: 14% auto;
-            width: 50%;
-            max-width: 500px;
-            padding: 30px;
-            position: relative;
-            border-radius: 7px;
-        }
-
-        .close-modal {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background-color: #e74c3c;
-            border: none;
-            border-radius: 7px;
-            width: 30px;
-            height: 20px;
-            text-align: center;
-            line-height: 10px;
-            color: white;
-            font-size: 12px;
-        }
-    </style>
     <div class="container-box">
         <div class="table-container">
             <div class="table-wrapper1">
@@ -51,18 +14,16 @@
                     </tr>
                     </thead>
                     <tbody>
-{{--                        @if($products->isNotEmpty())--}}
-                            @foreach($basket as $product)
-                            <tr>
-                                <td class="table-data">{{ $product->product->id }}</td>
-                                <td class="table-data">{{ $product->product->name }}</td>
-                                <td class="table-data">{{ $product->product->price }}</td>
-                                <td>
-                                    <button class="delete-button">X</button>
-                                </td>
-                            </tr>
-                            @endforeach
-{{--                        @endif--}}
+                    @foreach($basket as $product)
+                        <tr data-product-id="{{ $product->id }}">
+                            <td class="table-data">{{ $product->product->id }}</td>
+                            <td class="table-data">{{ $product->product->name }}</td>
+                            <td class="table-data">{{ $product->product->price }}</td>
+                            <td>
+                                <button class="delete-button" data-product-id="{{ $product->id }}">X</button>
+                            </td>
+                        </tr>
+                    @endforeach
                     </tbody>
                 </table>
             </div>
@@ -82,7 +43,7 @@
             </div>
             <div class="table-wrapper2">
                 <div>
-                    <button class="people-add-button">add</button>
+                    <button class="people-add-button" id="addUser">add</button>
                 </div>
                 <table class="data-table2">
                     <tbody>
@@ -99,12 +60,12 @@
             </div>
         </div>
     </div>
-    <div id="myModalSpace" class="my-modal-space">
+    <div id="myModalProduct" class="my-modal-space">
         <div class="my-modal-content">
             <button class="close-modal">X</button>
             <div>
                 <label>Product</label>
-                <select class="form-select mb-3" name="name" id="productSelect">
+                <select class="form-select mb-3" id="productSelect">
                     @foreach($products as $product)
                         <option value="{{ $product->id }}" data-price="{{ $product->price }}">
                             {{ $product->name }}
@@ -124,21 +85,45 @@
             <button class="product-add-button" id="addProduct">Add</button>
         </div>
     </div>
+    <div id="myModalPeople" class="my-modal-space">
+        <div class="my-modal-content">
+            <button class="close-modal">X</button>
+            <div>
+                <label>Users</label>
+                <select class="form-select mb-3" id="peopleSelect">
+                    @foreach($allUsers as $user)
+                        <option value="{{ $user->id }}">
+                            {{ $user->name }} {{ $user->email }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
+            <button class="people-add-button" id="addPeople">Add</button>
+        </div>
+    </div>
     <script>
         $(document).ready(function () {
+            function showModal(modalID) {
+                $(modalID).show();
+            }
+
+            function hideModal() {
+                $('.my-modal-space').hide();
+            }
+
             $('.product-add-button').click(function () {
-                $('#myModalSpace').show();
+                showModal('#myModalProduct');
             });
 
-            $('.close-modal').click(function () {
-                $('#myModalSpace').hide();
+            $('.people-add-button').click(function () {
+                showModal('#myModalPeople');
             });
 
-            $(window).click(function (event) {
-                if(event.target == $('#myModalSpace')[0]) {
-                    $('#myModalSpace').hide();
+            $('.close-modal, .my-modal-space').click(function (event) {
+                if (event.target === this) {
+                    hideModal();
                 }
-            });
+            })
         });
 
         document.addEventListener('DOMContentLoaded', function () {
@@ -154,8 +139,7 @@
 
         $(document).ready(function () {
             var addProductURL = '{{ route('basket.store', $order->id) }}';
-            var currentUser = '{{ $currentUser->id }}';
-            var orderID = '{{ $order->id }}';
+            var deleteProductURL = '{{ route('basket.destroy', $order->id) }}';
 
             $('#addProduct').click(function () {
                 var selectedProduct = $('#productSelect').val();
@@ -163,11 +147,8 @@
                 var comment = $('.my-modal-content textarea').val();
                 var price = $('.my-modal-content input[placeholder="Price"]').val();
                 var inputPrice = comment ? price : selectedPrice;
-
                 var data = {
                     _token: '{{ csrf_token() }}',
-                    order_id: orderID,
-                    user_id: currentUser,
                     product_id: selectedProduct,
                     comment: comment,
                     price: inputPrice,
@@ -178,9 +159,43 @@
                     type: 'POST',
                     data: data,
                     success: function (response) {
-                        alert('Product added');
+                        var addedProducts = `<tr>
+                                <td class="table-data">${response.product.id}</td>
+                                <td class="table-data">${response.product.name}</td>
+                                <td class="table-data">${response.product.price}</td>
+                                <td>
+                                    <button class="delete-button">X</button>
+                                </td>
+                            </tr>`;
+                        $('.data-table1 tbody').append(addedProducts);
+                        $('#productSelect').val('');
+                        $('.my-modal-content textarea').val('');
+                        $('.my-modal-content input[placeholder="Price"]').val('');
+                        $('#myModalProduct').hide();
                     }
                 });
+            });
+
+            function deleteProduct(productID) {
+                var data = {
+                    _method: 'DELETE',
+                    _token: '{{ csrf_token() }}',
+                    product_id: productID,
+                };
+                console.log(data)
+                $.ajax({
+                    url: deleteProductURL,
+                    type: 'POST',
+                    data: data,
+                    success: function (response) {
+                        $('.data-table1 tbody tr[data-product-id="' + productID + '"]').remove();
+                    }
+                });
+            }
+
+            $(document).on('click', '.delete-button', function () {
+                var productID = $(this).closest('tr').data('product-id');
+                deleteProduct(productID);
             });
         });
     </script>

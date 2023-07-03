@@ -10,6 +10,7 @@
       <change beforePath="$PROJECT_DIR$/bordel/app/Http/Controllers/Orders/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/app/Http/Controllers/Orders/OrderController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bordel/resources/css/order_id.css" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/resources/css/order_id.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bordel/resources/views/order/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/resources/views/order/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bordel/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -342,7 +343,7 @@
       <workItem from="1688148369270" duration="6675000" />
       <workItem from="1688299715822" duration="12691000" />
       <workItem from="1688327402494" duration="754000" />
-      <workItem from="1688391365097" duration="7246000" />
+      <workItem from="1688391365097" duration="17326000" />
     </task>
     <task id="LOCAL-00001" summary="work-work">
       <created>1686394976520</created>
