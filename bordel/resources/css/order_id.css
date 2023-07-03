@@ -57,6 +57,8 @@
     border-radius: 7px;
     line-height: 10px;
     margin-right: 10px;
+    position: absolute;
+    top: 5px;
 }
 
 .data-table2 {

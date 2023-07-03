@@ -12,16 +12,23 @@ use Illuminate\Support\Facades\Auth;
 
 class BasketController extends Controller
 {
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
-        $data = $request->validate([
-            'order_id' => 'required',
-            'user_id' => 'required',
-            'product_id' => 'required',
-            'comment' => 'required',
-            'price' => 'required'
+        $user = Auth::user();
+//        $data = $request->validate([
+//            'order_id' => 'required',
+//            'user_id' => 'required',
+//            'product_id' => 'required',
+//            'comment' => 'required',
+//            'price' => 'required'
+//        ]);
+        $basket = Basket::create([
+            'order_id' => $id,
+            'user_id' => $user->id,
+            'product_id' => $request->input('product_id'),
+            'comment' => $request->input('comment'),
+            'price' => $request->input('price')
         ]);
-        $basket = Basket::create($data);
         dd($basket);
 
         return view('order.show', compact('order', 'users'));

@@ -47,15 +47,9 @@ class OrderController extends Controller
         $basket = $order->basket()->with('product')->get();
         $users = $order->orderUser()->get();
         $products = $order->shop->products;
-//        dd($order);
-//        dump($order->with(['basket.product'])->first()->toArray());
-//        dd($order->basketByUser(Auth::user()->id)->get());
-//        foreach($order->basket as $basket_) {
-//            dump($basket_->product);
-//        }
-
+        $currentUser = auth()->user();
         $isOwner = $order->owner_id == Auth::user()->id;
 
-        return view('order.show', compact('order', 'basket', 'users', 'products', 'isOwner'));
+        return view('order.show', compact('order', 'basket', 'users', 'products', 'currentUser', 'isOwner'));
     }
 }

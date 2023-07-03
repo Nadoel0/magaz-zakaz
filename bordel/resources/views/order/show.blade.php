@@ -152,16 +152,11 @@
             });
         });
 
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-
-
-        var addProductURL = "{{ route('basket.store', $order->id) }}";
-
         $(document).ready(function () {
+            var addProductURL = '{{ route('basket.store', $order->id) }}';
+            var currentUser = '{{ $currentUser->id }}';
+            var orderID = '{{ $order->id }}';
+
             $('#addProduct').click(function () {
                 var selectedProduct = $('#productSelect').val();
                 var selectedPrice = $('#productSelect option:selected').data('price');
@@ -170,11 +165,12 @@
                 var inputPrice = comment ? price : selectedPrice;
 
                 var data = {
-                    order_id: {{ $order->id }},
-                    user_od: {{ $user->user->id }},
+                    _token: '{{ csrf_token() }}',
+                    order_id: orderID,
+                    user_id: currentUser,
                     product_id: selectedProduct,
+                    comment: comment,
                     price: inputPrice,
-                    comment: comment
                 };
 
                 $.ajax({
