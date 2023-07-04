@@ -3,34 +3,43 @@
 namespace App\Http\Controllers\Orders;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\CustomerStoreRequest;
-use App\Http\Requests\OrderStoreRequest;
-use App\Http\Requests\ProductStoreRequest;
-use App\Models\Basket;
 use App\Models\Order;
 use App\Models\OrderUser;
-use App\Models\Product;
-use App\Models\Shop;
 use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-    public function store(OrderStoreRequest $request)
+    public function store(Request $request, $orderID, $userID)
     {
-        $data = $request->validated();
-        $order = Order::create($data);
-        $users = User::all();
-        OrderUser::create([
-            'order_id' => $order->id,
-            'user_id' => Auth::user()->id
+        $userOrder = OrderUser::create([
+            'order_id' => $orderID,
+            'user_id' => $userID,
         ]);
+        $userData = $userOrder->user;
 
-        return view('order.users', compact('order', 'users'));
+        $response = [
+            'orderUserID' => $userOrder->id,
+
+            'userData' => [
+                'name' => $userData->name,
+                'email' => $userData->email
+            ]
+        ];
+
+        return response()->json($response);
     }
 
-    public function destroy()
+    public function destroy($id)
     {
-        dd('destroy users');
+        $peopleID = request('people_id');
+        $userOrder = OrderUser::where('id', $peopleID)->first();
+
+        if ($userOrder) {
+            $userOrder->delete();
+        }
+
+        return back();
     }
 }

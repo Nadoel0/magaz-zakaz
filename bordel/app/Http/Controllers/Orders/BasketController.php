@@ -25,6 +25,8 @@ class BasketController extends Controller
         $product = $basket->product;
 
         $response = [
+            'basketID' => $basket->id,
+
             'product' => [
                 'id' => $product->id,
                 'name' => $product->name,
@@ -37,7 +39,7 @@ class BasketController extends Controller
     public function destroy($id)
     {
         $productID = request('product_id');
-        $basket = Basket::where('order_id', $id)->where('product_id', $productID)->first();
+        $basket = Basket::where('id', $productID)->first();
 
         if ($basket) {
             $basket->delete();

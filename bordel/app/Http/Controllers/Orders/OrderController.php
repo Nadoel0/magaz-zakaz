@@ -9,6 +9,7 @@ use App\Models\OrderUser;
 use App\Models\Product;
 use App\Models\Shop;
 use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
@@ -47,10 +48,31 @@ class OrderController extends Controller
         $basket = $order->basket()->with('product')->get();
         $users = $order->orderUser()->get();
         $products = $order->shop->products;
-        $currentUser = auth()->user();
         $allUsers = User::all();
         $isOwner = $order->owner_id == Auth::user()->id;
 
-        return view('order.show', compact('order', 'basket', 'users', 'products', 'currentUser', 'allUsers', 'isOwner'));
+        return view('order.show', compact('order', 'basket', 'users', 'products', 'allUsers', 'isOwner'));
+    }
+
+    public function update(Request $request, $id) {
+        $order = Order::findOrFail($id);
+        $updatedFields = [
+            'owner_id' => $order->owner_id,
+            'shop_id' => $order->shop_id,
+        ];
+
+        if ($request->has('name')) $updatedFields['name'] = $request->input('name');
+        if ($request->has('status')) $updatedFields['status'] = $request->input('status');
+
+        $order->update($updatedFields);
+
+        $response = [
+            'order' => [
+                'name' => $order->name,
+                'status' => $order->status,
+            ]
+        ];
+
+        return response()->json($response);
     }
 }

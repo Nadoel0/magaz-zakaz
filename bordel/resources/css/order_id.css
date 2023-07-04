@@ -118,7 +118,7 @@
     color: white;
 }
 
-.product-add-button {
+.add-button {
     position: absolute;
     right: 10px;
     bottom: 10px;
@@ -137,20 +137,6 @@
     right: 10px;
     bottom: 10px;
     background-color: #d990ff;
-    border: none;
-    border-radius: 7px;
-    width: 150px;
-    height: 20px;
-    text-align: center;
-    line-height: 10px;
-    color: white;
-}
-
-.people-add-button {
-    position: absolute;
-    right: 10px;
-    bottom: 10px;
-    background-color: #55a049;
     border: none;
     border-radius: 7px;
     width: 150px;

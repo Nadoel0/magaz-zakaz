@@ -5,12 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1c73140b-ab5f-415d-ae32-2b77c0605a44" name="Changes" comment="end-css">
+      <change afterPath="$PROJECT_DIR$/bordel/resources/js/order_id.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bordel/app/Http/Controllers/Orders/BasketController.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/app/Http/Controllers/Orders/BasketController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bordel/app/Http/Controllers/Orders/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/app/Http/Controllers/Orders/OrderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bordel/app/Http/Controllers/Orders/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/app/Http/Controllers/Orders/UserController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bordel/resources/css/order_id.css" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/resources/css/order_id.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bordel/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/resources/views/layouts/app.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bordel/resources/views/order/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/resources/views/order/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bordel/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bordel/vite.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/vite.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +33,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -343,7 +347,8 @@
       <workItem from="1688148369270" duration="6675000" />
       <workItem from="1688299715822" duration="12691000" />
       <workItem from="1688327402494" duration="754000" />
-      <workItem from="1688391365097" duration="17326000" />
+      <workItem from="1688391365097" duration="17682000" />
+      <workItem from="1688476650369" duration="17284000" />
     </task>
     <task id="LOCAL-00001" summary="work-work">
       <created>1686394976520</created>

@@ -8,6 +8,7 @@ export default defineConfig({
                 'resources/sass/app.scss',
                 'resources/css/app.css',
                 'resources/css/order_id.css',
+                'resources/js/order_id.js',
                 'resources/js/app.js',
             ],
             refresh: true,
