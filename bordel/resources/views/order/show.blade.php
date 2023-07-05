@@ -36,9 +36,12 @@
                 <div>
                     <button class="order-edit-button" id="editModal">edit</button>
                 </div>
+                <div>
+                    <button class="end-button" id="closeOrder" type="hidden">close order</button>
+                </div>
                 <div class="user-card">
-                    <p class="order-info">Order name: {{ $order->name }}</p>
-                    <p class="order-info">Order status: {{ $order->status }}</p>
+                    <p class="order-info order-name">Order name: {{ $order->name }}</p>
+                    <p class="order-info order-status">Order status: {{ $order->status }}</p>
                 </div>
             </div>
             <div class="table-wrapper2">
@@ -51,7 +54,7 @@
                         <tr data-people-id="{{ $user->id }}">
                             <td class="table-data">{{ $user->user->name  }} {{ $user->user->email }}</td>
                             <td>
-                                <button class="delete-button" data-people-id="{{ $user->id }}">X</button>
+                                <button class="delete-button delete-people" data-people-id="{{ $user->id }}">X</button>
                             </td>
                         </tr>
                     @endforeach
@@ -90,11 +93,11 @@
             <button class="close-modal">X</button>
             <div>
                 <label>Order name</label>
-                <input id="orderNameInput" class="form-control mb-3" placeholder="Enter order name">
+                <input id="orderNameInput" class="form-control mb-3" placeholder="Name">
             </div>
             <div>
                 <label>Order status</label>
-                <input id="orderStatusInput" class="form-control mb-3" placeholder="Enter order status">
+                <input id="orderStatusInput" class="form-control mb-3" placeholder="Status">
             </div>
             <button class="add-button" id="editOrder">Edit</button>
         </div>
@@ -115,42 +118,19 @@
             <button class="add-button" id="addPeople">Add</button>
         </div>
     </div>
+    <div id="myModalSure" class="my-modal-space">
+        <div class="my-modal-content">
+            <h3>Are you sure?</h3>
+            <button class="yes-button" id="confirmButton">Yes</button>
+            <button class="no-button" id="cancelButton">No</button>
+        </div>
+    </div>
     <div id="addProductButton" data-add-product-url="{{ route('basket.store', $order->id) }}"></div>
     <div id="deleteProductButton" data-delete-product-url="{{ route('basket.destroy', $order->id) }}"></div>
     <div id="editOrderButton" data-edit-order-url="{{ route('order.update', $order->id) }}"></div>
     <div id="orderIDs" data-order-name="{{ $order->name }}" data-order-status="{{ $order->status }}"></div>
     <div id="addPeopleButton" data-add-people-url="{{ route('user.store', [$order->id, '__user_id__']) }}"></div>
     <div id="deletePeopleButton" data-delete-people-url="{{ route('user.destroy', $order->id) }}"></div>
-    <script>
-        $(document).ready(function () {
-            var editOrderURL = $('#editOrderButton').data('edit-order-url');
-            var currentName = $('#orderIDs').data('order-name');
-            var currentStatus = $('#orderIDs').data('#order-status');
-
-            $('#editOrder').click(function () {
-                var newName = $('#orderNameInput').val();
-                var newStatus = $('#orderStatusInput').val();
-                var data = {
-                    _method: 'PUT',
-                };
-
-                if (newName !== currentName) data.name = newName;
-                if (newStatus !== currentStatus) data.status = newStatus;
-
-                $.ajax({
-                    url: editOrderURL,
-                    type: 'POST',
-                    data: data,
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    },
-                    success: function (response) {
-                        $('.order-info').html('Order name: ' + response.order.name);
-                        $('.order-info').html('Order status: ' + response.order.status);
-                        $('#myModalEdit').hide();
-                    }
-                })
-            });
-        });
-    </script>
+    <div id="isOwner" data-is-owner="{{ $isOwner }}"></div>
+    <div id="debtButton" data-debt-url="{{ route('order.debt', $order->id) }}"></div>
 @endsection

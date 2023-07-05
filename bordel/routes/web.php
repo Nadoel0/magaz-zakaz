@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Orders\BasketController;
+use App\Http\Controllers\Orders\DebtController;
 use App\Http\Controllers\Orders\OrderController;
 use App\Http\Controllers\Orders\UserController;
 use App\Http\Controllers\Shops\ShopController;
@@ -35,6 +36,11 @@ Route::prefix('/order')->middleware('auth')->controller(OrderController::class)-
     Route::post('/', 'store')->name('order.store');
     Route::get('/{order_id}', 'show')->name('order.show');
     Route::put('/{order_id}', 'update')->name('order.update');
+});
+
+Route::prefix('debt')->middleware('auth')->controller(DebtController::class)->group(function () {
+    Route::get('/{order_id}/debt', 'show')->name('order.debt');
+    Route::put('{order_id}/debt', 'completedOrder')->name('order.complete');
 });
 
 Route::prefix('/user')->middleware('auth')->controller(UserController::class)->group(function () {

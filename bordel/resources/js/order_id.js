@@ -151,4 +151,69 @@ $(document).ready(function () {
             }
         });
     }
+
+    var editOrderURL = $('#editOrderButton').data('edit-order-url');
+
+    $('#editOrder').click(function () {
+        var newName = $('#orderNameInput').val();
+        var newStatus = $('#orderStatusInput').val();
+        var data = {
+            _method: 'PUT',
+        };
+
+        if (newName !== '') data.name = newName;
+        if (newStatus !== '') data.status = newStatus;
+
+        $.ajax({
+            url: editOrderURL,
+            type: 'POST',
+            data: data,
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            success: function (response) {
+                $('.order-name').html('Order name: ' + response.order.name);
+                $('.order-status').html('Order status: ' + response.order.status);
+                $('.my-modal-content input').val('');
+                $('#myModalEdit').hide();
+            }
+        })
+    });
+
+    var isOwner = $('#isOwner').data('is-owner');
+
+    if (!isOwner) {
+        $('#editModal').hide();
+        $('#peopleModal').hide();
+        $('#closeOrder').hide();
+        $('.delete-people').hide();
+    }
+
+    var modal = $('#myModalSure');
+    var orderDebtURL = $('#debtButton').data('debt-url');
+    var confirmButton = $('#confirmButton');
+    var cancelButton = $('#cancelButton');
+    var orderStatus = $('#orderIDs').data('order-status');
+    var currentStatus = orderStatus;
+
+    $(document).on('change', '#orderStatusInput', function () {
+        var newStatus = $(this).val();
+
+        if (newStatus === '3') {
+            $('#closeOrder').show();
+        } else $('#closeOrder').hide();
+    });
+
+    $("#closeOrder").click(function () {
+        modal.show();
+    });
+
+    confirmButton.click(function () {
+        window.location.href = orderDebtURL;
+    });
+
+    cancelButton.click(function () {
+        orderStatus = currentStatus;
+        modal.hide();
+    });
 });

@@ -24,9 +24,9 @@ class OrderController extends Controller
     public function create()
     {
         $shops = Shop::all();
-        $owners = User::all();
+        $owner = Auth::user();
 
-        return view('order.create', compact('shops', 'owners'));
+        return view('order.create', compact('shops', 'owner'));
     }
 
     public function store(OrderStoreRequest $request)
@@ -39,13 +39,14 @@ class OrderController extends Controller
             'user_id' => Auth::user()->id
         ]);
 
-        redirect()->route('order.index');
+        return redirect()->route('order.index');
     }
 
     public function show($id)
     {
         $order = Order::findOrFail($id);
-        $basket = $order->basket()->with('product')->get();
+        $user = Auth::user();
+        $basket = $order->basket()->where('user_id', $user->id)->with('product')->get();
         $users = $order->orderUser()->get();
         $products = $order->shop->products;
         $allUsers = User::all();

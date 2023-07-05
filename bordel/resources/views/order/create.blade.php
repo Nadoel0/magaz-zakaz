@@ -8,20 +8,11 @@
             <div class="form-group mb-3">
                 <label>Name</label>
                 <input name="name" class="form-control" placeholder="Enter name">
-
-                @error('name')
-                <p class="text-danger">{{ $message }}</p>
-                @enderror
             </div>
             <div class="form-group mb-3">
                 <label>Owner</label>
-                <select class="form-select" name="owner_id">
-                    @foreach($owners as $owner)
-                        <option {{ old('$owner_id') == $owner -> id ? 'selected' : '' }} value="{{ $owner -> id }}">
-                            {{ $owner -> name }} {{ $owner -> surname }}
-                        </option>
-                    @endforeach
-                </select>
+                <input class="form-control" placeholder="{{ $owner->name }} {{ $owner->email }}">
+                <input type="hidden" name="order_id" value="{{ $owner->id }}">
             </div>
             <div class="form-group mb-3">
                 <label>Shop</label>

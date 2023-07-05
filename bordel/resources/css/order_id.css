@@ -58,7 +58,7 @@
     line-height: 10px;
     margin-right: 10px;
     position: absolute;
-    top: 5px;
+    top: 20px;
 }
 
 .data-table2 {
@@ -180,4 +180,48 @@
     line-height: 10px;
     color: white;
     font-size: 12px;
+}
+
+.yes-button {
+    position: absolute;
+    right: 70px;
+    bottom: 10px;
+    background-color: #55a049;
+    border: none;
+    border-radius: 7px;
+    width: 50px;
+    height: 20px;
+    text-align: center;
+    line-height: 10px;
+    color: white;
+}
+
+.no-button {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    background-color: #e74c3c;
+    border: none;
+    border-radius: 7px;
+    width: 50px;
+    height: 20px;
+    text-align: center;
+    line-height: 10px;
+    color: white;
+}
+
+.end-button {
+    display: none;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background-color: #e74c3c;
+    border: none;
+    border-radius: 7px;
+    height: 20px;
+    text-align: center;
+    line-height: 10px;
+    color: white;
+    bottom: 10px;
+    width: 150px;
 }
