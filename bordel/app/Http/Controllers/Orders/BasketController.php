@@ -4,9 +4,7 @@ namespace App\Http\Controllers\Orders;
 
 use App\Http\Controllers\Controller;
 use App\Models\Basket;
-use App\Models\Order;
-use App\Models\OrderUser;
-use App\Models\User;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -15,10 +13,11 @@ class BasketController extends Controller
     public function store(Request $request, $id)
     {
         $user = Auth::user();
+        $productID = Product::where('name', $request->input('product_id'))->value('id');
         $basket = Basket::create([
             'order_id' => $id,
             'user_id' => $user->id,
-            'product_id' => $request->input('product_id'),
+            'product_id' => $productID,
             'comment' => $request->input('comment'),
             'price' => $request->input('price')
         ]);

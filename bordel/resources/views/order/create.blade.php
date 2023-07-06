@@ -12,7 +12,7 @@
             <div class="form-group mb-3">
                 <label>Owner</label>
                 <input class="form-control" placeholder="{{ $owner->name }} {{ $owner->email }}">
-                <input type="hidden" name="order_id" value="{{ $owner->id }}">
+                <input type="hidden" name="owner_id" value="{{ $owner->id }}">
             </div>
             <div class="form-group mb-3">
                 <label>Shop</label>

@@ -37,16 +37,27 @@ $(document).ready(function () {
     var addProductURL = $('#addProductButton').data('add-product-url');
     var deleteProductURL = $('#deleteProductButton').data('delete-product-url');
 
+    $(document).on('click', '.product-block', function () {
+        var selectedProductName = $(this).data('product-name');
+        var selectedProductPrice = $(this).data('product-price');
+
+        $('#productNameInput').val(selectedProductName);
+        $('#productPriceInput').val(selectedProductPrice);
+
+        $('#myModalProduct').hide();
+        $('#editProductModal').show();
+    });
+
     $('#addProduct').click(function () {
-        var selectedProduct = $('#productSelect').val();
-        var selectedPrice = $('#productSelect option:selected').data('price');
-        var comment = $('.my-modal-content textarea').val();
-        var price = $('.my-modal-content input[placeholder="Price"]').val();
-        var inputPrice = comment ? price : selectedPrice;
+        var addProductURL = $('#addProductButton').data('add-product-url');
+        var productName = $('#productNameInput').val();
+        var productPrice = $('#productPriceInput').val();
+        var productComment = $('#productCommentInput').val();
+
         var data = {
-            product_id: selectedProduct,
-            comment: comment,
-            price: inputPrice,
+            product_id: productName,
+            comment: productComment,
+            price: productPrice,
         };
 
         $.ajax({
@@ -58,18 +69,19 @@ $(document).ready(function () {
             },
             success: function (response) {
                 var addedProducts = `<tr data-product-id="${response.basketID}">
-                                <td class="table-data">${response.product.id}</td>
-                                <td class="table-data">${response.product.name}</td>
-                                <td class="table-data">${response.product.price}</td>
-                                <td>
-                                    <button class="delete-button" data-product-id="${response.basketID}">X</button>
-                                </td>
-                            </tr>`;
+                                        <td class="table-data">${response.product.id}</td>
+                                        <td class="table-data">${productComment ? productComment : productName}</td>
+                                        <td class="table-data">${productPrice}</td>
+                                        <td>
+                                            <button class="delete-button" data-product-id="${response.basketID}">X</button>
+                                        </td>
+                                    </tr>`;
+
                 $('.data-table1 tbody').append(addedProducts);
                 $('#productSelect').val('');
                 $('.my-modal-content textarea').val('');
                 $('.my-modal-content input[placeholder="Price"]').val('');
-                $('#myModalProduct').hide();
+                $('#editProductModal').hide();
             }
         });
     });
@@ -154,30 +166,49 @@ $(document).ready(function () {
 
     var editOrderURL = $('#editOrderButton').data('edit-order-url');
 
-    $('#editOrder').click(function () {
+    $(document).on('click', '#editOrder, #changeStatusButton', function () {
         var newName = $('#orderNameInput').val();
-        var newStatus = $('#orderStatusInput').val();
+        var newStatus = '';
+
         var data = {
             _method: 'PUT',
         };
 
-        if (newName !== '') data.name = newName;
-        if (newStatus !== '') data.status = newStatus;
+        if (newName !== '') {
+            data.name = newName;
+        }
+
+        if (orderStatus === 1) {
+            newStatus = 2;
+        } else if (orderStatus === 2) {
+            newStatus = 3;
+        }
+
+        if (newStatus !== '') {
+            data.status = newStatus;
+        }
 
         $.ajax({
             url: editOrderURL,
             type: 'POST',
             data: data,
             headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
             },
             success: function (response) {
-                $('.order-name').html('Order name: ' + response.order.name);
-                $('.order-status').html('Order status: ' + response.order.status);
+                $('.order-name').html('Имя заказа: ' + response.order.name);
                 $('.my-modal-content input').val('');
+                $('.order-status').html('Статус заказа: ' + response.order.status);
+
+                if (response.order.status === 2) {
+                    $('#changeStatusButton[data-status="ordered"]').hide();
+                } else if (response.order.status === 3) {
+                    $('#changeStatusButton').hide();
+                }
+
                 $('#myModalEdit').hide();
             }
-        })
+        });
     });
 
     var isOwner = $('#isOwner').data('is-owner');

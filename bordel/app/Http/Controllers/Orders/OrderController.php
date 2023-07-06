@@ -57,10 +57,7 @@ class OrderController extends Controller
 
     public function update(Request $request, $id) {
         $order = Order::findOrFail($id);
-        $updatedFields = [
-            'owner_id' => $order->owner_id,
-            'shop_id' => $order->shop_id,
-        ];
+        $updatedFields = [];
 
         if ($request->has('name')) $updatedFields['name'] = $request->input('name');
         if ($request->has('status')) $updatedFields['status'] = $request->input('status');
