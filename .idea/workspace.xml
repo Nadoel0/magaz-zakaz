@@ -5,17 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1c73140b-ab5f-415d-ae32-2b77c0605a44" name="Changes" comment="end-css">
-      <change afterPath="$PROJECT_DIR$/bordel/app/Http/Controllers/Orders/DebtController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bordel/resources/views/order/check.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bordel/resources/views/order/debt.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bordel/app/Http/Controllers/Orders/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/app/Http/Controllers/Orders/OrderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bordel/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bordel/resources/css/order_id.css" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/resources/css/order_id.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bordel/resources/js/order_id.js" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/resources/js/order_id.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bordel/resources/views/order/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/resources/views/order/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bordel/resources/views/order/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/resources/views/order/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bordel/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bordel/app/Http/Controllers/Orders/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/app/Http/Controllers/Orders/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bordel/app/Providers/RouteServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/app/Providers/RouteServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bordel/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/resources/views/layouts/app.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -351,7 +344,8 @@
       <workItem from="1688327402494" duration="754000" />
       <workItem from="1688391365097" duration="17682000" />
       <workItem from="1688476650369" duration="17284000" />
-      <workItem from="1688560335548" duration="21657000" />
+      <workItem from="1688560335548" duration="21901000" />
+      <workItem from="1688649183089" duration="1935000" />
     </task>
     <task id="LOCAL-00001" summary="work-work">
       <created>1686394976520</created>
