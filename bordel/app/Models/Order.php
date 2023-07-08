@@ -9,10 +9,6 @@ class Order extends Model
 {
     use HasFactory;
     protected $guarded = false;
-    public function shop()
-    {
-        return $this->belongsTo(Shop::class);
-    }
 
     public function users()
     {

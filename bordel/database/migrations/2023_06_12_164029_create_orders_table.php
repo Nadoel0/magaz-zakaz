@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('name')->nullable();
             $table->foreignId('owner_id')->references('id')->on('users');
-            $table->foreignId('shop_id')->references('id')->on('shops');
             $table->smallInteger('status');
             $table->timestamps();
         });

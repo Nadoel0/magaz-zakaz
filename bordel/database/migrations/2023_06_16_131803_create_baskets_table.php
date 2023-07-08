@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('order_id')->references('id')->on('orders');
             $table->foreignId('user_id')->references('id')->on('users');
-            $table->foreignId('product_id')->nullable()->references('id')->on('products');
+            $table->string('product_name')->nullable();
+            $table->smallInteger('amount')->default(0);
             $table->text('comment')->nullable();
             $table->smallInteger('price');
             $table->timestamps();

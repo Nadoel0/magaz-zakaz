@@ -6,14 +6,28 @@
   <component name="ChangeListManager">
     <list default="true" id="1c73140b-ab5f-415d-ae32-2b77c0605a44" name="Changes" comment="end-css">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bordel/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/app/Http/Controllers/HomeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bordel/app/Http/Controllers/Orders/BasketController.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/app/Http/Controllers/Orders/BasketController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bordel/app/Http/Controllers/Orders/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/app/Http/Controllers/Orders/OrderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bordel/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bordel/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bordel/app/Models/Basket.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/app/Models/Basket.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bordel/app/Models/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/app/Models/Order.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bordel/app/Models/Product.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bordel/app/Models/Shop.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bordel/database/migrations/2023_06_12_164012_create_shops_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bordel/database/migrations/2023_06_12_164022_create_products_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bordel/database/migrations/2023_06_12_164029_create_orders_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/database/migrations/2023_06_12_164029_create_orders_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bordel/database/migrations/2023_06_16_131803_create_baskets_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/database/migrations/2023_06_16_131803_create_baskets_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bordel/database/migrations/2023_06_17_131134_create_order_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/database/migrations/2023_06_17_131134_create_order_users_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bordel/database/migrations/2023_07_05_144144_add_debt_to_users.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/bordel/resources/css/order_id.css" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/resources/css/order_id.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bordel/resources/js/order_id.js" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/resources/js/order_id.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bordel/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/resources/views/auth/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bordel/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/resources/views/auth/register.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bordel/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/resources/views/layouts/app.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bordel/resources/views/order/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/resources/views/order/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bordel/resources/views/order/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/resources/views/order/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bordel/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/resources/views/welcome.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bordel/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -352,6 +366,11 @@
       <workItem from="1688560335548" duration="21901000" />
       <workItem from="1688649183089" duration="2188000" />
       <workItem from="1688652780506" duration="22036000" />
+      <workItem from="1688722544099" duration="768000" />
+      <workItem from="1688728008962" duration="1055000" />
+      <workItem from="1688731344651" duration="269000" />
+      <workItem from="1688758752217" duration="48000" />
+      <workItem from="1688822802485" duration="24228000" />
     </task>
     <task id="LOCAL-00001" summary="work-work">
       <created>1686394976520</created>

@@ -37,27 +37,31 @@ $(document).ready(function () {
     var addProductURL = $('#addProductButton').data('add-product-url');
     var deleteProductURL = $('#deleteProductButton').data('delete-product-url');
 
-    $(document).on('click', '.product-block', function () {
-        var selectedProductName = $(this).data('product-name');
-        var selectedProductPrice = $(this).data('product-price');
+    function calculatePrice(price, amount) {
+        return price * amount;
+    }
 
-        $('#productNameInput').val(selectedProductName);
-        $('#productPriceInput').val(selectedProductPrice);
+    function updateTableIndex() {
+        var tableRows = $('.data-table1 tbody tr');
 
-        $('#myModalProduct').hide();
-        $('#editProductModal').show();
-    });
+        tableRows.each(function (index) {
+            $(this).find('td:first-child').text(index + 1);
+        });
+    }
 
     $('#addProduct').click(function () {
-        var addProductURL = $('#addProductButton').data('add-product-url');
         var productName = $('#productNameInput').val();
+        var productAmount = $('#productAmountInput').val();
         var productPrice = $('#productPriceInput').val();
         var productComment = $('#productCommentInput').val();
 
+        var totalPrice = calculatePrice(productPrice, productAmount);
+
         var data = {
-            product_id: productName,
+            name: productName,
+            amount: productAmount,
             comment: productComment,
-            price: productPrice,
+            price: totalPrice,
         };
 
         $.ajax({
@@ -68,23 +72,69 @@ $(document).ready(function () {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
             success: function (response) {
-                var addedProducts = `<tr data-product-id="${response.basketID}">
-                                        <td class="table-data">${response.product.id}</td>
-                                        <td class="table-data">${productComment ? productComment : productName}</td>
-                                        <td class="table-data">${productPrice}</td>
+                var addedProducts = `<tr data-product-id="${response.id}">
+                                        <td class="table-data">${response.id}</td>
+                                        <td class="table-data">${response.name}</td>
+                                        <td class="table-data">${response.price}</td>
+                                        <td class="table-data grid">
+                                            <button class="btn-minus">&minus;</button>
+                                            <div class="product-amount">${response.amount}</div>
+                                            <button class="btn-plus">&plus;</button>
+                                        </td>
                                         <td>
-                                            <button class="delete-button" data-product-id="${response.basketID}">X</button>
+                                            <button class="delete-button" data-product-id="${response.id}">X</button>
                                         </td>
                                     </tr>`;
 
                 $('.data-table1 tbody').append(addedProducts);
-                $('#productSelect').val('');
-                $('.my-modal-content textarea').val('');
-                $('.my-modal-content input[placeholder="Price"]').val('');
-                $('#editProductModal').hide();
+                updateTableIndex();
+                $('#productNameInput').val('');
+                $('#productAmountInput').val('');
+                $('#productPriceInput').val('');
+                $('#productCommentInput').val('');
+                $('#myModalProduct').hide();
             }
         });
     });
+
+    var amountProductURL = $('#amountProductButtons').data('product-amount-url');
+
+    $('.btn-plus, .btn-minus').click(function() {
+        var amountElement = $(this).siblings('.product-amount');
+        var priceElement = $(this).closest('tr').find('.product-price');
+        var price = parseFloat(priceElement.text());
+        var currentAmount = parseFloat(amountElement.text());
+        var newAmount = $(this).hasClass('btn-plus') ? currentAmount + 1 : currentAmount - 1;
+        var productID = $(this).closest('tr').data('product-id');
+
+        if (newAmount > 0) updateProductData(price, newAmount, amountElement, productID);
+    });
+
+
+    function updateProductData(price, newAmount, amountElement, productID) {
+        var unitPrice = price / parseFloat(amountElement.text());
+        var totalPrice = unitPrice * newAmount;
+        console.log(price)
+        var data = {
+            _method: 'PUT',
+            amount: newAmount,
+            price: totalPrice,
+            productID: productID,
+        }
+
+        $.ajax({
+            url: amountProductURL,
+            type: 'POST',
+            data: data,
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            success: function (response) {
+                $('.product-price[data-product-id="' + productID + '"]').html(response.price);
+                amountElement.html(response.amount);
+            }
+        });
+    }
 
     function deleteProduct(productID) {
         var data = {
@@ -105,7 +155,7 @@ $(document).ready(function () {
         });
     }
 
-    $(document).on('click', '.delete-button', function () {
+    $('.delete-product').click(function () {
         var productID = $(this).closest('tr').data('product-id');
         deleteProduct(productID);
     });
@@ -140,11 +190,6 @@ $(document).ready(function () {
         })
     });
 
-    $(document).on('click', '.delete-button', function () {
-        var peopleID = $(this).closest('tr').data('people-id');
-        deletePeople(peopleID);
-    });
-
     function deletePeople(peopleID) {
         var data = {
             _method: 'DELETE',
@@ -164,9 +209,14 @@ $(document).ready(function () {
         });
     }
 
+    $('.delete-people').click(function () {
+        var peopleID = $(this).closest('tr').data('people-id');
+        deletePeople(peopleID);
+    });
+
     var editOrderURL = $('#editOrderButton').data('edit-order-url');
 
-    $(document).on('click', '#editOrder, #changeStatusButton', function () {
+    $('#editOrder, #changeStatusButton').click(function () {
         var newName = $('#orderNameInput').val();
         var newStatus = '';
 
@@ -227,7 +277,7 @@ $(document).ready(function () {
     var orderStatus = $('#orderIDs').data('order-status');
     var currentStatus = orderStatus;
 
-    $(document).on('change', '#orderStatusInput', function () {
+    $('#orderStatusInput').change(function () {
         var newStatus = $(this).val();
 
         if (newStatus === '3') {

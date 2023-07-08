@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Orders;
 
 use App\Http\Controllers\Controller;
 use App\Models\Basket;
-use App\Models\Product;
+use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -13,28 +13,41 @@ class BasketController extends Controller
     public function store(Request $request, $id)
     {
         $user = Auth::user();
-        $productID = Product::where('name', $request->input('product_id'))->value('id');
         $basket = Basket::create([
             'order_id' => $id,
             'user_id' => $user->id,
-            'product_id' => $productID,
+            'product_name' => $request->input('name'),
+            'amount' => $request->input('amount'),
             'comment' => $request->input('comment'),
-            'price' => $request->input('price')
+            'price' => $request->input('price'),
         ]);
-        $product = $basket->product;
 
         $response = [
-            'basketID' => $basket->id,
-
-            'product' => [
-                'id' => $product->id,
-                'name' => $product->name,
-                'price' => $product->price
-            ]
+            'id' => $basket->id,
+            'name' => $basket->product_name,
+            'amount' => $basket->amount,
+            'price' => $basket->price
         ];
 
         return response()->json($response);
     }
+
+    public function update(Request $request, $id)
+    {
+        $basket = Basket::findOrFail($request->input('productID'));
+        $basket->update([
+            'amount' => $request->input('amount'),
+            'price' => $request->input('price'),
+        ]);
+
+        $response = [
+            'amount' => $basket->amount,
+            'price' => $basket->price,
+        ];
+
+        return response()->json($response);
+    }
+
     public function destroy($id)
     {
         $productID = request('product_id');

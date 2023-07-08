@@ -49,8 +49,9 @@ Route::prefix('/user')->middleware('auth')->controller(UserController::class)->g
 });
 
 Route::prefix('/basket')->middleware('auth')->controller(BasketController::class)->group(function () {
-    Route::post('/{order_id}/basket', 'store')->name('basket.store');
-    Route::delete('/{order_id}/basket', 'destroy')->name('basket.destroy');
+    Route::post('/{order_id}/store', 'store')->name('basket.store');
+    Route::put('{order_id}/update', 'update')->name('basket.update');
+    Route::delete('/{order_id}/destroy', 'destroy')->name('basket.destroy');
 });
 
 Route::prefix('/shop')->middleware('auth')->controller(ShopController::class)->group(function (){

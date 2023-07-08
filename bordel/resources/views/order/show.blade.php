@@ -7,29 +7,39 @@
                 <table class="data-table1">
                     <thead>
                     <tr>
-                        <th class="id-header">id</th>
+                        <th class="table-header small-width">id</th>
                         <th class="table-header">продукт</th>
                         <th class="table-header">цена</th>
-                        <th class="interaction-header">действие</th>
+                        <th class="table-header small-width">количество</th>
+                        <th class="table-header small-width">действие</th>
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($basket as $key => $product)
+                    @foreach($basket as $product)
                         <tr data-product-id="{{ $product->id }}">
-                            <td class="table-data">{{ $key + 1 }}</td>
-                            @if($product->comment)
-                                <td class="table-data">{{ $product->comment }}</td>
-                                <td class="table-data">{{ $product->price }}</td>
-                            @else
-                                <td class="table-data">{{ $product->product->name }}</td>
-                                <td class="table-data">{{ $product->product->price }}</td>
-                            @endif
+                            <td class="table-data">{{ $loop->index + 1 }}</td>
+                            <td class="table-data">{{ $product->product_name }}</td>
+                            <td class="table-data product-price" data-product-id="{{ $product->id }}">{{ $product->price }}</td>
+                            <td class="table-data grid">
+                                <button class="btn-minus">&minus;</button>
+                                <div class="product-amount">{{ $product->amount }}</div>
+                                <button class="btn-plus">&plus;</button>
+                            </td>
                             <td>
-                                <button class="delete-button" data-product-id="{{ $product->id }}">X</button>
+                                <button class="delete-button delete-product" data-product-id="{{ $product->id }}">X</button>
                             </td>
                         </tr>
                     @endforeach
                     </tbody>
+                    <tfoot>
+                    <tr>
+                        <td colspan="4"></td>
+                        <td class="table-data total-amount">
+                            <strong>Итог:</strong>
+                            <span>0</span>
+                        </td>
+                    </tr>
+                    </tfoot>
                 </table>
             </div>
             <div>
@@ -72,23 +82,10 @@
     <div id="myModalProduct" class="my-modal-space">
         <div class="my-modal-content">
             <button class="close-modal">X</button>
-            <div class="block">
-            @foreach($products as $product)
-                    <div class="product-block" data-product-id="{{ $product->id }}"
-                         data-product-name="{{ $product->name }}" data-product-price="{{ $product->price }}">
-                        <p>Продукт: {{ $product->name }}</p>
-                        <p>Цена: {{ $product->price }}</p>
-                    </div>
-            @endforeach
-            </div>
-        </div>
-    </div>
-    <div id="editProductModal" class="my-modal-space">
-        <div class="my-modal-content">
-            <button class="close-modal">X</button>
-            <h3>Редактирование продукта</h3>
-            <input class="form-control mb-3" id="productNameInput" placeholder="Продукт" disabled>
+            <label class="mb-3">Добавление продукта</label>
+            <input class="form-control mb-3" id="productNameInput" placeholder="Продукт">
             <input class="form-control mb-3" id="productPriceInput" placeholder="Цена">
+            <input class="form-control mb-3" id="productAmountInput" placeholder="Кол-во">
             <textarea class="form-control mb-3" id="productCommentInput" placeholder="Комменарий к заказу"></textarea>
             <button class="add-button" id="addProduct">добавить</button>
         </div>
@@ -140,6 +137,7 @@
     </div>
     <div id="addProductButton" data-add-product-url="{{ route('basket.store', $order->id) }}"></div>
     <div id="deleteProductButton" data-delete-product-url="{{ route('basket.destroy', $order->id) }}"></div>
+    <div id="amountProductButtons" data-product-amount-url="{{ route('basket.update', $order->id) }}"></div>
     <div id="editOrderButton" data-edit-order-url="{{ route('order.update', $order->id) }}"></div>
     <div id="orderIDs" data-order-name="{{ $order->name }}" data-order-status="{{ $order->status }}"></div>
     <div id="addPeopleButton" data-add-people-url="{{ route('user.store', [$order->id, '__user_id__']) }}"></div>

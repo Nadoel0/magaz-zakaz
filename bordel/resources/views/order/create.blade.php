@@ -2,24 +2,22 @@
 
 @section('content')
     <div>
-        <h2>Create order</h2>
+        <h2>Создание заказа</h2>
         <form action="{{ route('order.store') }}" method="post">
             @csrf
             <div class="form-group mb-3">
-                <label>Name</label>
-                <input name="name" class="form-control" placeholder="Enter name">
+                <label>Имя заказа</label>
+                <input name="name" class="form-control" placeholder="Введите имя заказа">
             </div>
             <div class="form-group mb-3">
-                <label>Owner</label>
-                <input class="form-control" placeholder="{{ $owner->name }} {{ $owner->email }}">
                 <input type="hidden" name="owner_id" value="{{ $owner->id }}">
             </div>
             <div class="form-group mb-3">
-                <label>Shop</label>
-                <select class="form-select" name="shop_id">
-                    @foreach($shops as $shop)
-                        <option {{ old('$shop_id') == $shop -> id ? 'selected' : '' }} value="{{ $shop -> id }}">
-                            {{ $shop -> name }}
+                <label>Клиенты</label>
+                <select multiple class="form-select" name="user_id[]">
+                    @foreach($users as $user)
+                        <option value="{{ $user -> id }}">
+                            {{ $user -> name }} {{ $user->email }}
                         </option>
                     @endforeach
                 </select>

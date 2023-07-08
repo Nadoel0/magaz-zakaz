@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('order_id')->references('id')->on('orders');
             $table->foreignId('user_id')->references('id')->on('users');
+            $table->decimal('debt', 10, 2)->default(0);
             $table->timestamps();
         });
     }

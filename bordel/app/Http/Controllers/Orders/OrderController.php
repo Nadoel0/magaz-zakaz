@@ -3,11 +3,8 @@
 namespace App\Http\Controllers\Orders;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\OrderStoreRequest;
 use App\Models\Order;
 use App\Models\OrderUser;
-use App\Models\Product;
-use App\Models\Shop;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -23,21 +20,26 @@ class OrderController extends Controller
 
     public function create()
     {
-        $shops = Shop::all();
         $owner = Auth::user();
+        $users = User::all();
 
-        return view('order.create', compact('shops', 'owner'));
+        return view('order.create', compact('users', 'owner'));
     }
 
-    public function store(OrderStoreRequest $request)
+    public function store(Request $request)
     {
-        $data = $request->validated();
-        $order = Order::create($data);
-        $users = User::all();
-        OrderUser::create([
-            'order_id' => $order->id,
-            'user_id' => Auth::user()->id
+        $order = Order::create([
+            'name' => $request->input('name'),
+            'owner_id' => $request->input('owner_id'),
+            'status' => $request->input('status')
         ]);
+        $userIDs = $request->input('user_id');
+        foreach ($userIDs as $userID) {
+            OrderUser::create([
+               'order_id' => $order->id,
+               'user_id' => $userID,
+            ]);
+        }
 
         return redirect()->route('order.index');
     }
@@ -46,13 +48,12 @@ class OrderController extends Controller
     {
         $order = Order::findOrFail($id);
         $user = Auth::user();
-        $basket = $order->basket()->where('user_id', $user->id)->with('product')->get();
+        $basket = $order->basket()->where('user_id', $user->id)->get();
         $users = $order->orderUser()->get();
-        $products = $order->shop->products;
         $allUsers = User::all();
         $isOwner = $order->owner_id == Auth::user()->id;
 
-        return view('order.show', compact('order', 'basket', 'users', 'products', 'allUsers', 'isOwner'));
+        return view('order.show', compact('order', 'basket', 'users', 'allUsers', 'isOwner'));
     }
 
     public function update(Request $request, $id) {
