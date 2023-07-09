@@ -47,13 +47,15 @@ class OrderController extends Controller
     public function show($id)
     {
         $order = Order::findOrFail($id);
-        $user = Auth::user();
-        $basket = $order->basket()->where('user_id', $user->id)->get();
+        $currentUser = Auth::user();
+        $basket = $order->basket()->where('user_id', $currentUser->id)->get();
         $users = $order->orderUser()->get();
+        $orderUserID = $users->where('order_id', $id)->where('user_id', $currentUser->id)->first();
         $allUsers = User::all();
         $isOwner = $order->owner_id == Auth::user()->id;
+        $paid = $currentUser->orderUsers()->where('order_id', $id)->pluck('paid')->first();
 
-        return view('order.show', compact('order', 'basket', 'users', 'allUsers', 'isOwner'));
+        return view('order.show', compact('order', 'basket', 'currentUser', 'users', 'orderUserID', 'allUsers', 'isOwner', 'paid'));
     }
 
     public function update(Request $request, $id) {

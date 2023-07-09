@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Orders;
 use App\Http\Controllers\Controller;
 use App\Models\Basket;
 use App\Models\Order;
+use App\Models\OrderUser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 

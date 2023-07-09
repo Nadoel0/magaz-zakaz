@@ -9,6 +9,7 @@ export default defineConfig({
                 'resources/css/app.css',
                 'resources/css/order_id.css',
                 'resources/js/order_id.js',
+                'resources/js/order_index.js',
                 'resources/js/app.js',
             ],
             refresh: true,

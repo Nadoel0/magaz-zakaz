@@ -25,14 +25,14 @@ $(document).ready(function () {
         }
     })
 
-    var selectElement = document.querySelector('.form-select');
-    var priceInput = document.querySelector('.modal-price-input');
-
-    selectElement.addEventListener('change', function () {
-        var selectedOption = selectElement.options[selectElement.selectedIndex];
-        var price = selectedOption.getAttribute('data-price');
-        priceInput.value = price;
-    });
+    // var selectElement = document.querySelector('.form-select');
+    // var priceInput = document.querySelector('.modal-price-input');
+    //
+    // selectElement.addEventListener('change', function () {
+    //     var selectedOption = selectElement.options[selectElement.selectedIndex];
+    //     var price = selectedOption.getAttribute('data-price');
+    //     priceInput.value = price;
+    // });
 
     var addProductURL = $('#addProductButton').data('add-product-url');
     var deleteProductURL = $('#deleteProductButton').data('delete-product-url');
@@ -48,6 +48,48 @@ $(document).ready(function () {
             $(this).find('td:first-child').text(index + 1);
         });
     }
+
+    function calculateTotalPrice() {
+        var totalPrice = 0;
+
+        $('.product-price').each(function () {
+            var price = parseFloat($(this).text());
+            if (!isNaN(price)) {
+                totalPrice += price;
+            }
+        });
+
+        return totalPrice;
+    }
+
+    var amountProductURL = $('#amountProductButtons').data('product-amount-url');
+    var totalPriceURL = $('#totalPrice').data('total-price-url');
+    var userID = $('#datas').data('user-id');
+
+    function updateTotalPrice() {
+        var totalPrice = calculateTotalPrice();
+        $('.total-price').text('Итог: ' + totalPrice);
+
+        var data = {
+            _method: 'PUT',
+            user_id: userID,
+            debt: totalPrice,
+        }
+
+        $.ajax({
+            url: totalPriceURL,
+            type: 'POST',
+            data: data,
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            success: function (response) {
+                console.log(response)
+            }
+        });
+    }
+
+    updateTotalPrice();
 
     $('#addProduct').click(function () {
         var productName = $('#productNameInput').val();
@@ -75,7 +117,7 @@ $(document).ready(function () {
                 var addedProducts = `<tr data-product-id="${response.id}">
                                         <td class="table-data">${response.id}</td>
                                         <td class="table-data">${response.name}</td>
-                                        <td class="table-data">${response.price}</td>
+                                        <td class="table-data product-price" data-product-id="${response.id}">${response.price}</td>
                                         <td class="table-data grid">
                                             <button class="btn-minus">&minus;</button>
                                             <div class="product-amount">${response.amount}</div>
@@ -93,13 +135,12 @@ $(document).ready(function () {
                 $('#productPriceInput').val('');
                 $('#productCommentInput').val('');
                 $('#myModalProduct').hide();
+                updateTotalPrice();
             }
         });
     });
 
-    var amountProductURL = $('#amountProductButtons').data('product-amount-url');
-
-    $('.btn-plus, .btn-minus').click(function() {
+    $('.data-table1 tbody').on('click', '.btn-plus, .btn-minus', function() {
         var amountElement = $(this).siblings('.product-amount');
         var priceElement = $(this).closest('tr').find('.product-price');
         var price = parseFloat(priceElement.text());
@@ -114,7 +155,6 @@ $(document).ready(function () {
     function updateProductData(price, newAmount, amountElement, productID) {
         var unitPrice = price / parseFloat(amountElement.text());
         var totalPrice = unitPrice * newAmount;
-        console.log(price)
         var data = {
             _method: 'PUT',
             amount: newAmount,
@@ -132,6 +172,7 @@ $(document).ready(function () {
             success: function (response) {
                 $('.product-price[data-product-id="' + productID + '"]').html(response.price);
                 amountElement.html(response.amount);
+                updateTotalPrice();
             }
         });
     }
@@ -151,6 +192,7 @@ $(document).ready(function () {
             },
             success: function (response) {
                 $('.data-table1 tbody tr[data-product-id="' + productID + '"]').remove();
+                updateTotalPrice();
             }
         });
     }
@@ -188,7 +230,7 @@ $(document).ready(function () {
                 $('#myModalPeople').hide();
             }
         })
-    });
+    })
 
     function deletePeople(peopleID) {
         var data = {
@@ -215,27 +257,28 @@ $(document).ready(function () {
     });
 
     var editOrderURL = $('#editOrderButton').data('edit-order-url');
+    var orderStatus = $('#datas').data('order-status');
+    var currentStatus = orderStatus;
 
-    $('#editOrder, #changeStatusButton').click(function () {
-        var newName = $('#orderNameInput').val();
-        var newStatus = '';
+    function updateOrderButtons(status) {
+        if (status == 2) {
+            $('#changeStatusClosed').show();
+            $('#changeStatusOrdered').hide();
+        } else if (status == 3) {
+            $('.btn-plus, .btn-minus, .delete-product').addClass('disabled').prop('disabled', true);
+            $('#editModal, #productModal, #peopleModal, .delete-people').hide()
+            $('#productPaid, .people-debt').show();
+        }
+    }
 
+    function updateOrderStatus(name, status) {
         var data = {
             _method: 'PUT',
+            status: status,
         };
 
-        if (newName !== '') {
-            data.name = newName;
-        }
-
-        if (orderStatus === 1) {
-            newStatus = 2;
-        } else if (orderStatus === 2) {
-            newStatus = 3;
-        }
-
-        if (newStatus !== '') {
-            data.status = newStatus;
+        if (name !== '') {
+            data.name = name;
         }
 
         $.ajax({
@@ -249,52 +292,65 @@ $(document).ready(function () {
                 $('.order-name').html('Имя заказа: ' + response.order.name);
                 $('.my-modal-content input').val('');
                 $('.order-status').html('Статус заказа: ' + response.order.status);
-
-                if (response.order.status === 2) {
-                    $('#changeStatusButton[data-status="ordered"]').hide();
-                } else if (response.order.status === 3) {
-                    $('#changeStatusButton').hide();
-                }
-
+                orderStatus = response.order.status;
                 $('#myModalEdit').hide();
+                updateOrderButtons(response.order.status);
             }
         });
-    });
-
-    var isOwner = $('#isOwner').data('is-owner');
-
-    if (!isOwner) {
-        $('#editModal').hide();
-        $('#peopleModal').hide();
-        $('#closeOrder').hide();
-        $('.delete-people').hide();
     }
 
-    var modal = $('#myModalSure');
-    var orderDebtURL = $('#debtButton').data('debt-url');
-    var confirmButton = $('#confirmButton');
-    var cancelButton = $('#cancelButton');
-    var orderStatus = $('#orderIDs').data('order-status');
-    var currentStatus = orderStatus;
-
-    $('#orderStatusInput').change(function () {
-        var newStatus = $(this).val();
-
-        if (newStatus === '3') {
-            $('#closeOrder').show();
-        } else $('#closeOrder').hide();
+    $('#editOrder').click(function () {
+        var name = $('#orderNameInput').val();
+        updateOrderStatus(name, orderStatus);
     });
 
-    $("#closeOrder").click(function () {
-        modal.show();
+    $('#changeStatusOrdered').click(function () {
+        updateOrderStatus('', 2);
     });
 
-    confirmButton.click(function () {
-        window.location.href = orderDebtURL;
+    $('#changeStatusClosed').click(function () {
+        $('#myModalSure').show();
     });
 
-    cancelButton.click(function () {
+    $('#confirmButton').click(function () {
+        updateOrderStatus('', 3);
+        $('.btn-minus, .btn-plus, .delete-product').addClass('disabled').prop('disabled', true);
+        $('#productModal, #peopleModal, #myModalEdit, #myModalSure, #editModal, .delete-people').hide();
+        $('#productPaid, .people-debt').show();
+    });
+
+    $('#cancelButton').click(function () {
         orderStatus = currentStatus;
-        modal.hide();
+        $('#myModalSure').hide();
+    });
+
+    updateOrderButtons(orderStatus);
+
+    var isOwner = $('#datas').data('is-owner');
+
+    if (!isOwner) {
+        $('#editModal, #peopleModal, .delete-people').hide();
+    }
+
+    $('#productPaid').click(function () {
+        $('#productPaid').hide();
+        var personID = $('#productPaid').data('order-user-id');
+        var data = {
+            _method: 'PUT',
+            user_id: userID,
+            paid: 1,
+        }
+
+        $.ajax({
+            url: totalPriceURL,
+            type: 'POST',
+            data: data,
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+            },
+            success: function (response) {
+                $('.data-table2 tbody tr[data-people-id="' + personID + '"]').remove();
+            }
+        });
     });
 });

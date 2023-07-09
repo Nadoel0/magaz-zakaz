@@ -9,7 +9,7 @@
 
         <title>Bordel</title>
 {{--    <title>{{ config('app.name', 'Bordel') }}</title>--}}
-    @vite(['resources/css/order_id.css', 'resources/js/order_id.js'])
+    @vite(['resources/css/order_id.css', 'resources/js/order_id.js', 'resources/js/order_index.js'])
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">

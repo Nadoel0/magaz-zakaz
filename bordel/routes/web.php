@@ -39,8 +39,8 @@ Route::prefix('/order')->middleware('auth')->controller(OrderController::class)-
 });
 
 Route::prefix('debt')->middleware('auth')->controller(DebtController::class)->group(function () {
-    Route::get('/{order_id}/debt', 'show')->name('order.debt');
-    Route::put('{order_id}/debt', 'completedOrder')->name('order.complete');
+    Route::put('/{order_id}/debt', 'update')->name('debt.update');
+//    Route::put('{order_id}/debt', 'completedOrder')->name('order.complete');
 });
 
 Route::prefix('/user')->middleware('auth')->controller(UserController::class)->group(function () {
