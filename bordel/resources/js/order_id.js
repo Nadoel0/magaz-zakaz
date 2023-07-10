@@ -11,12 +11,23 @@ $(document).ready(function () {
         showModal('#myModalProduct');
     });
 
-    $('#editModal').click(function () {
-        showModal('#myModalEdit');
-    })
-
     $('#peopleModal').click(function () {
         showModal('#myModalPeople');
+    });
+
+    $('.product-edit').click(function () {
+        var productID = $(this).data('product-id');
+        $('#productID').val(productID);
+        var productName = $(this).closest('tr').find('.table-data.product-name').text();
+        var productPrice = $(this).closest('tr').find('.table-data.product-price').text();
+        var productAmount = $(this).closest('tr').find('.product-amount').text();
+        var price = productPrice/productAmount;
+
+        $('#editProductNameInput').val(productName);
+        $('#editProductPriceInput').val(price);
+        $('#editProductAmountInput').val(productAmount);
+
+        showModal('#myModalProductEdit')
     });
 
     $('.close-modal, .my-modal-space').click(function (event) {
@@ -25,28 +36,11 @@ $(document).ready(function () {
         }
     })
 
-    // var selectElement = document.querySelector('.form-select');
-    // var priceInput = document.querySelector('.modal-price-input');
-    //
-    // selectElement.addEventListener('change', function () {
-    //     var selectedOption = selectElement.options[selectElement.selectedIndex];
-    //     var price = selectedOption.getAttribute('data-price');
-    //     priceInput.value = price;
-    // });
-
     var addProductURL = $('#addProductButton').data('add-product-url');
     var deleteProductURL = $('#deleteProductButton').data('delete-product-url');
 
     function calculatePrice(price, amount) {
         return price * amount;
-    }
-
-    function updateTableIndex() {
-        var tableRows = $('.data-table1 tbody tr');
-
-        tableRows.each(function (index) {
-            $(this).find('td:first-child').text(index + 1);
-        });
     }
 
     function calculateTotalPrice() {
@@ -115,7 +109,6 @@ $(document).ready(function () {
             },
             success: function (response) {
                 var addedProducts = `<tr data-product-id="${response.id}">
-                                        <td class="table-data">${response.id}</td>
                                         <td class="table-data">${response.name}</td>
                                         <td class="table-data product-price" data-product-id="${response.id}">${response.price}</td>
                                         <td class="table-data grid">
@@ -129,7 +122,6 @@ $(document).ready(function () {
                                     </tr>`;
 
                 $('.data-table1 tbody').append(addedProducts);
-                updateTableIndex();
                 $('#productNameInput').val('');
                 $('#productAmountInput').val('');
                 $('#productPriceInput').val('');
@@ -151,28 +143,60 @@ $(document).ready(function () {
         if (newAmount > 0) updateProductData(price, newAmount, amountElement, productID);
     });
 
+    $('#editProduct').click(function () {
+        var productID = $('#productID').val();
+        var productName = $('#editProductNameInput').val();
+        var productAmount = $('#editProductAmountInput').val();
+        var productPrice = $('#editProductPriceInput').val();
+        var productComment = $('#editProductCommentInput').val();
+        var totalPrice = calculatePrice(productPrice, productAmount);
+
+        var data = {
+            productID: productID,
+            name: productName,
+            amount: productAmount,
+            comment: productComment,
+            price: totalPrice,
+        };
+
+        sendDataToServer(amountProductURL, data, function(response) {
+            var targetElement = $(`.data-table1 tbody tr[data-product-id="${response.id}"]`);
+
+            targetElement.find('.product-name').text(response.name);
+            targetElement.find('.product-price').text(response.price);
+            targetElement.find('.product-amount').text(response.amount);
+
+            $('#myModalProductEdit').hide();
+            updateTotalPrice();
+        });
+    });
 
     function updateProductData(price, newAmount, amountElement, productID) {
         var unitPrice = price / parseFloat(amountElement.text());
         var totalPrice = unitPrice * newAmount;
         var data = {
-            _method: 'PUT',
             amount: newAmount,
             price: totalPrice,
             productID: productID,
-        }
+        };
 
+        sendDataToServer(amountProductURL, data, function(response) {
+            $('.product-price[data-product-id="' + productID + '"]').html(response.price);
+            amountElement.html(response.amount);
+            updateTotalPrice();
+        });
+    }
+
+    function sendDataToServer(url, data, successCallback) {
         $.ajax({
-            url: amountProductURL,
-            type: 'POST',
+            url: url,
+            type: 'PUT',
             data: data,
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
             success: function (response) {
-                $('.product-price[data-product-id="' + productID + '"]').html(response.price);
-                amountElement.html(response.amount);
-                updateTotalPrice();
+                successCallback(response);
             }
         });
     }
@@ -193,12 +217,13 @@ $(document).ready(function () {
             success: function (response) {
                 $('.data-table1 tbody tr[data-product-id="' + productID + '"]').remove();
                 updateTotalPrice();
+                $('#myModalProductEdit').hide();
             }
         });
     }
 
-    $('.delete-product').click(function () {
-        var productID = $(this).closest('tr').data('product-id');
+    $('#deleteProduct').click(function () {
+        var productID = $('#productID').val();
         deleteProduct(productID);
     });
 
@@ -224,7 +249,6 @@ $(document).ready(function () {
                                         <button class="delete-button" data-people-id="${response.orderUserID}">X</button>
                                     </td>
                                 </tr>`;
-
                 $('.data-table2 tbody').append(addedPeople);
                 $('#peopleSelect').val('');
                 $('#myModalPeople').hide();
@@ -260,13 +284,17 @@ $(document).ready(function () {
     var orderStatus = $('#datas').data('order-status');
     var currentStatus = orderStatus;
 
+    function checkOrderStatus(status) {
+        if (status === 1) $('.order-status').html('Статус заказа: создано')
+        else if (status === 2) $('.order-status').html('Статус заказа: доставлено');
+    }
+
+    checkOrderStatus(orderStatus)
+
     function updateOrderButtons(status) {
         if (status == 2) {
-            $('#changeStatusClosed').show();
-            $('#changeStatusOrdered').hide();
-        } else if (status == 3) {
-            $('.btn-plus, .btn-minus, .delete-product').addClass('disabled').prop('disabled', true);
-            $('#editModal, #productModal, #peopleModal, .delete-people').hide()
+            $('.btn-plus, .btn-minus, .product-edit').addClass('disabled').prop('disabled', true);
+            $('#productModal, #peopleModal, #changeStatusClosed, .delete-people').hide()
             $('#productPaid, .people-debt').show();
         }
     }
@@ -277,10 +305,6 @@ $(document).ready(function () {
             status: status,
         };
 
-        if (name !== '') {
-            data.name = name;
-        }
-
         $.ajax({
             url: editOrderURL,
             type: 'POST',
@@ -289,33 +313,21 @@ $(document).ready(function () {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
             },
             success: function (response) {
-                $('.order-name').html('Имя заказа: ' + response.order.name);
-                $('.my-modal-content input').val('');
-                $('.order-status').html('Статус заказа: ' + response.order.status);
+                $('.order-status').html('Статус заказа: доставлено');
                 orderStatus = response.order.status;
-                $('#myModalEdit').hide();
                 updateOrderButtons(response.order.status);
             }
         });
     }
-
-    $('#editOrder').click(function () {
-        var name = $('#orderNameInput').val();
-        updateOrderStatus(name, orderStatus);
-    });
-
-    $('#changeStatusOrdered').click(function () {
-        updateOrderStatus('', 2);
-    });
 
     $('#changeStatusClosed').click(function () {
         $('#myModalSure').show();
     });
 
     $('#confirmButton').click(function () {
-        updateOrderStatus('', 3);
-        $('.btn-minus, .btn-plus, .delete-product').addClass('disabled').prop('disabled', true);
-        $('#productModal, #peopleModal, #myModalEdit, #myModalSure, #editModal, .delete-people').hide();
+        updateOrderStatus('', 2);
+        $('.btn-minus, .btn-plus, .product-edit').addClass('disabled').prop('disabled', true);
+        $('#productModal, #peopleModal, #myModalSure, .delete-people').hide();
         $('#productPaid, .people-debt').show();
     });
 
@@ -329,7 +341,7 @@ $(document).ready(function () {
     var isOwner = $('#datas').data('is-owner');
 
     if (!isOwner) {
-        $('#editModal, #peopleModal, .delete-people').hide();
+        $('.box-table-user').hide();
     }
 
     $('#productPaid').click(function () {

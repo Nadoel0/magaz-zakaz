@@ -8,6 +8,10 @@
             <div class="form-group mb-3">
                 <label>Имя заказа</label>
                 <input name="name" class="form-control" placeholder="Введите имя заказа">
+
+                @error('name')
+                <p class="text-danger">{{ $message }}</p>
+                @enderror
             </div>
             <div class="form-group mb-3">
                 <input type="hidden" name="owner_id" value="{{ $owner->id }}">
@@ -16,14 +20,20 @@
                 <label>Клиенты</label>
                 <select multiple class="form-select" name="user_id[]">
                     @foreach($users as $user)
-                        <option value="{{ $user -> id }}">
-                            {{ $user -> name }} {{ $user->email }}
-                        </option>
+                        @if($user->name !== $owner->name)
+                            <option value="{{ $user -> id }}">
+                                {{ $user -> name }} {{ $user->email }}
+                            </option>
+                        @endif
                     @endforeach
                 </select>
+
+                @error('user_id')
+                <p class="text-danger">{{ $message }}</p>
+                @enderror
             </div>
             <input name="status" value="1" type="hidden">
-            <button type="submit" class="btn btn-outline-secondary">Next</button>
+            <button type="submit" class="btn btn-outline-secondary">Создать</button>
         </form>
     </div>
 @endsection

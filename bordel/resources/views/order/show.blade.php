@@ -1,13 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
+    <div>
+        <h3>Имя заказа: {{ $order->name }}</h3>
+        <h6>Дата заказа: {{ $order->created_at }}</h6>
+    </div>
     <div class="container-box">
         <div class="table-container">
             <div class="table-wrapper1">
                 <table class="data-table1">
                     <thead>
                     <tr>
-                        <th class="table-header small-width">id</th>
                         <th class="table-header">продукт</th>
                         <th class="table-header">цена</th>
                         <th class="table-header small-width">количество</th>
@@ -17,8 +20,7 @@
                     <tbody>
                     @foreach($basket as $product)
                         <tr data-product-id="{{ $product->id }}">
-                            <td class="table-data">{{ $loop->index + 1 }}</td>
-                            <td class="table-data">{{ $product->product_name }}</td>
+                            <td class="table-data product-name">{{ $product->product_name }}</td>
                             <td class="table-data product-price"
                                 data-product-id="{{ $product->id }}">{{ $product->price }}</td>
                             <td class="table-data grid">
@@ -27,35 +29,33 @@
                                 <button class="btn-plus">&plus;</button>
                             </td>
                             <td>
-                                <button class="delete-button delete-product" data-product-id="{{ $product->id }}">X
-                                </button>
+                                <button class="product-edit" data-product-id="{{ $product->id }}">изменить</button>
                             </td>
                         </tr>
                     @endforeach
                     </tbody>
                     <tfoot>
                     <tr>
-                        <td colspan="4"></td>
+                        <td colspan="3"></td>
                         <td class="table-data total-price">Итог: 0</td>
                     </tr>
                     </tfoot>
                 </table>
-            </div>
-            <div>
                 <button class="add-button" id="productModal">добавить</button>
                 @if(!$paid)
-                    <button class="add-button paid" id="productPaid" data-order-user-id="{{ $orderUserID->id }}" style="display: none">оплатить</button>
+                    <button class="add-button paid" id="productPaid" data-order-user-id="{{ $orderUserID->id }}"
+                            style="display: none">оплатить
+                    </button>
                 @endif
             </div>
         </div>
         <div class="box-table-user">
             <div class="user-wrapper">
-                <div>
-                    <button class="order-edit-button" id="editModal">изменить</button>
-                </div>
                 <div class="user-card">
-                    <p class="order-info order-name">Имя заказа: {{ $order->name }}</p>
-                    <p class="order-info order-status">Статус заказа: {{ $order->status }}</p>
+                    <p class="order-status">Статус заказа: {{ $order->status }}</p>
+                </div>
+                <div class="next-order-button">
+                    <button class="next-order" id="changeStatusClosed">Изменить на доставлено</button>
                 </div>
             </div>
             <div class="table-wrapper2">
@@ -92,22 +92,17 @@
             <button class="add-button" id="addProduct">добавить</button>
         </div>
     </div>
-    <div id="myModalEdit" class="my-modal-space">
+    <div id="myModalProductEdit" class="my-modal-space">
         <div class="my-modal-content">
             <button class="close-modal">X</button>
-            <div>
-                <label>Имя заказа</label>
-                <input id="orderNameInput" class="form-control mb-3" placeholder="Имя">
-            </div>
-            <div>
-                <p class="h3 mb-3 order-status">Статус заказа: {{ $order->status }}</p>
-                <button class="next-order" id="changeStatusOrdered">Изменить статус на заказано
-                </button>
-                <button class="next-order" id="changeStatusClosed" style="display:none;">Изменить статус на
-                    доставлено
-                </button>
-            </div>
-            <button class="add-button" id="editOrder">изменить</button>
+            <label class="mb-3">Редактирование продукта</label>
+            <input type="hidden" id="productID">
+            <input class="form-control mb-3" id="editProductNameInput" placeholder="Продукт">
+            <input class="form-control mb-3" id="editProductPriceInput" placeholder="Цена">
+            <input class="form-control mb-3" id="editProductAmountInput" placeholder="Кол-во">
+            <textarea class="form-control mb-3" id="editProductCommentInput" placeholder="Комментарий к заказу"></textarea>
+            <button class="delete-product" id="deleteProduct">удалить</button>
+            <button class="add-button" id="editProduct">изменить</button>
         </div>
     </div>
     <div id="myModalPeople" class="my-modal-space">
@@ -116,7 +111,7 @@
             <div>
                 <label>Пользователи</label>
                 <select class="form-select mb-3" id="peopleSelect">
-                    @foreach($allUsers as $user)
+                    @foreach($usersNotInOrder as $user)
                         <option value="{{ $user->id }}" data-user-id="{{ $user->id }}">
                             {{ $user->name }} {{ $user->email }}
                         </option>

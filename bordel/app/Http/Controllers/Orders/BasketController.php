@@ -37,11 +37,15 @@ class BasketController extends Controller
     {
         $basket = Basket::findOrFail($request->input('productID'));
         $basket->update([
+            'product_name' => $request->input('name'),
+            'comment' => $request->input('comment'),
             'amount' => $request->input('amount'),
             'price' => $request->input('price'),
         ]);
 
         $response = [
+            'id' => $basket->id,
+            'name' => $basket->product_name,
             'amount' => $basket->amount,
             'price' => $basket->price,
         ];

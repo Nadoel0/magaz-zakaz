@@ -28,12 +28,22 @@ class OrderController extends Controller
 
     public function store(Request $request)
     {
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'user_id' => 'required|array',
+        ]);
+
+        $ownerID = $request->input('owner_id');
+        $userIDs = $request->input('user_id');
+
         $order = Order::create([
             'name' => $request->input('name'),
-            'owner_id' => $request->input('owner_id'),
+            'owner_id' => $ownerID,
             'status' => $request->input('status')
         ]);
-        $userIDs = $request->input('user_id');
+
+        array_push($userIDs, $ownerID);
+
         foreach ($userIDs as $userID) {
             OrderUser::create([
                'order_id' => $order->id,
@@ -51,11 +61,12 @@ class OrderController extends Controller
         $basket = $order->basket()->where('user_id', $currentUser->id)->get();
         $users = $order->orderUser()->get();
         $orderUserID = $users->where('order_id', $id)->where('user_id', $currentUser->id)->first();
-        $allUsers = User::all();
         $isOwner = $order->owner_id == Auth::user()->id;
         $paid = $currentUser->orderUsers()->where('order_id', $id)->pluck('paid')->first();
+        $usersInOrder = $order->orderUser()->pluck('user_id')->toArray();
+        $usersNotInOrder = User::whereNotIn('id', $usersInOrder)->get();
 
-        return view('order.show', compact('order', 'basket', 'currentUser', 'users', 'orderUserID', 'allUsers', 'isOwner', 'paid'));
+        return view('order.show', compact('order', 'basket', 'currentUser', 'users', 'orderUserID', 'usersNotInOrder', 'isOwner', 'paid'));
     }
 
     public function update(Request $request, $id) {

@@ -10,35 +10,55 @@
     background-color: #99ccff;
     width: 100%;
     flex-grow: 1;
-    margin: 0 5px 0 15px;
-    display: grid;
+    margin-right: 5px;
+    display: flex;
     position: relative;
-}
-
-.box-table-user {
-    border-radius: 7px;
-    margin: 0 15px 0 5px;
-    width: 35%;
-    display: grid;
-    grid-template-rows: 35%;
 }
 
 .table-wrapper1 {
     background-color: #99ccff;
-    height: 370px;
     border-radius: 7px;
     padding: 7px;
-    overflow: auto;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.data-table1 {
+    border-spacing: 15px;
+    border-collapse: separate;
+    table-layout: fixed;
+    width: 100%;
+}
+
+.product-edit {
+    background-color: #9C98EC;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    text-align: center;
+    font-size: 15px;
+    display: inline-block;
+    padding: 5px 10px;
+}
+
+.box-table-user {
+    border-radius: 7px;
+    margin-left: 5px;
+    width: 35%;
+    display: grid;
+    grid-template-rows: 18%;
 }
 
 .user-wrapper {
     background-color: #99ccff;
     border-radius: 7px;
-    display: grid;
-    grid-template-rows: 20%;
-    overflow: hidden;
+    overflow: auto;
+    height: 100%;
     margin-bottom: 5px;
     position: relative;
+    display: inline-block;
+    /*grid-template-rows: 100%;*/
+    /*grid-template-columns: repeat(auto-fit, minmax(50%, 50%));*/
 }
 
 .table-wrapper2 {
@@ -48,25 +68,39 @@
     position: relative;
 }
 
-.data-table1 {
-    border-spacing: 15px;
-    border-collapse: separate;
-    table-layout: auto;
-}
-
 .user-card {
     background-color: #99ccff;
+    box-sizing: border-box;
+    margin: 10px 40% -8px 10px;
+}
+
+.order-status {
+    background-color: #6b4fbb;
     border-radius: 7px;
-    line-height: 10px;
-    margin-right: 10px;
-    position: absolute;
-    top: 20px;
+    color: white;
+    text-align: center;
+}
+
+.next-order-button {
+    line-height: 17px;
+    background-color: #99ccff;
+    box-sizing: border-box;
+    margin: 0 0 10px 10px;
+}
+
+.next-order {
+    width: 70%;
+    background-color: #d990ff;
+    border: none;
+    border-radius: 7px;
+    color: white;
 }
 
 .data-table2 {
     width: 100%;
     border-collapse: separate;
     border-spacing: 15px;
+    overflow: auto;
 }
 
 .data-table2 td {
@@ -87,7 +121,7 @@
 }
 
 .small-width {
-    width: 10%;
+    width: 15%;
 }
 
 .delete-button {
@@ -102,12 +136,17 @@
     padding: 5px 10px;
 }
 
-.order-info {
-    text-align: center;
-    margin: 15px 0 0 15px;
-    background-color: #6b4fbb;
+.delete-product {
+    position: absolute;
+    right: 170px;
+    bottom: 10px;
+    background-color: #e74c3c;
+    border: none;
     border-radius: 7px;
-    padding: 7px;
+    width: 150px;
+    height: 20px;
+    text-align: center;
+    line-height: 10px;
     color: white;
 }
 
@@ -201,19 +240,6 @@
     border: none;
     border-radius: 7px;
     width: 50px;
-    height: 20px;
-    text-align: center;
-    line-height: 10px;
-    color: white;
-}
-
-.next-order {
-    position: absolute;
-    left: 110px;
-    bottom: 10px;
-    background-color: #d990ff;
-    border: none;
-    border-radius: 7px;
     height: 20px;
     text-align: center;
     line-height: 10px;

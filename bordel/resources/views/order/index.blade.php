@@ -8,7 +8,7 @@
     <div class="orders-index">
         <div id="opened-orders" class="order-block">
             @foreach($orders as $order)
-                @if($order->status !== 3)
+                @if($order->status !== 2)
                     <div class="order-cart" data-order-id="{{ $order->id }}">
                         <h5>Заказ №{{ $order->id }}</h5>
                         <p>Имя заказа: {{ $order->name }}</p>
@@ -20,7 +20,7 @@
 
         <div id="closed-orders" class="order-block" style="display: none">
             @foreach($orders as $order)
-                @if($order->status === 3)
+                @if($order->status === 2)
                     <div class="order-cart" data-order-id="{{ $order->id }}">
                         <h5>Заказ №{{ $order->id }}</h5>
                         <p>Имя заказа: {{ $order->name }}</p>
