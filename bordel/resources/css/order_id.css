@@ -39,11 +39,11 @@
     display: inline-block;
     padding: 5px 10px;
     color: #ffffff;
+    transition: transform 0.3s ease;
 }
 
 .product-edit:hover {
-    background-color: transparent;
-    color: black;
+    transform: scale(1.1);
 }
 
 .box-table-user {
@@ -97,11 +97,11 @@
     color: #ffffff;
     margin-left: 10px;
     line-height: 15px;
+    transition: transform 0.3s ease;
 }
 
 .next-order:hover {
-    background-color: transparent;
-    color: black;
+    transform: scale(1.05);
 }
 
 .data-table2 {
@@ -143,11 +143,11 @@
     font-size: 15px;
     display: inline-block;
     padding: 5px 10px;
+    transition: transform 0.3s ease;
 }
 
 .delete-button:hover {
-    background-color: transparent;
-    color: black;
+    transform: scale(1.1);
 }
 
 .delete-product {
@@ -162,11 +162,11 @@
     text-align: center;
     line-height: 10px;
     color: #ffffff;
+    transition: transform 0.3s ease;
 }
 
 .delete-product:hover {
-    background-color: transparent;
-    color: black;
+    transform: scale(1.1);
 }
 
 .add-button {
@@ -181,11 +181,11 @@
     text-align: center;
     line-height: 10px;
     color: #ffffff;
+    transition: transform 0.3s ease;
 }
 
 .add-button:hover {
-    background-color: transparent;
-    color: black;
+    transform: scale(1.1);
 }
 
 .order-edit-button {
@@ -280,12 +280,12 @@
     background-color: transparent;
     border: none;
     border-radius: 7px;
+    transition: transform 0.3s ease;
 }
 
 .btn-minus:hover,
 .btn-plus:hover {
-    background-color: #555555;
-    color: white;
+    transform: scale(2);
 }
 
 .product-amount {
@@ -307,6 +307,11 @@
     margin: 5px;
     line-height: 10px;
     cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.order-cart:hover {
+    transform: scale(1.05);
 }
 
 .toggle-buttons {
@@ -327,8 +332,9 @@
 }
 
 .disabled:hover {
-    background-color: darkgray;
-    color: #ffffff;
+    transform: none;
+    background-color: transparent;
+    color: black;
 }
 
 .people-debt {
@@ -350,9 +356,9 @@
     width: 150px;
     cursor: pointer;
     color: #ffffff;
+    transition: transform 0.3s ease;
 }
 
 .btn-create-order:hover {
-    background-color: transparent;
-    color: black;
+    transform: scale(1.1);
 }
