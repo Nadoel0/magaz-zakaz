@@ -353,5 +353,6 @@
 }
 
 .btn-create-order:hover {
-    background-color: #5e6369;
+    background-color: transparent;
+    color: black;
 }

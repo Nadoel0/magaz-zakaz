@@ -5,15 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1c73140b-ab5f-415d-ae32-2b77c0605a44" name="Changes" comment="end-css">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bordel/app/Http/Controllers/Orders/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/app/Http/Controllers/Orders/OrderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bordel/app/Http/Controllers/Orders/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/app/Http/Controllers/Orders/UserController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bordel/resources/css/order_id.css" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/resources/css/order_id.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bordel/resources/js/order_id.js" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/resources/js/order_id.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bordel/resources/js/order_index.js" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/resources/js/order_index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bordel/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bordel/resources/views/order/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/resources/views/order/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bordel/resources/views/order/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/resources/views/order/show.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -364,6 +356,7 @@
       <workItem from="1688997434022" duration="109000" />
       <workItem from="1688997555347" duration="23116000" />
       <workItem from="1689070951631" duration="19116000" />
+      <workItem from="1689093272558" duration="328000" />
     </task>
     <task id="LOCAL-00001" summary="work-work">
       <created>1686394976520</created>
