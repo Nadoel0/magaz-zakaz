@@ -14,24 +14,23 @@ class OrderController extends Controller
     public function index()
     {
         $orders = Order::user(Auth::user()->id)->get();
-
-        return view('order.index', compact('orders'));
-    }
-
-    public function create()
-    {
         $owner = Auth::user();
         $users = User::all();
 
-        return view('order.create', compact('users', 'owner'));
+        return view('order.index', compact('orders', 'owner', 'users'));
     }
 
     public function store(Request $request)
     {
+        $message = [
+            'name.required' => 'Введите имя заказа',
+            'user_id.required' => 'Выберите пользователей',
+        ];
+
         $validatedData = $request->validate([
             'name' => 'required',
             'user_id' => 'required|array',
-        ]);
+        ], $message);
 
         $ownerID = $request->input('owner_id');
         $userIDs = $request->input('user_id');
@@ -51,7 +50,13 @@ class OrderController extends Controller
             ]);
         }
 
-        return redirect()->route('order.index');
+        $response = [
+            'id' => $order->id,
+            'name' => $order->name,
+            'date' => $order->created_at->format('d/m/Y'),
+        ];
+
+        return response()->json($response);
     }
 
     public function show($id)

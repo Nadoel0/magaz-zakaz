@@ -13,11 +13,15 @@ class UserController extends Controller
 {
     public function store(Request $request, $orderID, $userID)
     {
+        $order = Order::findOrFail($orderID);
         $userOrder = OrderUser::create([
             'order_id' => $orderID,
             'user_id' => $userID,
         ]);
         $userData = $userOrder->user;
+
+        $usersInOrder = $order->orderUser()->pluck('user_id')->toArray();
+        $usersNotInOrder = User::whereNotIn('id', $usersInOrder)->get();
 
         $response = [
             'orderUserID' => $userOrder->id,
@@ -25,7 +29,9 @@ class UserController extends Controller
             'userData' => [
                 'name' => $userData->name,
                 'email' => $userData->email
-            ]
+            ],
+
+            'usersNotInOrder' => $usersNotInOrder
         ];
 
         return response()->json($response);
@@ -33,6 +39,8 @@ class UserController extends Controller
 
     public function destroy($id)
     {
+        $order = Order::findOrFail($id);
+
         $peopleID = request('people_id');
         $userOrder = OrderUser::where('id', $peopleID)->first();
 
@@ -40,6 +48,13 @@ class UserController extends Controller
             $userOrder->delete();
         }
 
-        return back();
+        $usersInOrder = $order->orderUser()->pluck('user_id')->toArray();
+        $usersNotInOrder = User::whereNotIn('id', $usersInOrder)->get();
+
+        $response = [
+            'usersNotInOrder' => $usersNotInOrder,
+        ];
+
+        return response()->json($response);
     }
 }

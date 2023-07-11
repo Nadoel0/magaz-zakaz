@@ -7,7 +7,7 @@
 
 .table-container {
     border-radius: 7px;
-    background-color: #99ccff;
+    border: 2px solid black;
     width: 100%;
     flex-grow: 1;
     margin-right: 5px;
@@ -16,7 +16,6 @@
 }
 
 .table-wrapper1 {
-    background-color: #99ccff;
     border-radius: 7px;
     padding: 7px;
     overflow-x: auto;
@@ -31,14 +30,20 @@
 }
 
 .product-edit {
-    background-color: #9C98EC;
-    border: none;
+    background-color: #333333;
+    border: 2px solid black;
     border-radius: 5px;
     width: 100%;
     text-align: center;
     font-size: 15px;
     display: inline-block;
     padding: 5px 10px;
+    color: #ffffff;
+}
+
+.product-edit:hover {
+    background-color: transparent;
+    color: black;
 }
 
 .box-table-user {
@@ -50,50 +55,53 @@
 }
 
 .user-wrapper {
-    background-color: #99ccff;
+    border: 2px solid black;
     border-radius: 7px;
     overflow: auto;
     height: 100%;
     margin-bottom: 5px;
     position: relative;
     display: inline-block;
-    /*grid-template-rows: 100%;*/
-    /*grid-template-columns: repeat(auto-fit, minmax(50%, 50%));*/
 }
 
 .table-wrapper2 {
-    background-color: #99ccff;
+    border: 2px solid black;
     margin-top: 5px;
     border-radius: 7px;
     position: relative;
 }
 
 .user-card {
-    background-color: #99ccff;
     box-sizing: border-box;
-    margin: 10px 40% -8px 10px;
+    margin: 10px 40% -12px 10px;
 }
 
 .order-status {
-    background-color: #6b4fbb;
+    background-color: #333333;
     border-radius: 7px;
-    color: white;
+    color: #ffffff;
     text-align: center;
 }
 
 .next-order-button {
     line-height: 17px;
-    background-color: #99ccff;
     box-sizing: border-box;
-    margin: 0 0 10px 10px;
+    margin-left: 10px;
 }
 
 .next-order {
     width: 70%;
-    background-color: #d990ff;
-    border: none;
+    background-color: #333333;
+    border: 2px solid black;
     border-radius: 7px;
-    color: white;
+    color: #ffffff;
+    margin-left: 10px;
+    line-height: 15px;
+}
+
+.next-order:hover {
+    background-color: transparent;
+    color: black;
 }
 
 .data-table2 {
@@ -108,15 +116,16 @@
 }
 
 .table-header {
-    background-color: #6b4fbb;
+    background-color: #333333;
+    border: 2px solid black;
     text-align: center;
-    color: white;
+    color: #ffffff;
     border-radius: 7px;
 }
 
 .table-data {
     text-align: center;
-    background-color: #a1e7ff;
+    border: 2px solid black;
     border-radius: 7px;
 }
 
@@ -125,9 +134,9 @@
 }
 
 .delete-button {
-    background-color: #e74c3c;
-    color: white;
-    border: none;
+    background-color: #333333;
+    color: #ffffff;
+    border: 2px solid black;
     border-radius: 5px;
     width: 100%;
     text-align: center;
@@ -136,32 +145,47 @@
     padding: 5px 10px;
 }
 
+.delete-button:hover {
+    background-color: transparent;
+    color: black;
+}
+
 .delete-product {
     position: absolute;
     right: 170px;
     bottom: 10px;
-    background-color: #e74c3c;
-    border: none;
+    background-color: #333333;
+    border: 2px solid black;
     border-radius: 7px;
     width: 150px;
     height: 20px;
     text-align: center;
     line-height: 10px;
-    color: white;
+    color: #ffffff;
+}
+
+.delete-product:hover {
+    background-color: transparent;
+    color: black;
 }
 
 .add-button {
     position: absolute;
     right: 10px;
     bottom: 10px;
-    background-color: #55a049;
-    border: none;
+    background-color: #333333;
+    border: 2px solid black;
     border-radius: 7px;
     width: 150px;
     height: 20px;
     text-align: center;
     line-height: 10px;
-    color: white;
+    color: #ffffff;
+}
+
+.add-button:hover {
+    background-color: transparent;
+    color: black;
 }
 
 .order-edit-button {
@@ -175,7 +199,7 @@
     height: 20px;
     text-align: center;
     line-height: 10px;
-    color: white;
+    color: #ffffff;
 }
 
 .my-modal-space {
@@ -214,7 +238,7 @@
     height: 20px;
     text-align: center;
     line-height: 10px;
-    color: white;
+    color: #ffffff;
     font-size: 12px;
 }
 
@@ -229,7 +253,7 @@
     height: 20px;
     text-align: center;
     line-height: 10px;
-    color: white;
+    color: #ffffff;
 }
 
 .no-button {
@@ -243,7 +267,7 @@
     height: 20px;
     text-align: center;
     line-height: 10px;
-    color: white;
+    color: #ffffff;
 }
 
 .grid {
@@ -258,9 +282,9 @@
     border-radius: 7px;
 }
 
-.btn-plus:hover,
-.btn-minus:hover {
-    background-color: #cca1ff;
+.btn-minus:hover,
+.btn-plus:hover {
+    background-color: #555555;
     color: white;
 }
 
@@ -304,9 +328,30 @@
 
 .disabled:hover {
     background-color: darkgray;
-    color: white;
+    color: #ffffff;
 }
 
 .people-debt {
     width: 40%;
+}
+
+.create-order-container {
+    margin-top: 10px;
+    margin-left: 5px;
+}
+
+.btn-create-order {
+    border: 1px solid black;
+    background-color: #333333;
+    border-radius: 7px;
+    margin-top: 10px;
+    padding: 15px;
+    line-height: 10px;
+    width: 150px;
+    cursor: pointer;
+    color: #ffffff;
+}
+
+.btn-create-order:hover {
+    background-color: #5e6369;
 }

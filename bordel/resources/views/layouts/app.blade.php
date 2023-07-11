@@ -33,7 +33,6 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
                         <a class="nav-link" href="{{ route('order.index') }}">Заказы</a>
-                        <a class="nav-link" href="{{ route('order.create') }}">Создание заказа</a>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

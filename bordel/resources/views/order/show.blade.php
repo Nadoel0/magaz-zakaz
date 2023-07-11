@@ -54,9 +54,9 @@
                 <div class="user-card">
                     <p class="order-status">Статус заказа: {{ $order->status }}</p>
                 </div>
-                <div class="next-order-button">
+{{--                <div class="next-order-button">--}}
                     <button class="next-order" id="changeStatusClosed">Изменить на доставлено</button>
-                </div>
+{{--                </div>--}}
             </div>
             <div class="table-wrapper2">
                 <div>

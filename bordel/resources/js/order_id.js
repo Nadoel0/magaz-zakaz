@@ -21,7 +21,7 @@ $(document).ready(function () {
         var productName = $(this).closest('tr').find('.table-data.product-name').text();
         var productPrice = $(this).closest('tr').find('.table-data.product-price').text();
         var productAmount = $(this).closest('tr').find('.product-amount').text();
-        var price = productPrice/productAmount;
+        var price = productPrice / productAmount;
 
         $('#editProductNameInput').val(productName);
         $('#editProductPriceInput').val(price);
@@ -117,7 +117,7 @@ $(document).ready(function () {
                                             <button class="btn-plus">&plus;</button>
                                         </td>
                                         <td>
-                                            <button class="delete-button" data-product-id="${response.id}">X</button>
+                                            <button class="product-edit" data-product-id="{{ $product->id }}">изменить</button>
                                         </td>
                                     </tr>`;
 
@@ -132,7 +132,7 @@ $(document).ready(function () {
         });
     });
 
-    $('.data-table1 tbody').on('click', '.btn-plus, .btn-minus', function() {
+    $('.data-table1 tbody').on('click', '.btn-plus, .btn-minus', function () {
         var amountElement = $(this).siblings('.product-amount');
         var priceElement = $(this).closest('tr').find('.product-price');
         var price = parseFloat(priceElement.text());
@@ -159,7 +159,7 @@ $(document).ready(function () {
             price: totalPrice,
         };
 
-        sendDataToServer(amountProductURL, data, function(response) {
+        sendDataToServer(amountProductURL, data, function (response) {
             var targetElement = $(`.data-table1 tbody tr[data-product-id="${response.id}"]`);
 
             targetElement.find('.product-name').text(response.name);
@@ -180,7 +180,7 @@ $(document).ready(function () {
             productID: productID,
         };
 
-        sendDataToServer(amountProductURL, data, function(response) {
+        sendDataToServer(amountProductURL, data, function (response) {
             $('.product-price[data-product-id="' + productID + '"]').html(response.price);
             amountElement.html(response.amount);
             updateTotalPrice();
@@ -245,16 +245,22 @@ $(document).ready(function () {
             success: function (response) {
                 var addedPeople = `<tr data-people-id="${response.orderUserID}">
                                     <td class="table-data">${response.userData.name} ${response.userData.email}</td>
-                                    <td>
-                                        <button class="delete-button" data-people-id="${response.orderUserID}">X</button>
+                                    <td class="table-data people-debt" style="display: none">Долг: </td>
+                                    <td colspan="1">
+                                        <button class="delete-button delete-people" data-people-id="${response.orderUserID}">X</button>
                                     </td>
                                 </tr>`;
                 $('.data-table2 tbody').append(addedPeople);
-                $('#peopleSelect').val('');
+                $('#peopleSelect').empty();
+                $.each(response.usersNotInOrder, function (index, user) {
+                    $('#peopleSelect').append(`<option value="${user.id}" data-user-id="${user.id}">
+                                        ${user.name} ${user.email}
+                                    </option>`);
+                });
                 $('#myModalPeople').hide();
             }
-        })
-    })
+        });
+    });
 
     function deletePeople(peopleID) {
         var data = {
@@ -271,11 +277,17 @@ $(document).ready(function () {
             },
             success: function (response) {
                 $('.data-table2 tbody tr[data-people-id="' + peopleID + '"]').remove();
+                $('#peopleSelect').empty();
+                $.each(response.usersNotInOrder, function (index, user) {
+                    $('#peopleSelect').append(`<option value="${user.id}" data-user-id="${user.id}">
+                                        ${user.name} ${user.email}
+                                    </option>`);
+                });
             }
         });
     }
 
-    $('.delete-people').click(function () {
+    $(document).on('click', '.delete-people', function () {
         var peopleID = $(this).closest('tr').data('people-id');
         deletePeople(peopleID);
     });
