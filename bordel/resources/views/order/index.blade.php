@@ -12,7 +12,7 @@
                     <div class="order-cart" data-order-id="{{ $order->id }}" data-order-show-url="{{ route('order.show', $order->id) }}">
                         <h5>Заказ №{{ $order->id }}</h5>
                         <p>Имя заказа: {{ $order->name }}</p>
-                        <p>Дата заказа: {{ $order->created_at->format('d/m/Y') }}</p>
+                        <p>Дата заказа: {{ $order->created_at->format('d/m/y H:i') }}</p>
                     </div>
                 @endif
             @endforeach
@@ -50,7 +50,7 @@
                 @endforeach
             </select>
             <p class="text-danger mb-3" id="userError"></p>
-            <button id="createOrder" class="btn-create-order">Создать заказ</button>
+            <button id="createOrder" class="btn-create-order" data-order-show-url="{{ route('order.show', '__order_id__') }}">Создать заказ</button>
         </div>
     </div>
     <div id="createOrderButton" data-order-create-url="{{ route('order.store') }}" data-owner-id="{{ $owner->id }}"></div>

@@ -17,6 +17,16 @@ class OrderController extends Controller
         $owner = Auth::user();
         $users = User::all();
 
+        foreach ($orders as $key => $order) {
+            $isOwner = $order->owner_id == Auth::user()->id;
+            $isPaid = $order->orderUser()->pluck('paid');
+
+            if ($isOwner && $isPaid);
+            elseif ($isOwner && !$isPaid);
+            elseif (!$isOwner && $isPaid);
+            else unset($orders[$key]);
+        }
+
         return view('order.index', compact('orders', 'owner', 'users'));
     }
 
@@ -53,7 +63,7 @@ class OrderController extends Controller
         $response = [
             'id' => $order->id,
             'name' => $order->name,
-            'date' => $order->created_at->format('d/m/Y'),
+            'date' => $order->created_at,
         ];
 
         return response()->json($response);

@@ -30,7 +30,7 @@
 }
 
 .product-edit {
-    background-color: #333333;
+    background-color: #404040;
     border: 2px solid black;
     border-radius: 5px;
     width: 100%;
@@ -57,11 +57,13 @@
 .user-wrapper {
     border: 2px solid black;
     border-radius: 7px;
-    overflow: auto;
+    overflow: hidden;
+    align-items: center;
     height: 100%;
-    margin-bottom: 5px;
-    position: relative;
-    display: inline-block;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    line-height: 20px;
 }
 
 .table-wrapper2 {
@@ -71,32 +73,27 @@
     position: relative;
 }
 
-.user-card {
-    box-sizing: border-box;
-    margin: 10px 40% -12px 10px;
+.order-status-cart {
+    width: 90%;
+    flex-grow: 1;
+    height: 50%;
+    margin-top: 5px;
+    margin-bottom: -1px;
 }
 
-.order-status {
-    background-color: #333333;
-    border-radius: 7px;
-    color: #ffffff;
-    text-align: center;
-}
-
-.next-order-button {
-    line-height: 17px;
-    box-sizing: border-box;
-    margin-left: 10px;
+.order-next-cart {
+    height: 50%;
+    width: 90%;
+    flex-grow: 1;
 }
 
 .next-order {
-    width: 70%;
-    background-color: #333333;
+    width: 100%;
+    line-height: 15px;
+    background-color: #404040;
     border: 2px solid black;
     border-radius: 7px;
     color: #ffffff;
-    margin-left: 10px;
-    line-height: 15px;
     transition: transform 0.3s ease;
 }
 
@@ -116,7 +113,7 @@
 }
 
 .table-header {
-    background-color: #333333;
+    background-color: #404040;
     border: 2px solid black;
     text-align: center;
     color: #ffffff;
@@ -129,12 +126,16 @@
     border-radius: 7px;
 }
 
+.table-data.label {
+    padding: 0 10px 0 10px;
+}
+
 .small-width {
     width: 15%;
 }
 
 .delete-button {
-    background-color: #333333;
+    background-color: #404040;
     color: #ffffff;
     border: 2px solid black;
     border-radius: 5px;
@@ -150,30 +151,11 @@
     transform: scale(1.1);
 }
 
-.delete-product {
-    position: absolute;
-    right: 170px;
-    bottom: 10px;
-    background-color: #333333;
-    border: 2px solid black;
-    border-radius: 7px;
-    width: 150px;
-    height: 20px;
-    text-align: center;
-    line-height: 10px;
-    color: #ffffff;
-    transition: transform 0.3s ease;
-}
-
-.delete-product:hover {
-    transform: scale(1.1);
-}
-
-.add-button {
+.btn-add-delete {
     position: absolute;
     right: 10px;
     bottom: 10px;
-    background-color: #333333;
+    background-color: #404040;
     border: 2px solid black;
     border-radius: 7px;
     width: 150px;
@@ -184,7 +166,32 @@
     transition: transform 0.3s ease;
 }
 
-.add-button:hover {
+.btn-add-delete:hover {
+    transform: scale(1.1);
+}
+
+.delete {
+    right: 170px;
+}
+
+.delete:hover {
+    transform: scale(1.1);
+}
+
+.add-product-people {
+    position: absolute;
+    right: 22px;
+    bottom: 15px;
+    padding: 5px 10px;
+    width: 127px;
+    background-color: #404040;
+    border: 2px solid black;
+    border-radius: 7px;
+    color: #ffffff;
+    transition: transform 0.3s ease;
+}
+
+.add-product-people:hover {
     transform: scale(1.1);
 }
 
@@ -246,28 +253,34 @@
     position: absolute;
     right: 70px;
     bottom: 10px;
-    background-color: #55a049;
-    border: none;
+    background-color: #404040;
+    border: 2px solid black;
     border-radius: 7px;
     width: 50px;
     height: 20px;
     text-align: center;
-    line-height: 10px;
+    line-height: 12px;
     color: #ffffff;
+    transition: transform 0.3s ease;
 }
 
 .no-button {
     position: absolute;
     right: 10px;
     bottom: 10px;
-    background-color: #e74c3c;
-    border: none;
+    background-color: transparent;
+    border: 2px solid black;
     border-radius: 7px;
     width: 50px;
     height: 20px;
     text-align: center;
-    line-height: 10px;
-    color: #ffffff;
+    line-height: 12px;
+    transition: transform 0.3s ease;
+}
+
+.yes-button:hover,
+.no-button:hover {
+    transform: scale(1.2);
 }
 
 .grid {
@@ -305,7 +318,7 @@
     border-radius: 7px;
     padding: 15px;
     margin: 5px;
-    line-height: 10px;
+    /*line-height: 10px;*/
     cursor: pointer;
     transition: transform 0.3s ease;
 }
@@ -348,7 +361,7 @@
 
 .btn-create-order {
     border: 1px solid black;
-    background-color: #333333;
+    background-color: #404040;
     border-radius: 7px;
     margin-top: 10px;
     padding: 15px;
@@ -360,5 +373,18 @@
 }
 
 .btn-create-order:hover {
+    transform: scale(1.1);
+}
+
+.btn-back {
+    background-color: transparent;
+    border: 2px solid black;
+    margin-top: 10px;
+    border-radius: 7px;
+    color: black;
+    transition: transform 0.3s ease;
+}
+
+.btn-back:hover {
     transform: scale(1.1);
 }

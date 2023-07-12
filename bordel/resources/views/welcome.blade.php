@@ -789,22 +789,37 @@
         .head-text {
             font-size: 50px;
         }
+
+        .butn {
+            border: 2px solid black;
+            padding: 10px;
+            border-radius: 7px;
+            background-color: black;
+            color: white;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .butn:hover {
+            transform: scale(1.3);
+        }
+
+        .mb {
+            margin-bottom: 5px;
+        }
     </style>
 </head>
 <body>
     <div class="font-semibold main-page">
-        <h1 class="font-semibold head-text text-gray-600">Добро пожаловать в Bordel</h1>
+        <h1 class="head-text mb">Добро пожаловать в Bordel</h1>
         @if (Route::has('login'))
             @auth
-                <a href="{{ url('/home') }}"
-                   class="font-semibold text-gray-500">Home</a>
+                <a href="{{ url('/home') }}" class="butn">Домой</a>
             @else
-                <a href="{{ route('login') }}"
-                   class="font-semibold text-gray-500">Log in</a>
+                <a href="{{ route('login') }}" class="butn">Войти</a>
 
                 @if (Route::has('register'))
-                    <a href="{{ route('register') }}"
-                       class="font-semibold ml-4 text-gray-500">Register</a>
+                    <a href="{{ route('register') }}" class="ml-4 butn">Регистрация</a>
                 @endif
             @endauth
         @endif

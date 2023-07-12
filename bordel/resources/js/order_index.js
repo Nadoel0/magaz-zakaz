@@ -1,28 +1,29 @@
 $(document).ready(function () {
+    // Обработчик клика на кнопки переключения
     $('.toggle-btn').click(function () {
         var target = $(this).data('target');
         $('.toggle-btn').removeClass('active');
         $(this).addClass('active');
         $('.order-block').hide();
         $('#' + target).show();
-        if (target == 'closed-orders') $('.create-order-container').hide();
-        else $('.create-order-container').show();
+        if (target == 'closed-orders') {
+            $('.create-order-container').hide();
+        } else {
+            $('.create-order-container').show();
+        }
     });
 
+    // Обработчик клика на кнопку "Создать заказ"
     $('.btn-create-order').click(function () {
         $('#myModalCreateOrder').show();
     });
 
-    $('.close-modal, .my-modal-space').click(function (event) {
-        if (event.target === this) {
-            $('.my-modal-space').hide();
-        }
-    });
-
+    // Обработчик клика на блок заказа
     $('.order-cart').click(function () {
         window.location.href = $(this).data('order-show-url');
-    })
+    });
 
+    // Обработчик клика на кнопку "Создать заказ" в модальном окне
     $('#createOrder').click(function () {
         var orderName = $('#orderName').val();
         var selectedUsers = $('#userSelect').val();
@@ -33,7 +34,7 @@ $(document).ready(function () {
             user_id: selectedUsers,
             owner_id: ownerID,
             status: 1
-        }
+        };
 
         $.ajax({
             url: orderCreateURL,
@@ -45,18 +46,7 @@ $(document).ready(function () {
             success: function (response) {
                 $('#nameError').text('');
                 $('#userError').text('');
-                var targetElement = $('#opened-orders');
-                var orderData = `<div class="order-cart" data-order-id="${response.id}">
-                    <h5>Заказ №${response.id}</h5>
-                    <p>Имя заказа: ${response.name}</p>
-                    <p>Дата заказа: ${response.date}</p>
-                </div>`;
-                targetElement.append(orderData);
-                $('#orderName').val('');
-                $('#userSelect').val('');
-                $('#nameError').val('');
-                $('#userError').val();
-                $('#myModalCreateOrder').hide();
+                window.location.href = $('#createOrder').data('order-show-url').replace('__order_id__', response.id);
             },
             error: function (error) {
                 var errors = error.responseJSON.errors;

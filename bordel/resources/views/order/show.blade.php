@@ -3,7 +3,7 @@
 @section('content')
     <div>
         <h3>Имя заказа: {{ $order->name }}</h3>
-        <h6>Дата заказа: {{ $order->created_at }}</h6>
+        <h6>Дата заказа: {{ $order->created_at->format('d/m/y H:i') }}</h6>
     </div>
     <div class="container-box">
         <div class="table-container">
@@ -41,75 +41,87 @@
                     </tr>
                     </tfoot>
                 </table>
-                <button class="add-button" id="productModal">добавить</button>
+                <button class="add-product-people" id="productModal">добавить</button>
                 @if(!$paid)
-                    <button class="add-button paid" id="productPaid" data-order-user-id="{{ $orderUserID->id }}"
-                            style="display: none">оплатить
-                    </button>
+                    @if (!$isOwner)
+                        <button class="btn-add-delete" id="productPaid" data-order-user-id="{{ $orderUserID->id }}"
+                                style="display: none">оплачено
+                        </button>
+                    @endif
                 @endif
             </div>
         </div>
         <div class="box-table-user">
             <div class="user-wrapper">
-                <div class="user-card">
-                    <p class="order-status">Статус заказа: {{ $order->status }}</p>
+                <div class="order-status-cart">
+                    <p class="table-data order-status">Статус заказа: {{ $order->status }}</p>
                 </div>
-{{--                <div class="next-order-button">--}}
+                <div class="order-next-cart">
                     <button class="next-order" id="changeStatusClosed">Изменить на доставлено</button>
-{{--                </div>--}}
+                </div>
             </div>
             <div class="table-wrapper2">
-                <div>
-                    <button class="add-button" id="peopleModal">добавить</button>
-                </div>
                 <table class="data-table2">
                     <tbody>
                     @foreach($users as $user)
                         @if(!$user->paid)
-                            <tr data-people-id="{{ $user->id }}">
-                                <td class="table-data">{{ $user->user->name  }} {{ $user->user->email }}</td>
-                                <td class="table-data people-debt" style="display: none">Долг: {{ $user->debt }}</td>
-                                <td colspan="1">
-                                    <button class="delete-button delete-people" data-people-id="{{ $user->id }}">X
-                                    </button>
-                                </td>
-                            </tr>
+                            @if($user->user->name !== $currentUser->name)
+                                <tr data-people-id="{{ $user->id }}">
+                                    <td class="table-data">{{ $user->user->name  }} {{ $user->user->email }}</td>
+                                    <td class="table-data people-debt" style="display: none">
+                                        Долг: {{ $user->debt }}</td>
+                                    <td colspan="1">
+                                        <button class="delete-button delete-people" data-people-id="{{ $user->id }}">X
+                                        </button>
+                                    </td>
+                                </tr>
+                            @endif
                         @endif
                     @endforeach
                     </tbody>
                 </table>
+                <div>
+                    <button class="add-product-people" id="peopleModal">добавить</button>
+                </div>
             </div>
         </div>
     </div>
+    <div>
+        <button class="btn-back" data-back="{{ route('order.index') }}">Назад к заказам</button>
+    </div>
+
     <div id="myModalProduct" class="my-modal-space">
         <div class="my-modal-content">
             <button class="close-modal">X</button>
-            <label class="mb-3">Добавление продукта</label>
+            <label class="table-data label mb-3">Добавление продукта</label>
             <input class="form-control mb-3" id="productNameInput" placeholder="Продукт">
             <input class="form-control mb-3" id="productPriceInput" placeholder="Цена">
             <input class="form-control mb-3" id="productAmountInput" placeholder="Кол-во">
             <textarea class="form-control mb-3" id="productCommentInput" placeholder="Комменарий к заказу"></textarea>
-            <button class="add-button" id="addProduct">добавить</button>
+            <button class="btn-add-delete" id="addProduct">добавить</button>
         </div>
     </div>
+
     <div id="myModalProductEdit" class="my-modal-space">
         <div class="my-modal-content">
             <button class="close-modal">X</button>
-            <label class="mb-3">Редактирование продукта</label>
+            <label class="table-data label mb-3">Редактирование продукта</label>
             <input type="hidden" id="productID">
             <input class="form-control mb-3" id="editProductNameInput" placeholder="Продукт">
             <input class="form-control mb-3" id="editProductPriceInput" placeholder="Цена">
             <input class="form-control mb-3" id="editProductAmountInput" placeholder="Кол-во">
-            <textarea class="form-control mb-3" id="editProductCommentInput" placeholder="Комментарий к заказу"></textarea>
-            <button class="delete-product" id="deleteProduct">удалить</button>
-            <button class="add-button" id="editProduct">изменить</button>
+            <textarea class="form-control mb-3" id="editProductCommentInput"
+                      placeholder="Комментарий к заказу"></textarea>
+            <button class="btn-add-delete delete" id="deleteProduct">удалить</button>
+            <button class="btn-add-delete" id="editProduct">изменить</button>
         </div>
     </div>
+
     <div id="myModalPeople" class="my-modal-space">
         <div class="my-modal-content">
             <button class="close-modal">X</button>
             <div>
-                <label>Пользователи</label>
+                <label class="table-data label mb-3">Пользователи</label>
                 <select class="form-select mb-3" id="peopleSelect">
                     @foreach($usersNotInOrder as $user)
                         <option value="{{ $user->id }}" data-user-id="{{ $user->id }}">
@@ -118,9 +130,10 @@
                     @endforeach
                 </select>
             </div>
-            <button class="add-button" id="addPeople">добавить</button>
+            <button class="btn-add-delete" id="addPeople">добавить</button>
         </div>
     </div>
+
     <div id="myModalSure" class="my-modal-space">
         <div class="my-modal-content modal-sure">
             <h3>Вы уверены?</h3>
@@ -128,6 +141,7 @@
             <button class="no-button" id="cancelButton">Нет</button>
         </div>
     </div>
+
     <div id="addProductButton" data-add-product-url="{{ route('basket.store', $order->id) }}"></div>
     <div id="deleteProductButton" data-delete-product-url="{{ route('basket.destroy', $order->id) }}"></div>
     <div id="amountProductButtons" data-product-amount-url="{{ route('basket.update', $order->id) }}"></div>
