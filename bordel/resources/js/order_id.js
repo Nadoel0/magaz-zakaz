@@ -135,7 +135,7 @@ $(document).ready(function () {
                                             <button class="btn-plus">&plus;</button>
                                         </td>
                                         <td>
-                                            <button class="product-edit" data-product-id="{{ $product->id }}">изменить</button>
+                                            <button class="product-edit" data-product-id="${response.id}">изменить</button>
                                         </td>
                                     </tr>`;
 
@@ -442,5 +442,26 @@ $(document).ready(function () {
     // Обработчик клика на кнопку "Назад"
     $('.btn-back').click(function () {
         window.location.href = $(this).data('back');
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const inputs = document.querySelectorAll('.login-input');
+
+    inputs.forEach(input => {
+        const label = input.nextElementSibling;
+
+        input.addEventListener('input', function() {
+            label.style.opacity = input.validity.valid ? '0' : '0';
+        });
+    });
+
+    const menuButton = document.getElementById("menu-button");
+    const username = document.getElementById("username");
+    const logoutButton = document.querySelector(".logout-button");
+
+    menuButton.addEventListener("click", function() {
+        username.classList.toggle("show");
+        logoutButton.classList.toggle("show");
     });
 });

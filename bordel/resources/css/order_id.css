@@ -7,7 +7,7 @@
 
 .table-container {
     border-radius: 7px;
-    border: 2px solid black;
+    border: 2px solid #2d2d2d;
     width: 100%;
     flex-grow: 1;
     margin-right: 5px;
@@ -31,7 +31,7 @@
 
 .product-edit {
     background-color: #404040;
-    border: 2px solid black;
+    border: 2px solid #2d2d2d;
     border-radius: 5px;
     width: 100%;
     text-align: center;
@@ -91,7 +91,7 @@
     width: 100%;
     line-height: 15px;
     background-color: #404040;
-    border: 2px solid black;
+    border: 2px solid #2d2d2d;
     border-radius: 7px;
     color: #ffffff;
     transition: transform 0.3s ease;
@@ -114,7 +114,7 @@
 
 .table-header {
     background-color: #404040;
-    border: 2px solid black;
+    border: 2px solid #2d2d2d;
     text-align: center;
     color: #ffffff;
     border-radius: 7px;
@@ -122,7 +122,7 @@
 
 .table-data {
     text-align: center;
-    border: 2px solid black;
+    border: 2px solid #2d2d2d;
     border-radius: 7px;
 }
 
@@ -137,7 +137,7 @@
 .delete-button {
     background-color: #404040;
     color: #ffffff;
-    border: 2px solid black;
+    border: 2px solid #2d2d2d;
     border-radius: 5px;
     width: 100%;
     text-align: center;
@@ -156,7 +156,7 @@
     right: 10px;
     bottom: 10px;
     background-color: #404040;
-    border: 2px solid black;
+    border: 2px solid #2d2d2d;
     border-radius: 7px;
     width: 150px;
     height: 20px;
@@ -185,7 +185,7 @@
     padding: 5px 10px;
     width: 127px;
     background-color: #404040;
-    border: 2px solid black;
+    border: 2px solid #2d2d2d;
     border-radius: 7px;
     color: #ffffff;
     transition: transform 0.3s ease;
@@ -254,7 +254,7 @@
     right: 70px;
     bottom: 10px;
     background-color: #404040;
-    border: 2px solid black;
+    border: 2px solid #2d2d2d;
     border-radius: 7px;
     width: 50px;
     height: 20px;
@@ -269,7 +269,7 @@
     right: 10px;
     bottom: 10px;
     background-color: transparent;
-    border: 2px solid black;
+    border: 2px solid #2d2d2d;
     border-radius: 7px;
     width: 50px;
     height: 20px;
@@ -318,7 +318,6 @@
     border-radius: 7px;
     padding: 15px;
     margin: 5px;
-    /*line-height: 10px;*/
     cursor: pointer;
     transition: transform 0.3s ease;
 }
@@ -327,27 +326,83 @@
     transform: scale(1.05);
 }
 
+.header {
+    /*position: relative;*/
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.user-profile {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin: -10px;
+}
+
+.user-profile img {
+    width: 40px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.user-profile a {
+    text-decoration: none;
+    color: #2d2d2d;
+    padding: 5px;
+    pointer-events: none;
+    margin-right: -10px;
+    opacity: 0;
+    transform: translateX(100px);
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.logout-button {
+    border: none;
+    background-color: transparent;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(50px);
+    transition: color 0.3s ease-in-out, opacity 0.3s, transform 0.3s;
+    margin-right: 10px;
+}
+
+.logout-button:hover {
+    color: #20c997;
+}
+
+.user-profile a.show, .logout-button.show {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
 .toggle-buttons {
-    margin: 20px;
-    padding: 10px;
+    margin-left: 10px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
 }
 
 .toggle-btn {
     background-color: #eee;
     border: none;
-    padding: 8px;
+    padding: 8px 15px;
     cursor: pointer;
     border-radius: 7px;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .toggle-btn.active {
     background-color: #ccc;
+    color: #2d2d2d;
 }
 
 .disabled:hover {
     transform: none;
     background-color: transparent;
-    color: black;
+    color: #2d2d2d;
 }
 
 .people-debt {
@@ -360,7 +415,7 @@
 }
 
 .btn-create-order {
-    border: 1px solid black;
+    border: 1px solid #2d2d2d;
     background-color: #404040;
     border-radius: 7px;
     margin-top: 10px;
@@ -378,13 +433,117 @@
 
 .btn-back {
     background-color: transparent;
-    border: 2px solid black;
+    border: 2px solid #2d2d2d;
     margin-top: 10px;
     border-radius: 7px;
-    color: black;
-    transition: transform 0.3s ease;
+    color: #2d2d2d;
+    transition: 0.3s;
 }
 
 .btn-back:hover {
-    transform: scale(1.1);
+    color: white;
+    background-color: #404040;
+}
+
+.login-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    padding: 40px;
+    border: solid 2px #2d2d2d;
+    transform: translate(-50%, -50%);
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.login-name {
+    color: #2d2d2d;
+    text-align: center;
+    margin: -10px 0 40px 0;
+}
+
+.user-container {
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.login-input {
+    width: 250px;
+    height: 30px;
+    padding-left: 15px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    border: solid 1px #2d2d2d;
+    background: transparent;
+}
+
+.login-label {
+    color: #2d2d2d;
+    position: absolute;
+    top: 5px;
+    left: 15px;
+    opacity: 0.6;
+    font-size: 15px;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.login-input:focus ~ .login-label,
+.login-input:valid ~ .login-label {
+    left: 20px;
+    opacity: 0;
+}
+
+.login-submit-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-submit {
+    color: #2d2d2d;
+    border: solid 2px #2d2d2d;
+    position: relative;
+    display: inline-block;
+    border-radius: 5px;
+    font-size: 15px;
+    margin-top: 15px;
+    padding: 10px 30px;
+    background-color: transparent;
+    transition: 0.4s;
+}
+
+.login-submit:hover {
+    color: whitesmoke;
+    background-color: #2d2d2d;
+}
+
+.invalid-input {
+    color: darkred;
+    display: block;
+    margin: -20px 0 20px 10px;
+}
+
+.register-prompt-container {
+    text-align: center;
+    margin-top: 40px;
+    line-height: 5px;
+    font-size: 14px;
+}
+
+.register-prompt-container a {
+    color: #2d2d2d;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+.register-prompt-container a:hover {
+    color: #20c997;
 }

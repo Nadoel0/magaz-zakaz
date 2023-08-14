@@ -810,20 +810,20 @@
     </style>
 </head>
 <body>
-    <div class="font-semibold main-page">
-        <h1 class="head-text mb">Добро пожаловать в Bordel</h1>
-        @if (Route::has('login'))
-            @auth
-                <a href="{{ url('/home') }}" class="butn">Домой</a>
-            @else
-                <a href="{{ route('login') }}" class="butn">Войти</a>
+{{--    <div class="font-semibold main-page">--}}
+{{--        <h1 class="head-text mb">Добро пожаловать в Bordel</h1>--}}
+{{--        @if (Route::has('login'))--}}
+{{--            @auth--}}
+{{--                <a href="{{ url('/home') }}" class="butn">Домой</a>--}}
+{{--            @else--}}
+{{--                <a href="{{ route('login') }}" class="butn">Войти</a>--}}
 
-                @if (Route::has('register'))
-                    <a href="{{ route('register') }}" class="ml-4 butn">Регистрация</a>
-                @endif
-            @endauth
-        @endif
-    </div>
+{{--                @if (Route::has('register'))--}}
+{{--                    <a href="{{ route('register') }}" class="ml-4 butn">Регистрация</a>--}}
+{{--                @endif--}}
+{{--            @endauth--}}
+{{--        @endif--}}
+{{--    </div>--}}
 {{--        <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">--}}
 {{--            @if (Route::has('login'))--}}
 {{--                <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">--}}

@@ -1,15 +1,27 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="toggle-buttons">
-        <button class="toggle-btn active" data-toggle="orders" data-target="opened-orders">Открытые заказы</button>
-        <button class="toggle-btn" data-toggle="orders" data-target="closed-orders">Закрытые заказы</button>
+    <div class="header">
+        <div class="toggle-buttons">
+            <button class="toggle-btn active" data-toggle="orders" data-target="opened-orders">Открытые заказы</button>
+            <button class="toggle-btn" data-toggle="orders" data-target="closed-orders">Закрытые заказы</button>
+        </div>
+        <div class="user-profile">
+            <a id="username" href="#">{{ Auth::user()->name }}</a>
+            <form action="{{ route('logout') }}" method="POST">
+                @csrf
+                <button type="submit" class="logout-button" href="{{ route('logout') }}">{{ __('Выйти') }}</button>
+            </form>
+            <img id="menu-button" src="https://www.svgrepo.com/show/532195/menu.svg">
+        </div>
     </div>
+
     <div class="orders-index">
         <div id="opened-orders" class="order-block">
             @foreach($orders as $order)
                 @if($order->status !== 2)
-                    <div class="order-cart" data-order-id="{{ $order->id }}" data-order-show-url="{{ route('order.show', $order->id) }}">
+                    <div class="order-cart" data-order-id="{{ $order->id }}"
+                         data-order-show-url="{{ route('order.show', $order->id) }}">
                         <h5>Заказ №{{ $order->id }}</h5>
                         <p>Имя заказа: {{ $order->name }}</p>
                         <p>Дата заказа: {{ $order->created_at->format('d/m/y H:i') }}</p>
@@ -21,7 +33,8 @@
         <div id="closed-orders" class="order-block" style="display: none">
             @foreach($orders as $order)
                 @if($order->status === 2)
-                    <div class="order-cart" data-order-id="{{ $order->id }}" data-order-show-url="{{ route('order.show', $order->id) }}">
+                    <div class="order-cart" data-order-id="{{ $order->id }}"
+                         data-order-show-url="{{ route('order.show', $order->id) }}">
                         <h5>Заказ №{{ $order->id }}</h5>
                         <p>Имя заказа: {{ $order->name }}</p>
                         <p>Дата заказа: {{ $order->created_at }}</p>
@@ -50,8 +63,11 @@
                 @endforeach
             </select>
             <p class="text-danger mb-3" id="userError"></p>
-            <button id="createOrder" class="btn-create-order" data-order-show-url="{{ route('order.show', '__order_id__') }}">Создать заказ</button>
+            <button id="createOrder" class="btn-create-order"
+                    data-order-show-url="{{ route('order.show', '__order_id__') }}">Создать заказ
+            </button>
         </div>
     </div>
-    <div id="createOrderButton" data-order-create-url="{{ route('order.store') }}" data-owner-id="{{ $owner->id }}"></div>
+    <div id="createOrderButton" data-order-create-url="{{ route('order.store') }}"
+         data-owner-id="{{ $owner->id }}"></div>
 @endsection
