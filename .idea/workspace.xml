@@ -5,21 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1c73140b-ab5f-415d-ae32-2b77c0605a44" name="Changes" comment="end-css">
-      <change afterPath="$PROJECT_DIR$/bordel/resources/lang/ru/validation.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bordel/resources/css/main.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bordel/resources/css/order_index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bordel/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bordel/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bordel/app/Http/Middleware/RedirectIfAuthenticated.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/app/Http/Middleware/RedirectIfAuthenticated.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bordel/app/Providers/RouteServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/app/Providers/RouteServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bordel/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/config/app.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bordel/resources/css/order_id.css" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/resources/css/order_id.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bordel/resources/js/order_id.js" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/resources/js/order_id.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bordel/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/resources/views/auth/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bordel/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/resources/views/auth/register.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bordel/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bordel/resources/views/order/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/resources/views/order/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bordel/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/resources/views/welcome.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bordel/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bordel/vite.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/bordel/vite.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,8 +29,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -385,7 +376,8 @@
       <workItem from="1691864778577" duration="477000" />
       <workItem from="1691918358792" duration="14093000" />
       <workItem from="1692002551025" duration="20000" />
-      <workItem from="1692002644593" duration="8416000" />
+      <workItem from="1692002644593" duration="8462000" />
+      <workItem from="1692092347495" duration="8707000" />
     </task>
     <task id="LOCAL-00001" summary="work-work">
       <created>1686394976520</created>

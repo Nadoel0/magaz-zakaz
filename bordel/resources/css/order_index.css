@@ -1,0 +1,106 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.toggle-buttons {
+    margin-left: 10px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.toggle-btn {
+    background-color: #eee;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+    border-radius: 7px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.toggle-btn.active {
+    background-color: #ccc;
+    color: #2d2d2d;
+}
+
+.user-profile {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin: -10px;
+}
+
+.user-profile img {
+    width: 40px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.user-profile a {
+    text-decoration: none;
+    color: #2d2d2d;
+    padding: 5px;
+    pointer-events: none;
+    margin-right: -10px;
+    opacity: 0;
+    transform: translateX(100px);
+    transition: opacity 0.3s ease-in-out, transform 0.5s ease;
+}
+
+.logout-button {
+    border: none;
+    background-color: transparent;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(50px);
+    transition: color 0.3s ease-in-out, opacity 0.3s ease-in-out, transform 0.5s ease;
+    margin-right: 10px;
+}
+
+.logout-button:hover {
+    color: #20c997;
+}
+
+.user-profile a.show, .logout-button.show {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.order-block {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.order-cart {
+    border: 1px solid black;
+    border-radius: 7px;
+    padding: 15px;
+    margin: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.order-cart:hover {
+    transform: scale(1.05);
+}
+
+.btn-create-order {
+    border: 1px solid #2d2d2d;
+    background-color: #404040;
+    border-radius: 7px;
+    margin-top: 10px;
+    padding: 15px;
+    line-height: 10px;
+    width: 150px;
+    cursor: pointer;
+    color: #ffffff;
+    transition: transform 0.3s ease;
+}
+
+.btn-create-order:hover {
+    transform: scale(1.1);
+}
