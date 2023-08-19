@@ -41,12 +41,16 @@
                     </tr>
                     </tfoot>
                 </table>
-                <button class="add-product-people" id="productModal">добавить</button>
+                <div class="product-action-btn">
+                    <button class="btn-add" id="productModal">добавить</button>
+                </div>
                 @if(!$paid)
                     @if (!$isOwner)
-                        <button class="btn-add-delete" id="productPaid" data-order-user-id="{{ $orderUserID->id }}"
-                                style="display: none">оплачено
-                        </button>
+                        <div class="product-action-btn">
+                            <button class="btn-add" id="productPaid" data-order-user-id="{{ $orderUserID->id }}"
+                                    style="display: none">оплачено
+                            </button>
+                        </div>
                     @endif
                 @endif
             </div>
@@ -80,8 +84,8 @@
                     @endforeach
                     </tbody>
                 </table>
-                <div>
-                    <button class="add-product-people" id="peopleModal">добавить</button>
+                <div class="product-action-btn">
+                    <button class="btn-add" id="peopleModal">добавить</button>
                 </div>
             </div>
         </div>
@@ -92,13 +96,15 @@
 
     <div id="myModalProduct" class="my-modal-space">
         <div class="my-modal-content">
-            <button class="close-modal">X</button>
+            <button class="close-modal mb-3">X</button>
             <label class="table-data label mb-3">Добавление продукта</label>
             <input class="form-control mb-3" id="productNameInput" placeholder="Продукт">
             <input class="form-control mb-3" id="productPriceInput" placeholder="Цена">
             <input class="form-control mb-3" id="productAmountInput" placeholder="Кол-во">
             <textarea class="form-control mb-3" id="productCommentInput" placeholder="Комменарий к заказу"></textarea>
-            <button class="btn-add-delete" id="addProduct">добавить</button>
+            <div class="product-action-btn">
+                <button class="btn-add" id="addProduct">добавить</button>
+            </div>
         </div>
     </div>
 
@@ -112,8 +118,10 @@
             <input class="form-control mb-3" id="editProductAmountInput" placeholder="Кол-во">
             <textarea class="form-control mb-3" id="editProductCommentInput"
                       placeholder="Комментарий к заказу"></textarea>
-            <button class="btn-add-delete delete" id="deleteProduct">удалить</button>
-            <button class="btn-add-delete" id="editProduct">изменить</button>
+            <div class="product-action-btn">
+                <button class="btn-delete" id="deleteProduct">удалить</button>
+                <button class="btn-edit" id="editProduct">изменить</button>
+            </div>
         </div>
     </div>
 
@@ -130,7 +138,9 @@
                     @endforeach
                 </select>
             </div>
-            <button class="btn-add-delete" id="addPeople">добавить</button>
+            <div class="product-action-btn">
+                <button class="btn-add" id="addPeople">добавить</button>
+            </div>
         </div>
     </div>
 

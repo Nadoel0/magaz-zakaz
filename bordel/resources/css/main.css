@@ -1,10 +1,82 @@
-@media (max-width: 670px) {
+@media (max-width: 767px) {
+    .container-box {
+        flex-direction: column;
+        height: auto;
+        font-size: 11px;
+    }
+
+    .box-table-user {
+        width: 100%;
+    }
+
     .order-block {
         grid-template-columns: repeat(2, 1fr);
     }
 
     .header {
-        justify-content: ;
+        flex-wrap: wrap-reverse;
+        gap: 20px;
+        justify-content: center;
+    }
+
+    .toggle-buttons {
+        margin-left: 0;
+    }
+
+    .user-profile-container {
+        margin-right: -127px;
+    }
+
+    .data-table1 {
+        border-spacing: 10px;
+    }
+
+    .data-table2 {
+        border-spacing: 10px;
+    }
+
+    .table-wrapper2 {
+        gap: 10px;
+    }
+
+    .user-wrapper {
+        height: 100%;
+    }
+
+    .btn-add {
+        padding: 2px 15px;
+        margin-right: 10px;
+    }
+
+    .small-width {
+        font-size: 9px;
+        width: auto;
+    }
+
+    .product-edit {
+        font-size: 11px;
+    }
+
+    .my-modal-content {
+        width: 100%;
+    }
+
+    .delete-button  {
+        padding: 2px 5px;
+    }
+}
+
+@media (min-width: 767px) and (max-width: 1200px) {
+    .container-box {
+        font-size: 11px;
+    }
+
+    .product-edit {
+        font-size: 11px;
+    }
+
+    .small-width {
+        width: 20%;
     }
 }
 
@@ -12,7 +84,7 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 400px;
+    width: auto;
     padding: 40px;
     border: solid 2px #2d2d2d;
     transform: translate(-50%, -50%);

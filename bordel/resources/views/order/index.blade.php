@@ -6,12 +6,14 @@
             <button class="toggle-btn active" data-toggle="orders" data-target="opened-orders">Открытые заказы</button>
             <button class="toggle-btn" data-toggle="orders" data-target="closed-orders">Закрытые заказы</button>
         </div>
-        <div class="user-profile">
-            <a id="username" href="#">{{ Auth::user()->name }}</a>
-            <form action="{{ route('logout') }}" method="POST">
-                @csrf
-                <button type="submit" class="logout-button" href="{{ route('logout') }}">{{ __('Выйти') }}</button>
-            </form>
+        <div class="user-profile-container">
+            <div class="user-profile">
+                <a id="username" href="#">{{ Auth::user()->name }}</a>
+                <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button type="submit" class="logout-button" href="{{ route('logout') }}">{{ __('Выйти') }}</button>
+                </form>
+            </div>
             <img id="menu-button" src="https://www.svgrepo.com/show/532195/menu.svg">
         </div>
     </div>
@@ -63,7 +65,7 @@
                 @endforeach
             </select>
             <p class="text-danger mb-3" id="userError"></p>
-            <button id="createOrder" class="btn-create-order"
+            <button id="createOrder" class="btn-add"
                     data-order-show-url="{{ route('order.show', '__order_id__') }}">Создать заказ
             </button>
         </div>
