@@ -147,8 +147,10 @@
     <div id="myModalSure" class="my-modal-space">
         <div class="my-modal-content modal-sure">
             <h3>Вы уверены?</h3>
-            <button class="yes-button" id="confirmButton">Да</button>
-            <button class="no-button" id="cancelButton">Нет</button>
+            <div class="product-action-btn">
+                <button class="next-status-button" id="confirmButton">Да</button>
+                <button class="next-status-button" id="cancelButton">Нет</button>
+            </div>
         </div>
     </div>
 
